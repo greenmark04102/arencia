@@ -1,6 +1,6 @@
 $(document).ready(function () {
     //사이드바
-    $('header img').on("mouseenter", (function () {
+    $('header > img').on("mouseenter", (function () {
         $('.sideBar').animate({ left: 0 }, "slow", "swing");
         $(this).css("opacity", 0)
     }));
@@ -11,7 +11,7 @@ $(document).ready(function () {
             // container.hide();
             $(".sideBar").animate({ left: "-320" }, "slow", "swing");
         }
-        $('.sec1 img').css("opacity", "unset")
+        $('header > img').css("opacity", "unset")
 
     });
 

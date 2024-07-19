@@ -30,48 +30,49 @@ body {
 
 
 .sideBar {
-    height: 100vh;
-    max-height: 1080px;
-    width: 300px;
-    background: rgba(255, 255, 255, 0.2);
-    box-shadow: 10px 0px 10px rgba(0, 0, 0, 0.25);
-    backdrop-filter: blur(6px);
-    position: fixed;
-    top: 0;
-    left: -320px;
-    z-index: 999;
-  }
+  height: 100vh;
+  max-height: 1080px;
+  width: 300px;
+  background: rgba(255, 255, 255, 0.2);
+  box-shadow: 10px 0px 10px rgba(0, 0, 0, 0.25);
+  backdrop-filter: blur(6px);
+  position: fixed;
+  top: 0;
+  left: -320px;
+  z-index: 999;
+  display: none;
+}
   
-  nav {
-    width: fit-content;
-    margin: 15vh auto;
-  }
+nav {
+  width: fit-content;
+  margin: 15vh auto;
+}
   
-  .navi div {
-    display: flex;
-  }
+.navi div {
+  display: flex;
+}
   
-  .navi>li,
-  .navi>li div {
-    margin: 20px 0;
-  }
+.navi>li,
+.navi>li div {
+  margin: 20px 0;
+}
   
-  .navi a {
-    font-family: Marcellus;
-    font-size: 2.5rem;
-    font-weight: 700;
-    display: inline-flex;
-    width: 100%;
-    justify-content: space-between;
-    align-items: center;
-    margin: 0px;
-  }
+.navi a {
+  font-family: Marcellus;
+  font-size: 2.5rem;
+  font-weight: 700;
+  display: inline-flex;
+  width: 100%;
+  justify-content: space-between;
+  align-items: center;
+  margin: 0px;
+}
   
-  .navi a img {
-    margin: 0px;
-    transform: rotate(0);
-    transition: all 0.5s;
-  }
+.navi a img {
+  margin: 0px;
+  transform: rotate(0);
+  transition: all 0.5s;
+}
   
   .navi .active {
     transition: all 0.5s;
@@ -130,4 +131,163 @@ body {
     width: 100%;
     position: absolute;
     bottom: 55px;
+  }
+
+/* * {outline: solid 1px ;} */
+
+header {
+  outline: solid 1px red;
+  display: flex;
+  justify-content: space-between;
+  padding: 0 50px;
+  font-family: "Marcellus", serif;
+  font-size: 6rem;
+}
+header > * {margin: 0;}
+header div {
+  display: flex;
+  gap: 10px;
+}
+header div input {display: none;}
+
+.bar {
+  height: 100px;
+  display: flex;
+  align-items: center;
+  background-color: #fff;
+}
+.bar h1 {
+  position: absolute;
+  font-family: "Marcellus", serif;
+  font-size: 40px;
+  font-weight: 100;
+  left: 370px;
+
+}
+.bar span {
+  display: flex;
+  gap: 50px;
+}
+
+.bar p {
+  font-family: "Marcellus", serif;
+  font-size: 25px;
+  cursor: pointer;
+}
+
+.shop > * {margin: 0;}
+
+.shop {
+display: flex;
+flex-direction: row;
+flex-wrap: wrap;
+align-items: flex-start;
+align-content: flex-start;
+padding: 200px 210px 100px;
+gap: 100px;
+width: 1920px;
+
+}
+
+/* Frame 2 */
+
+/* Auto layout */
+
+
+/* Frame 2 */
+
+
+.shop > li {
+  outline: solid 1px blue;
+  width: fit-content;
+}
+
+.shop > li > a {
+  outline: solid 1px red;
+  width: 300px;
+  display: flex;
+}
+.shop img {
+  width: 250px;
+  height: 250px;
+}
+.serum {width: 84px !important;}
+/* bltea 2 */
+
+/* position: absolute;
+width: 250px;
+height: 250px;
+left: calc(50% - 250px/2);
+top: calc(50% - 250px/2);
+
+background: url(bltea.png); */
+
+
+
+
+
+
+
+
+
+
+
+
+
+  footer {
+    height: fit-content;
+  }
+  
+  footer>div {
+    height: 300px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+  }
+  
+  footer a,
+  .com,
+  .con {
+    flex-grow: 1;
+  }
+  
+  footer a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: Marcellus;
+    font-size: 6rem;
+    height: fit-content;
+  }
+  
+  .com {
+    margin: 0 50px;
+  }
+  
+  .com,
+  .con {
+    height: 250px;
+    background: rgba(0, 0, 0, 0.2);
+    align-self: flex-end;
+    border-radius: 50px 50px 0px 0px;
+    box-shadow: inset 0px 7px 4px rgba(0, 0, 0, 0.25);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 0 0 0 30px;
+  }
+  
+  footer h3,
+  p {
+    font-size: 1.5rem;
+    font-family: Nanum Gothic;
+  }
+  
+  footer h3 {
+    font-weight: bold;
+    margin: 10px 0;
+  }
+  
+  footer p {
+    margin: 10px 0;
   }
