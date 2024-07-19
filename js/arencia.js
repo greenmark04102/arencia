@@ -1,6 +1,6 @@
 $.ajax({
     type: "GET",
-    url: "/js/product.json",
+    url: "js/product.json",
     dataType: "json",
     success: function(data) {
         var elem = "";
@@ -34,7 +34,7 @@ $.ajax({
 
 $.ajax({
     type: "GET",
-    url: "/js/archive.json",
+    url: "js/archive.json",
     dataType: "json",
     success: function(data) {
         var con = "";
