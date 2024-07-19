@@ -5,15 +5,22 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Arencia</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
     <link rel="stylesheet" href="./css/arencia.css">
+
 </head>
 
 <body>
+    <div class="top"></div>
     <div class="sideBar">
-        <nav class="menu">
+        <nav>
             <ul class="navi">
                 <li><a href="#">About</a></li>
-                <li><a href="#">Shop <img src="./img/more.svg" alt="#"></a>
+                <li>
+                    <div><a href="#">Shop<img src="/img/m2.png" alt="#"></a></div>
                     <ul class="subMenu">
                         <li><a href="#">View All</a></li>
                         <li><a href="#">Face</a></li>
@@ -23,7 +30,8 @@
                         <li><a href="#">Gift Guide</a></li>
                     </ul>
                 </li>
-                <li><a href="#">Community</a>
+                <li>
+                    <div><a href="#">Community<img src="/img/m2.png" alt="#"></a></div>
                     <ul class="subMenu">
                         <li><a href="#">Notice</a></li>
                         <li><a href="#">Review</a></li>
@@ -33,23 +41,253 @@
                 </li>
                 <li><a href="#">Contact</a></li>
                 <li><a href="#">Wholesale Inquiries</a></li>
+                
             </ul>
         </nav>
         <div class="page">
-            <a href="#">Log In dpd</a>
+            <a href="#">Log In</a>
+            <div>|</div>
+            <!-- 나중에 js로 넣기 -->
             <a href="#">My Cart</a>
         </div>
     </div>
+
     <main>
-        <header>
-            <div class="menu"><img src="./img/menu.svg" alt="#"></div>
-            <a href="#" class="logo">Arencia</a>
-        </header>
-        <div class="sec1"></div>
-        <div class="sec2"></div>
+        <section class="sec1">
+            <header>
+                <img src="./img/menu.svg" alt="#">
+                <div><a href="#" class="logo">Arencia</a></div>
+            </header>
+            <div></div>
+        </section>
+        <section class="sec2">
+            <div>
+                <div class="left">
+                    <div>
+                        <h1>What's In</h1>
+                        <h1>Arencia</h1>
+                    </div>
+                    <div>
+                        <span class="swiper-button-prev"></span>
+                        <span class="swiper-button-next"></span>
+                    </div>
+                </div>
+                <div class="swiper container">
+                    <ul class="swiper-wrapper">
+                        <!-- <li class="swiper-slide">
+                            <div class="pd"><a href="#"><img src="./img/sec2/greenRs.png" alt="#"><img src="./img/sec2/greenRs.jpg" alt="#"></a></div>
+                            <div class="ds">
+                                <p>그린 아르티장 클렌저 떡솝 120g</p>
+                                <ul>
+                                    <li>42,000원</li>
+                                </ul>
+                            </div>
+                        </li>
+                        <li class="swiper-slide">
+                            <div class="pd"><a href="#"><img src="./img/sec2/bltea.png" alt="#"><img src="./img/sec2/bltea.jpg" alt="#"></a></div>
+                            <div class="ds">
+                                <p>블랙티 & 유즈 떡솝 클렌저 120g</p>
+                                <ul>
+                                    <li>21,200원</li>
+                                    <li>
+                                        <span>25,000원</span>
+                                        <span>15%</span>
+                                    </li>
+                                </ul>
+                            </div>
+                        </li>
+                        <li class="swiper-slide">
+                            <div class="pd"><a href="#"><img src="./img/sec2/fresh.png" alt="#"><img src="./img/sec2/fresh.jpg" alt="#"></a></div>
+                            <div class="ds">
+                                <p>프레시 홀리 그링클 세럼</p>
+                                <ul>
+                                    <li>36,000원</li>
+                                </ul>
+                            </div>
+                        </li>
+                        <li class="swiper-slide">
+                            <div class="pd"><a href="#"><img src="./img/sec2/hysop.png" alt="#"><img src="./img/sec2/hysop.jpg" alt="#"></a></div>
+                            <div class="ds">
+                                <p>아르티장 히솝 블러링 크림</p>
+                                <ul>
+                                    <li>59,200원</li>
+                                    <li>
+                                        <span>74,000원</span>
+                                        <span>20%</span>
+                                    </li>
+                                </ul>
+                            </div>
+                        </li>
+                        <li class="swiper-slide">
+                            <div class="pd"><a href="#"><img src="./img/sec2/night1.png" alt="#"><img src="./img/sec2/night2.png" alt="#"></a></div>
+                            <div class="ds">
+                                <p>나이트섀도우 샴푸바</p>
+                                <ul>
+                                    <li>13,000원</li>
+                                </ul>
+                            </div>
+                        </li>
+                        <li class="swiper-slide">
+                            <div class="pd"><a href="#"><img src="./img/sec2/velours1.png" alt="#"><img src="./img/sec2/velours2.png" alt="#"></a></div>
+                            <div class="ds">
+                                <p>벨루어바</p>
+                                <ul>
+                                    <li>18,000원</li>
+                                </ul>
+                            </div>
+                        </li>
+                        <li class="swiper-slide">
+                            <div class="pd"><a href="#"><img src="./img/sec2/toner.png" alt="#"><img src="./img/sec2/toner.jpg" alt="#"></a></div>
+                            <div class="ds">
+                                <p>퓨어 플랜드 익스트랙트 미셀러 토너</p>
+                                <ul>
+                                    <li>18,000원</li>
+                                </ul>
+                            </div>
+                        </li>
+                        <li class="swiper-slide">
+                            <div class="pd"><a href="#"><img src="./img/sec2/serum.jpg" alt="#"><img src="./img/sec2/serum2.jpg" alt="#"></a></div>
+                            <div class="ds">
+                                <p>프레시 히솝 세럼 30ml</p>
+                                <ul>
+                                    <li>23,000원</li>
+                                </ul>
+                            </div>
+                        </li> -->
+                    </ul>
+                </div>
+                <div class="swiper-scrollbar"></div>
+            </div>
+        </section>
+        <section class="sec3">
+            <img src="./img/sec3.jpg" alt="img">
+            <div>
+                <div>
+                    <h1>All beauty is circulated,<br>all beauty can be symbiotic<br>with nature,<br>and all beauty can
+                        be
+                        harmless<br>to all life on Earth.
+                    </h1>
+                    <div class="right">
+                        <div class="r1">
+                            <img src="./img/vegan2.svg" alt="vegan">
+                            <div>
+                                <div>
+                                    <h2>VEGAN</h2>
+                                    <h3>Cruelty-Free</h3>
+                                    <h3>Plastic-Free</h3>
+                                </div>
+                                <p>우리는 자연과 함께 공존하는 모든 생명을 존중하며<br>동물 실험에 반대하고 동물성 원료를 사용하지 않습니다.</p>
+                            </div>
+                        </div>
+                        <div class="r2">
+                            <img src="./img/solid.svg" alt="solid icon">
+                            <div>
+                                <h2>Artisanal Solids</h2>
+                                <p><br>아르티장 방식으로 신선하게 제조되는 클린뷰티 브랜드</p>
+                            </div>
+                        </div>
+                        <div class="r3">
+                            <img src="./img/formuala.svg" alt="formuala icon">
+                            <div>
+                                <h2>Fresh Formula</h2>
+                                <p>아렌시아는 신선한 자연원료를 수배하여 신선 제조하는<br>국내유일 아르티장 뷰티 하우스입니다.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="sec4">
+            <div>
+                <h1>ARCHIVE</h1>
+                <div>
+                    <!-- <div>
+                        <div class="box">
+                            <div class="scale"><img src="./img/sec4-1.png" alt="popup"></div>
+                        </div>
+                        <h2>Arencia Sustainable Paper House</h2>
+                        <p>한국 유일 아르티장 비건 뷰티 아렌시아와 <br> 함께해 주신 러버님들을 아렌시아의 첫 번째 오프라인 프로젝트 “종이의 집”에 초대합니다.</p>
+                    </div>
+                    <div>
+                        <div class="box">
+                            <div class="scale"><img src="./img/sec4-2.png" alt="popup"></div>
+                        </div>
+                        <h2>[NEW] Fresh Hyssop Serum</h2>
+                        <p>투명하고 탄력있는 피부의 완성&#44;
+                            프랑스산 히솝을 더해낸 아렌시아 프레시 히솝 세럽이 출시되었습니다.
+                            산뜻하지만 뛰어난 보습감을 선사하는<br>
+                            프레시 히솝 세럼으로 시간을 거스르는 아름다움을 경험해 보세요.</p>
+                    </div>
+                    <div>
+                        <div class="box">
+                            <div class="scale"><img src="./img/sec4-3.jpg" alt="popup"></div>
+                        </div>
+                        <h2>Arencia X TREATZ</h2>
+                        <p>한국 유일의 아르티장 비건 뷰티 브랜드 ARENCIA와 프리미엄 스파 브랜드 TREATZ가 만나 안티에이징 페이셜 케어를 선사합니다.<br><br>
+                            아렌시아 안티에이징 페이셜 케어는 항산화 및 미백
+                            효과가 뛰어난 프랑스산 히솝을 더해낸 아렌시아의
+                            히솝 스킨케어 라인으로 진행됩니다.<br>
+                            아렌시아의 안티에이징 제품과, 트리츠의 노하우가
+                            담긴 페이셜 케어를 만나보세요.</p>
+                    </div>
+                    <div>
+                        <div class="box">
+                            <div class="scale"><img src="./img/sec4-4.png" alt="popup"></div>
+                        </div>
+                        <h2>[NEW] Hyssop Blurring Cream</h2>
+                        <p>콜라겐을 넣고, 생성을 돕고, 탄력이 빠지지 않게 꽉 틀어막는 트리플 액션 주름 & 탄력 케어 크림,<br>
+                            아르티장 히솝 블러링 크림이 출시 되었습니다.<br><br>
+                            피부 속부터 채워주고 겉 결을 바꾸는 놀라운 아렌시아 히솝 블러링 컴플렉스 (Hyssop Blurring Complex)를 매일 밤 스킨케어 마지막 단계로 사용해
+                            보세요.</p>
+                    </div>
+                    <div>
+                        <div class="box">
+                            <div class="scale"><img src="./img/sec4-5.jpg" alt="popup"></div>
+                        </div>
+                        <h2>Golden Ticket EVENT</h2>
+                        <p>아르티장 비건 뷰티 아렌시아와 함께하는 파리여행.<br>
+                            설레는 2024년, 아르티장 뷰티 문화의 나라 프랑스로 떠나는 여행을 선물합니다. <br> 사랑하는 연인, 친구, 가족과
+                            함께 파리로 여행을 떠나보세요.</p>
+                    </div> -->
+
+                </div>
+            </div>
+        </section>
+        <section class="sec5">
+            <img src="./img/sec5-1.jpg" alt="#">
+            <img src="./img/sec5-2.jpg" alt="#">
+            <img src="./img/sec5-3.jpg" alt="#">
+        </section>
+        <footer>
+            <div>
+                <a href="#">Arencia</a>
+                <div class="com">
+                    <h3>COMPANY</h3>
+                    <p>상호/대표자명: (주)아렌시아/임주현</p>
+                    <p>사업자등록번호: 797-81-00501</p>
+                    <p>통신판매업신고번호: 제 2021-경기파주-1864호</p>
+                    <p>사업장소재지: 서울특별시 강남구 논현로139길 5, 4층(논현동, 메리고빌딩)</p>
+                </div>
+                <div class="con">
+                    <h3>CONTACT</h3>
+                    <p>연락처: 070-8879-7000</p>
+                    <p>이메일: arencia@arencia.com</p>
+                    <p>입금계좌: 하나은행 138-970023-04904 주식회사 아렌시아</p>
+                </div>
+            </div>
+        </footer>
 
     </main>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"
+        integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script src="./js/arencia.js"></script>
+    <!-- <script src="/js/data.json" type="text/javascript"></script>
+    <script>
+        let testData = JSON.parse(JSON.stringify(TestFile));
+        // console.log(testData);
+    </script> -->
 </body>
-<script src="./js/jquery-1.12.3.js"></script>
 
 </html>
