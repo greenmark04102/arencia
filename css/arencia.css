@@ -55,22 +55,6 @@ body::-webkit-scrollbar-track {
   background-color: #00ff0000;
 }
 
-.top {
-  position: fixed;
-  z-index: 100;
-  width: 100px;
-  height: 100px;
-  background-color: #fff;
-  bottom: 20px;
-  left: 20px;
-  cursor: pointer;
-  border-radius: 50%;
-}
-
-.top:hover {
-  box-shadow: inset 0px 0px 25px 10px rgba(0, 0, 0, 0.3);
-}
-
 .sideBar {
   height: 100vh;
   max-height: 1080px;
