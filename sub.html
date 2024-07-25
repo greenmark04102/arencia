@@ -52,66 +52,92 @@
             <div>
                 <a href="#"><img src="./sub/img/basket.svg" alt="basket"></a>
                 <a href="#"><img src="./sub/img/account.svg" alt="account"></a>
-                <a href="#"><img src="./sub/img/search.svg" alt="search"></a>
-                <input id="keyword" name="keyword" fw-filter="" fw-label="검색어" fw-msg="" class="inputTypeText" placeholder="&quot;검색어&quot;를 입력해 주세요" autocomplete="off" value="" type="text">
+                <span><img src="./sub/img/search.svg" alt="search"></span>
+                <input id="keyword" name="keyword" fw-filter="" fw-label="검색어" fw-msg="" placeholder="&quot;검색어&quot;를 입력해 주세요" autocomplete="off" value="" type="text">
             </div>
         </header>
-        <section class="bar">
-            <h1>All</h1>
-            <span>
-                <p>All</p>
-                <p>Face</p>
-                <p>Body Care</p>
-                <p>Hair</p>
-                <p>Life Style</p>
-                <p>Gift Guide</p>
-            </span>
+        <section class="product" data-filter-id="product">
+            <div class="bar">
+                <h1>All</h1>
+                <span>
+                    <p class="active" data-filter="0">All</p>
+                    <p data-filter="1">Face</p>
+                    <p data-filter="2">Body Care</p>
+                    <p data-filter="3">Hair</p>
+                    <p class="pre" data-filter="4">Life Style</p>
+                    <p data-filter="5">Gift Guide</p>
+                </span>
+            </div>
+            <ul class="shop">
+                <li class="item caution" data-filter="4">
+                    <img src="./sub/img/caution.svg" alt="preparing">
+                    <h2>Coming Soon!</h2>
+                </li>
+                <!-- <li>
+                    <a href="#">
+                        <img src="./img/sec2/bltea.png" alt="#">
+                        <span><img src="./sub/img/basket.svg"></span>
+                    </a>
+                    <ul>
+                        <a href="#"><p>블랙티 & 유즈 떡솝 클렌저 120g</p></a>
+                        <li>
+                            <span>
+                                <p>15%</p>
+                                <p>21,200원</p>
+                            </span> 
+                            <p>25,000원</p>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#">
+                        <img src="./img/sec2/hysop.png" alt="#">
+                        <span><img src="./sub/img/basket.svg"></span>
+                    </a>
+                    <ul>
+                        <a href="#"><p>아르티장 히솝 블러링 크림</p></a>
+                        <li>
+                            <span>
+                                <p>20%</p>
+                                <p>59,200원</p>
+                            </span> 
+                            <p>74,000원</p>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#">
+                        <img src="./img/sec2/fresh.png" alt="#">
+                        <span><img src="./sub/img/basket.svg"></span>
+                    </a>
+                    <ul>
+                        <a href="#"><p>프레시 홀리 그링클 세럼</p></a>
+                        <li>36,200원</li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#">
+                        <img class="serum" src="./img/sec2/serum.png" alt="#">
+                        <span><img src="./sub/img/basket.svg"></span>
+                    </a>
+                    <ul>
+                        <a href="#"><p>홀리 히솝 세럼 12 30ml</p></a>
+                        <li>29,000원</li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#">
+                        <img src="./img/sec2/greenRs.png" alt="#">
+                        <span><img src="./sub/img/basket.svg"></span>
+                    </a>
+                    <ul>
+                        <a href="#"><p>그린 아르티장 클렌저 떡솝 120g</p></a>
+                        <li>42,000원</li>
+                    </ul>
+                </li> -->
+            </ul>
         </section>
-        <ul class="shop">
-            <li>
-                <a href="#"><img src="./img/sec2/bltea.png" alt="#"></a>
-                <ul>
-                    <a href="#"><p>블랙티 & 유즈 떡솝 클렌저 120g</p></a>
-                    <li>21,200원</li>
-                    <li>
-                        <span>25,000원</span>
-                        <span>15%</span>
-                    </li>
-                </ul>
-            </li>
-            <li>
-                <a href="#"><img src="./img/sec2/hysop.png" alt="#"></a>
-                <ul>
-                    <a href="#"><p>아르티장 히솝 블러링 크림</p></a>
-                    <li>59,200원</li>
-                    <li>
-                        <span>74,000원</span>
-                        <span>20%</span>
-                    </li>
-                </ul>
-            </li>
-            <li>
-                <a href="#"><img src="./img/sec2/fresh.png" alt="#"></a>
-                <ul>
-                    <a href="#"><p>프레시 홀리 그링클 세럼</p></a>
-                    <li>36,200원</li>
-                </ul>
-            </li>
-            <li>
-                <a href="#"><img class="serum" src="./sub/img/serum.png" alt="#"></a>
-                <ul>
-                    <a href="#"><p>프레시 히솝 세럼 30ml</p></a>
-                    <li>23,000원</li>
-                </ul>
-            </li>
-            <li>
-                <a href="#"><img src="./img/sec2/greenRs.png" alt="#"></a>
-                <ul>
-                    <a href="#"><p>그린 아르티장 클렌저 떡솝 120g</p></a>
-                    <li>42,000원</li>
-                </ul>
-            </li>
-        </ul>
+        
     </main>
     <footer>
         <div>

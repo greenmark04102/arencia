@@ -1,5 +1,6 @@
 @charset "utf-8";
 @import url('https://fonts.googleapis.com/css2?family=Marcellus&family=Nanum+Gothic&family=Yanone+Kaffeesatz:wght@200..700&display=swap');
+@import url("https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css");
 
 * {
     margin: 0 auto;
@@ -10,21 +11,22 @@
 }
 
 :root {
-    font-family: "Yanone Kaffeesatz", sans-serif;
-    font-family: "Marcellus", serif;
-    font-family: "Nanum Gothic", sans-serif;
+  font-family: "Yanone Kaffeesatz", sans-serif;
+  font-family: "Marcellus", serif;
+  font-family: "Nanum Gothic", sans-serif;
+  font-family: "Pretendard Variable", Pretendard, -apple-system, BlinkMacSystemFont, system-ui, Roboto, "Helvetica Neue", "Segoe UI", "Apple SD Gothic Neo", "Noto Sans KR", "Malgun Gothic", "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", sans-serif;
 }
 
 a {
   text-decoration: none;
   display: block;
 }
-
+button {all:unset;}
 html {font-size: 10px;}
 
 body {
   background: #D8D8D8;
-  color: #333333;
+  /* color: #333333; */
   /* overflow: overlay; */
 }
 
@@ -136,25 +138,80 @@ nav {
 /* * {outline: solid 1px ;} */
 
 header {
-  outline: solid 1px red;
   display: flex;
   justify-content: space-between;
   padding: 0 50px;
   font-family: "Marcellus", serif;
   font-size: 6rem;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 10;
+  background-color: #D8D8D8;
+  width: 100%;
+  /* height: 3.6458vw; */
+  transition: top 0.2s ease-in-out;
+  border-bottom: 0.0521vw solid #ccc;
+
 }
+
+header.scroll {
+  top: -4.1146vw;
+  transition: top 0.2s ease-in-out;}
+
 header > * {margin: 0;}
 header div {
   display: flex;
   gap: 10px;
+  align-items: flex-end;
 }
-header div input {display: none;}
+
+header div span {
+  height: 80%;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+
+header div input{
+  width: 0px;
+  /* outline:none; */
+  border: 0;
+  background: unset;
+  margin-bottom: 15px;
+  transition: all 0.5s;
+
+}
+header div input.active {
+  width: 200px;
+  height: 32px;
+  font-size: 15px;
+  border: 0;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.3);
+  /* padding-left: 10px; */
+  background: unset;
+  transition: all 1s;
+}
+input:focus {outline:none;}
+
+header a {height: 90%;}
+
+.product {
+  width: fit-content;
+  height: fit-content;
+  padding-top: 70px;
+}
 
 .bar {
-  height: 100px;
+  width: 100%;
+  height: 80px;
   display: flex;
   align-items: center;
   background-color: #fff;
+  justify-content: center;
+  position: sticky;
+  top: 0;
+  z-index: 1;
 }
 .bar h1 {
   position: absolute;
@@ -172,46 +229,145 @@ header div input {display: none;}
 .bar p {
   font-family: "Marcellus", serif;
   font-size: 25px;
+  /* text-decoration: none; */
   cursor: pointer;
+  padding: 0 10px;
+  line-height: 15px;
+}
+
+.bar p:hover {
+  /* text-decoration: underline; */
+  background-color: rgba(106, 142, 35, 0.6);
+  transition: all 0.5s;
 }
 
 .shop > * {margin: 0;}
 
 .shop {
+width: 1920px;
 display: flex;
 flex-direction: row;
 flex-wrap: wrap;
-align-items: flex-start;
-align-content: flex-start;
 padding: 200px 210px 100px;
 gap: 100px;
-width: 1920px;
-
 }
-
-/* Frame 2 */
-
-/* Auto layout */
-
-
-/* Frame 2 */
 
 
 .shop > li {
-  outline: solid 1px blue;
+  /* outline: solid 1px blue; */
   width: fit-content;
 }
 
+
 .shop > li > a {
-  outline: solid 1px red;
+  /* outline: solid 1px red; */
   width: 300px;
   display: flex;
+  align-items: end;
+  overflow: hidden;
+  position: relative;
+  transition: all 1s;
+
 }
+.shop > li > a:hover {
+  background: rgba(0, 0, 0, 0.2);
+  transition: all 0.5s;
+  /* transition-timing-function: ease-out; */
+  /* transition: transform 1s cubic-bezier(0.19, 1, 0.22, 1) 0s; */
+
+}
+.shop > li > a span, .shop > li > a span img{
+  /* display: flex; */
+  /* opacity: 0; */
+}
+
+.shop > li > a span{
+  position: absolute;
+  background: rgba(0, 0, 0, 0.5);
+  width: inherit;
+  height: 30%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.5s;
+  bottom: -80px;
+}
+
+.shop > li > a span img {
+  width: 59px;
+  color: #000;
+  margin: 0;
+  transition: all 0.5s;
+  /* display: flex; */
+  /* opacity: 0; */
+
+}
+
+.shop > li > a:hover span {
+  bottom: 0;
+}
+
+.caution {display: none;}
+
+
+
+
+/* .shop > li > a::after {
+  content: "";
+  width: inherit;
+  height: 10%;
+  background: rgba(0, 0, 0, 0.5);
+  position: absolute;
+  bottom: 260px;
+
+} */
+
 .shop img {
   width: 250px;
   height: 250px;
 }
-.serum {width: 84px !important;}
+/* .serum {width: 84px !important;} */
+
+/* .shop li ul a {
+  font-family: "Nanum Gothic", sans-serif;
+  font-weight: bold;
+} */
+
+.shop ul li {
+  padding-top: 10px;
+  display: flex;
+  gap: 5px;
+  align-items: flex-end;
+  font-weight: bold;
+}
+
+.shop ul {margin-top: 20px;}
+
+.shop ul li p, span, li {
+  margin: 0;
+  font-family: "Nanum Gothic", sans-serif;
+  font-size: 15px;
+}
+.shop ul li > p {font-weight: 100;}
+
+.shop ul li span {
+  display: flex;
+  gap: 5px;
+  align-items: flex-end;
+}
+.shop .per {
+  color: #005221;
+  font-family: "Pretendard Variable";
+  font-size: 17px;
+  line-height: 18px;
+}
+
+.shop ul li > p {
+  text-decoration: line-through;
+  color: rgba(0, 0, 0, 0.5);
+}
+
+
 /* bltea 2 */
 
 /* position: absolute;
