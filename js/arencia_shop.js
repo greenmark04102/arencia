@@ -79,7 +79,7 @@ filterMenuInit();
 
     });
 
-    //메뉴
+    //사이드 메뉴 토글
     $(".navi>li:eq(1), .navi>li:eq(2)").click(function () {
         $(this).find('.subMenu').stop().slideToggle(500)
         // $('.navi li img').toggleClass('active');
@@ -87,11 +87,11 @@ filterMenuInit();
 
     })
 
+    //검색창
     $('header div span').click(function() {
         $('header div input').addClass('active');
         // $(this).css("outline","1px solid")
     });
-
     $(document).on('click', function(e) {
         var container = $("header div");
         if (!$(e.target).closest(container).length) {
@@ -99,7 +99,6 @@ filterMenuInit();
             // $(".sideBar").animate({ left: "-320" }, "slow", "swing");
             $('header div input').removeClass('active');
         }
-
     });
     $('header div input').keyup(function() {
         var val = $(this).val();
@@ -111,7 +110,7 @@ filterMenuInit();
         }
     });
 
-
+    //준비중 공지
     $('.bar p').not('.pre').on("click", function() {
         $(".shop").css("justify-content", "unset")
 
@@ -128,7 +127,6 @@ filterMenuInit();
         });
     
     });
-
     $('.bar p:nth-of-type(5)').on("click", function() {
         $(".shop").css("justify-content", "center")
 
@@ -144,102 +142,27 @@ filterMenuInit();
             "font-weight": "bold",
         });
     });
-    
 
-    // $(".bar span p").click(function(){
-    //     var tabindex = $(this).index();
-    //     var yo = $('.shop li').attr('class');
+    //카테고리명 변경
+    $('.bar p').click(function() {
+        var sync = $(this).text() ;
+        $('.bar h1').text(sync);
+    });
 
-    //     // $(this).addClass('on').siblings().removeClass('on');
-    //     // $(".indexBox .conBox").eq(tabindex).addClass('on').siblings().removeClass('on');
-    //     // var yo = $('.shop li').className()
-    //     if (yo == tabindex) {
-    //         $('.shop > li').show();
-    //     } else {
-    //         $('.shop > li').hide();
-    //     }
-
-    // });
-
-
-
-    // $(".bar span p").forEach(function(v, i, a) {
-    //     // var tabindex = $(".bar span p").index();
-    //     console.log(i);
-
-    // })
-
-    // $(".shop ul li span p").each(function() {
-    //     if (str == $(this).text()) {
-    //         $(this).parent().siblings().remove();
-    //         $(this).remove();
-    //     }
-    // });
-
-
-
-
-
-
-
-
-
-
-
-
-
+    //헤더 스크롤
     let lastScrollY = $(window).scrollTop();
     $(window).on("scroll", ()=>{
         const currentScrollY = $(window).scrollTop()
-    
         if (currentScrollY > lastScrollY) {
-            //스크롤 내릴때
             $('header').addClass('scroll');
-            // $('#header .eggiscoming-header__left p').addClass('scroll');
         } else {
-            //스크롤 올릴때
             $('header').removeClass('scroll');
-            // $('#header .eggiscoming-header__left p').removeClass('scroll');
         }
-    
-        // lastScrollY = currentScrollY;
     });
-
-
-
-
-
-
-
-    // function throttle(delay, callback) {
-    //     let isCall = null;
-    //     return (...args)=>{
-    //         if (isCall)
-    //             return;
-    //         isCall = setTimeout(()=>{
-    //             callback.call(null, ...args);
-    //             isCall = null;
-    //         }, delay);
-    //     }
-    // }
 
 });
 
-
-
-// $(".bar span p").forEach(function(v, i, a) {
-//     // var tabindex = $(".bar span p").index();
-//     // console.log(${i});
-
-// })
-// $(document).on('forEach', '.bar span p', function(v, i, a) {
-//     console.log(`${i}`);
-
-// });
-
-
-
-
+//ajax 빈칸 해결
 setTimeout(function(){
     var str = 'undefined';
     $(".shop ul li span p").each(function() {
@@ -248,33 +171,5 @@ setTimeout(function(){
             $(this).remove();
         }
     });
-
-
-    // var fpd = $('.shop > li').attr('class').filter(function() {
-    //     return 1
-    // })
-    // console.log(fpd);
-    // $(".bar span p").click(function(){
-    //     var tabindex = $(this).index();
-    //     console.log(tabindex);
-    //     $('.shop > li').attr('class') == tabindex;
-
-    //     $('.shop > li').show();
-    //     // .shop li == tabindex
-    //     // var yo = $(this).attr('class');
-    //     // if ($('.shop li').attr('class') === tabindex) {
-    //     //     tabindex === $('.shop li').attr('class').show();
-    //     // } else {
-    //     //     // $('.shop li').hide();
-    //     // }
-    // });
-
-    // $(".shop li").click(function(){
-    //     console.log($(this).attr('class'));
-    // });
-
-
-
-    
 }, 100);
 

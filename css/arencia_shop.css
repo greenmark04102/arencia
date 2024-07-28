@@ -42,7 +42,7 @@ body {
   top: 0;
   left: -320px;
   z-index: 999;
-  display: none;
+  /* display: none; */
 }
   
 nav {
@@ -185,7 +185,7 @@ header div input{
 header div input.active {
   width: 200px;
   height: 32px;
-  font-size: 15px;
+  
   border: 0;
   border-bottom: 1px solid rgba(0, 0, 0, 0.3);
   /* padding-left: 10px; */
@@ -214,12 +214,13 @@ header a {height: 90%;}
   z-index: 1;
 }
 .bar h1 {
+  width: 190px;
   position: absolute;
   font-family: "Marcellus", serif;
   font-size: 40px;
   font-weight: 100;
-  left: 370px;
-
+  left: 290px;
+  text-align: center;
 }
 .bar span {
   display: flex;
@@ -238,7 +239,7 @@ header a {height: 90%;}
 .bar p:hover {
   /* text-decoration: underline; */
   background-color: rgba(106, 142, 35, 0.6);
-  transition: all 0.5s;
+  transition: all 0.8s;
 }
 
 .shop > * {margin: 0;}
