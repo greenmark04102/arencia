@@ -49,7 +49,6 @@ const filterMenuInit = () => {
                         list.style.display = 'list-item';
                         return;
                     }
-                    
                     list.style.display = list.getAttribute('data-filter') === filterType ? 'list-item' : 'none';
                 })
             });
@@ -58,10 +57,8 @@ const filterMenuInit = () => {
 };
 
 
-
-
 $(document).ready(function () {
-filterMenuInit();
+// setTimeout('location.reload()', 1000);
 
     //사이드바
     $('header > img').on("mouseenter", (function () {
@@ -111,7 +108,7 @@ filterMenuInit();
     });
 
     //준비중 공지
-    $('.bar p').not('.pre').on("click", function() {
+    $('.bar p, .active').not('.pre').on("click", function() {
         $(".shop").css("justify-content", "unset")
 
         $(".caution").css({
@@ -171,5 +168,8 @@ setTimeout(function(){
             $(this).remove();
         }
     });
-}, 100);
+    filterMenuInit();
+}, 500);
 
+// $(document).onload(function() {
+// })
