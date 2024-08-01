@@ -233,7 +233,8 @@ header .logo {
 .bar {
   margin: 0;
   width: 100vw;
-  height: 80px;
+  height: 5vw;
+  max-height: 80px;
   display: flex;
   align-items: center;
   background-color: #fff;
@@ -550,7 +551,11 @@ footer p {
   .shop ul li p {
     font-size: 13px;
   }
+ .bar{height: 10vw;}
 
+  .bar p {
+    font-size: clamp(80%, 1.5vw, 200%);
+  }
   /* .shop ul li p, span, li {font-size: 13px;}
     .shop .per {font-size: 13px;} */
 
