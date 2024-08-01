@@ -17,7 +17,7 @@ $.ajax({
                             elem += `<p class="per">${this.per}</p>`
                             elem += `<p>${this.price}</p>`
                         elem += `</span>`;
-                        elem += `<p>${this.price}</p>`;
+                        elem += `<p>${this.ori}</p>`;
                     elem += `</li>`;
                 elem += `</ul>`;
             elem += `</li>`;
@@ -41,15 +41,18 @@ const filterMenuInit = () => {
             btn.addEventListener('click', () => {
                 const filterType = btn.getAttribute('data-filter');
 
-                filterBtns.forEach(btn => btn.classList.remove('active'));
-                btn.classList.add('active');
+                // filterBtns.forEach(btn => btn.classList.remove('active'));
+                // btn.classList.add('active');
 
                 filterLists.forEach(list => {
                     if (filterType === '0'){
                         list.style.display = 'list-item';
                         return;
                     }
-                    list.style.display = list.getAttribute('data-filter') === filterType ? 'list-item' : 'none';
+                    list.style.display = list.getAttribute('data-filter') === "4" ? 'flex' 
+                    : list.getAttribute('data-filter') === filterType ? 'list-item'
+                    :'none';
+                    
                 })
             });
         })
@@ -107,8 +110,17 @@ $(document).ready(function () {
         }
     });
 
+
+    // $(".shop > li:nth-last-child(2), .shop > li:nth-last-child(3)").append()
+    // $(".shop > li:nth-last-child(2), .shop > li:nth-last-child(3)").html(function() {
+    //     return '<li class="gr">$(this)</li>';
+    // });
+    $(".shop > li:nth-last-child(2), .shop > li:nth-last-child(3)").wrapAll('<li class="gr"></li>');
+
+    // $(".shop > li:nth-last-child(4)").nextUntil(".shop > li:nth-last-child(1)").wrap('<li></li>');
+        
     //준비중 공지
-    $('.bar p, .active').not('.pre').on("click", function() {
+    $(".bar p:gt(1)").on("click", function() {
         $(".shop").css("justify-content", "unset")
 
         $(".caution").css({
@@ -116,6 +128,9 @@ $(document).ready(function () {
             "flex-direction": "unset",
             gap: "unset"
         });
+        $(".caution").addClass('none')
+
+        // $(".caution").attr('style', 'display: none !important');
 
         $(".shop h2").css({
             "font-family": "Yanone Kaffeesatz",
@@ -124,8 +139,24 @@ $(document).ready(function () {
         });
     
     });
+
+
+    $(".bar p:lt(2)").click(function() {
+        $(".shop").css("justify-content", "space-around");
+
+        $(".caution").css({
+            display: "none",
+            "flex-direction": "unset",
+            gap: "unset"
+        });
+        $(".caution").addClass('none')
+        // $(".caution").attr('style', 'display: none !important');
+
+    });
+
     $('.bar p:nth-of-type(5)').on("click", function() {
         $(".shop").css("justify-content", "center")
+        $(".caution").removeClass('none')
 
         $(".caution").css({
             display: "flex",

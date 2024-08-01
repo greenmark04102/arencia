@@ -228,14 +228,14 @@ header .logo {font-size: clamp(80%, 3vw, 200%);}
 } */
 .bar span {
   display: flex;
-  gap: 50px;
+  gap: 4vw;
 }
 
 .bar p {
   outline: solid 1px ;
 
   font-family: "Marcellus", serif;
-  font-size: clamp(80%, 1.5vw, 200%);
+  font-size: clamp(100%, 1.5vw, 200%);
   /* text-decoration: none; */
   cursor: pointer;
   padding: 0 10px;
@@ -250,17 +250,27 @@ header .logo {font-size: clamp(80%, 3vw, 200%);}
 
 .shop > * {margin: 0;}
 
-.shop {
+.shop, .gr {
 width: 100%;
 display: flex;
 flex-direction: row;
 flex-wrap: wrap;
 justify-content: space-around;
-padding: 0 10vw;
-gap: 1vw;
+padding: 10vh 10vw 0;
+gap: 5vw;
 
 }
+.gr {
+  flex-wrap: nowrap;
+  justify-content: unset;
+  padding: 0;
 
+}
+/* .shop > li:last-child, */
+/* .shop > li:nth-last-child(2),
+.shop > li:nth-last-child(3) {
+  order: 1;
+} */
 
 .shop > li {
   /* outline: solid 1px blue; */
@@ -268,7 +278,8 @@ gap: 1vw;
 }
 
 
-.shop > li > a {
+.shop > li > a,
+.gr > li > a {
   /* outline: solid 1px red; */
   width: auto;
   display: flex;
@@ -278,7 +289,8 @@ gap: 1vw;
   transition: all 1s;
 
 }
-.shop > li > a:hover {
+.shop > li > a:hover,
+.gr > li > a:hover {
   background: rgba(0, 0, 0, 0.2);
   transition: all 0.5s;
   /* transition-timing-function: ease-out; */
@@ -290,7 +302,8 @@ gap: 1vw;
   /* opacity: 0; */
 }
 
-.shop > li > a span{
+.shop > li > a span,
+.gr > li > a span{
   position: absolute;
   background: rgba(0, 0, 0, 0.5);
   width: 100%;
@@ -302,7 +315,8 @@ gap: 1vw;
   bottom: -80px;
 }
 
-.shop > li > a span img {
+.shop > li > a span img,
+.gr > li > a span img {
   width: 59px;
   height: 60px;
   color: #000;
@@ -313,12 +327,13 @@ gap: 1vw;
 
 }
 
-.shop > li > a:hover span {
+.shop > li > a:hover span,
+.gr > li > a:hover span {
   bottom: 0;
 }
 
 .caution {display: none;}
-
+.caution.none {display: none !important;}
 
 
 
@@ -346,8 +361,9 @@ gap: 1vw;
 } */
 
 .shop ul li {
-  padding-top: 10px;
+  padding-top: 1.5vh;
   display: flex;
+  flex-wrap: wrap;
   gap: 5px;
   align-items: flex-end;
   font-weight: bold;
@@ -381,6 +397,7 @@ gap: 1vw;
 
   footer {
     height: fit-content;
+    display: none;
   }
   
   footer>div {
@@ -424,7 +441,8 @@ gap: 1vw;
   
   footer h3,
   p {
-    font-size: 0.9rem;
+    font-size: 1.5rem;
+    /* max-width: 1.5re; */
     font-family: Nanum Gothic;
   }
   
@@ -450,7 +468,19 @@ gap: 1vw;
     /* .shop > li {width: 50%;} */
   }
 
-  @media (max-width: 631px) {
-    .shop > li {width: 40%;}
-    
+  @media (max-width: 666px) {
+    .shop > li:not(.gr),
+    .gr > li {width: 40%;}
+    p{
+      font-size: 13px;
+      line-height: 17px;
+    }
+    .per {font-size: 13px !important;}
+    .shop ul li p {font-size: 13px;}
+
+    /* .shop ul li p, span, li {font-size: 13px;}
+    .shop .per {font-size: 13px;} */
+
+  
+  
   }
