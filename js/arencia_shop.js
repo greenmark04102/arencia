@@ -89,7 +89,7 @@ $(document).ready(function () {
 
     //검색창
     $('header div span').click(function() {
-        $('header div input').addClass('active');
+        $('header div input').toggleClass('active');
         // $(this).css("outline","1px solid")
     });
     $(document).on('click', function(e) {
