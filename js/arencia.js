@@ -156,7 +156,7 @@ setTimeout(function(){
         }
     });
     
-    $(".sec4 > div > div > div, .sec5 img").each(function (index) {
+    $(".sec4 > div > div > div, .sec5 img, .wt").each(function (index) {
         $(this).css("order", function (n) {
             var n = 0;
             while (n < 5) {

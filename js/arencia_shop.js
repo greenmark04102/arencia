@@ -2,33 +2,32 @@ $.ajax({
     type: "GET",
     url: "./js/product.json",
     dataType: "json",
-    success: function(data) {
+    success: function (data) {
         var elem = "";
-        $.each(data, function(index, obj) {
+        $.each(data, function (index, obj) {
             elem += `<li class="item" data-filter="${this.index}">`;
-                elem += `<a href="${this.link}">`;
-                    elem += `<img src='${this.imgfile1}' alt='${this.link}'>`;
-                    elem += `<span><img src='${this.imgfile3}' alt='${this.link}'></span>`;
-                elem += `</a>`;
-                elem += `<ul>`;
-                    elem += `<a href="${this.link}"><p>${this.title}</p></a>`;
-                    elem += `<li>`;
-                        elem += `<span>`;
-                            elem += `<p class="per">${this.per}</p>`
-                            elem += `<p>${this.price}</p>`
-                        elem += `</span>`;
-                        elem += `<p>${this.ori}</p>`;
-                    elem += `</li>`;
-                elem += `</ul>`;
+            elem += `<a href="${this.link}">`;
+            elem += `<img src='${this.imgfile1}' alt='${this.link}'>`;
+            elem += `<span><img src='${this.imgfile3}' alt='${this.link}'></span>`;
+            elem += `</a>`;
+            elem += `<ul>`;
+            elem += `<a href="${this.link}"><p>${this.title}</p></a>`;
+            elem += `<li>`;
+            elem += `<span>`;
+            elem += `<p class="per">${this.per}</p>`
+            elem += `<p>${this.price}</p>`
+            elem += `</span>`;
+            elem += `<p>${this.ori}</p>`;
+            elem += `</li>`;
+            elem += `</ul>`;
             elem += `</li>`;
         });
         $(".shop").prepend(elem);
     },
-    error: function(xhr) {
+    error: function (xhr) {
         console.log(xhr.status + "/" + xhr.errorText);
     }
 });
-
 
 const filterMenuInit = () => {
     const filters = document.querySelectorAll('[data-filter-id]');
@@ -54,7 +53,7 @@ const filterMenuInit = () => {
                             : 'none';
 
                 })
-            });
+            })
         })
     })
 };
@@ -64,15 +63,41 @@ const filterMenuInit = () => {
 $(document).ready(function () {
     // setTimeout('location.reload()', 1000);
 
+    // $('footer h3').click(function() {
+    //     $(".eva").unwrap();
+        
+    // })
+
+    // var delta = 500;
+    // var timer = null;
+
+    // $(window).on('resize', function () {
+    //     clearTimeout(timer);
+    //     timer = setTimeout(resizeDone, delta);
+    // });
+
+    // function resizeDone() {
+    //     // ...do
+    //     if (window.innerWidth < 821) {
+    //         $(function () {
+    //             $('.eva').wrapAll('<div></div>');
+    //         });
+    //     } else {
+    //         $(function () {
+    //             $('.eva').unwrap();;
+    //         });
+    //     }
+    // };
 
     $(window).resize(function () {
         if (window.innerWidth > 667) {  // 다바이스 크기가 640이상
             $(function () {
+                // $(".eva").unwrap();
                 $('header > img').on("mouseenter", (function () {
                     $('.sideBar').animate({ left: 0 }, "slow", "swing");
-                    $(this).css("opacity", 0)
+                    $(this).css("opacity", 0);
+                    // $("footer > div > div").unwrap();
                 }));
-
                 // $(".review li").slice(0, 3).show(); // 초기갯수
                 // $("#load").click(function (e) { // 클릭시 more
                 //     e.preventDefault();
@@ -106,9 +131,14 @@ $(document).ready(function () {
 
             });
 
-        }
+        };
+        
+
+
 
     }).resize();
+
+
 
     //사이드바
     // $('header > img').on("mouseenter", (function () {
@@ -162,13 +192,16 @@ $(document).ready(function () {
     // $(".shop > li:nth-last-child(2), .shop > li:nth-last-child(3)").html(function() {
     //     return '<li class="gr">$(this)</li>';
     // });
-    $(".shop > li:nth-last-child(2), .shop > li:nth-last-child(3)").wrapAll('<li class="gr"></li>');
 
     // $(".shop > li:nth-last-child(4)").nextUntil(".shop > li:nth-last-child(1)").wrap('<li></li>');
 
     //준비중 공지
     $(".bar p:gt(1)").on("click", function () {
-        $(".shop").css("justify-content", "unset")
+        // $(".shop").css("justify-content", "unset")
+        $(".shop").css({
+            "justify-content": "unset",
+            gap: "5vw"
+        });
 
         $(".caution").css({
             display: "none",
@@ -189,7 +222,11 @@ $(document).ready(function () {
 
 
     $(".bar p:lt(2)").click(function () {
-        $(".shop").css("justify-content", "space-around");
+        // $(".shop").css("justify-content", "space-around");
+        $(".shop").css({
+            "justify-content": "space-around",
+            gap: "5vw"
+        });
 
         $(".caution").css({
             display: "none",
@@ -202,7 +239,11 @@ $(document).ready(function () {
     });
 
     $('.bar p:nth-of-type(5)').on("click", function () {
-        $(".shop").css("justify-content", "center")
+        $(".shop").css({
+            "justify-content": "center",
+            gap: "unset"
+        });
+
         $(".caution").removeClass('none')
 
         $(".caution").css({
@@ -218,11 +259,11 @@ $(document).ready(function () {
         });
     });
 
-    //카테고리명 변경
-    $('.bar p').click(function () {
-        var sync = $(this).text();
-        $('.bar h1').text(sync);
-    });
+    // //카테고리명 변경
+    // $('.bar p').click(function () {
+    //     var sync = $(this).text();
+    //     $('.bar h1').text(sync);
+    // });
 
     //헤더 스크롤
     let lastScrollY = $(window).scrollTop();
@@ -234,6 +275,19 @@ $(document).ready(function () {
             $('header').removeClass('scroll');
         }
     });
+
+    // $(".wt").each(function (index) {
+    //     $(this).css("order", function (n) {
+    //         var n = 0;
+    //         while (n < 5) {
+    //             index + n;
+    //             n++;
+    //         }
+    //         return index;
+    //     });
+    //     $(this).css("flex", "1 1 0");
+    //     // $(".sec4 > div > div").css("flex", "index");
+    // });
 
 });
 
@@ -247,6 +301,9 @@ setTimeout(function () {
         }
     });
     filterMenuInit();
+
+    $(".shop > li:nth-last-child(2), .shop > li:nth-last-child(3)").wrapAll('<li class="gr"></li>');
+
 }, 500);
 
 // $(document).onload(function() {
