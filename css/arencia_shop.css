@@ -52,12 +52,15 @@ body {
   top: 0;
   left: -320px;
   z-index: 90;
+  overflow: scroll;
   /* display: none; */
 }
 
 nav {
   width: fit-content;
-  margin: 15vh auto;
+  height: 100vh;
+  display: flex;
+  align-items: center;
 }
 
 
@@ -166,8 +169,9 @@ overflow: hidden;
   font-size: 2rem;
   display: flex;
   width: 100%;
-  position: absolute;
+  /* position: absolute; */
   bottom: 55px;
+  position: relative;
 }
 
 .page a:first-child::after {
