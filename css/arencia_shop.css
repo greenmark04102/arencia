@@ -725,8 +725,8 @@ footer p {
     display: none;
   }
   .sideBar {
-    background: rgba(255, 255, 255, 0.5);
-    backdrop-filter: blur(20px);
+    background: rgba(255, 255, 255, 0.8);
+    backdrop-filter: blur(10px);
   }
 
   footer div > div {
