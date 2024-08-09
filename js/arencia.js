@@ -156,16 +156,16 @@ setTimeout(function(){
         }
     });
     
-    $(".sec4 > div > div > div, .sec5 img, .wt").each(function (index) {
-        $(this).css("order", function (n) {
-            var n = 0;
-            while (n < 5) {
-                index + n;
-                n++;
-            }
-            return index;
-        });
-        $(this).css("flex", "1 1 0");
-        $(".sec4 > div > div").css("flex", "index");
-    });
+    // $(".sec4 > div > div > div, .sec5 img").each(function (index) {
+    //     $(this).css("order", function (n) {
+    //         var n = 0;
+    //         while (n < 5) {
+    //             index + n;
+    //             n++;
+    //         }
+    //         return index;
+    //     });
+    //     $(this).css("flex", "1 1 0");
+    //     $(".sec4 > div > div").css("flex", "index");
+    // });
 }, 100);
