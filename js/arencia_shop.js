@@ -164,7 +164,7 @@ $(window).resize(function () {
     
     
     } else {
-        $('nav').prepend(`<img src="/sub/img/close.svg" alt="close">`);
+        $('nav').prepend(`<img src="./sub/img/close.svg" alt="close">`);
         $('nav > img:gt(0)').remove();
         
         $('nav > img').css({
