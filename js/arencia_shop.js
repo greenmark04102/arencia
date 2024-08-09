@@ -172,8 +172,6 @@ $(window).resize(function () {
             "position": "absolute",
             "top": 30,
             "right": 30,
-            "transform": "rotate(0)",
-            "transition": "all 1s",
             "cursor": "pointer"
         });
     
@@ -185,14 +183,12 @@ $(window).resize(function () {
                     width: "100vw",
                     height: "100vh"
                 });
+                $('body').css("position", "fixed");
             }));
             $('nav > img').click(function () {
-                $(this).css({
-                "transform": "rotate(360)",
-                "transition": "all 1s"
-                })
                 $(".sideBar").stop().animate({ left: "-110vw" }, "slow", "swing");
                 $('header > img').css("opacity", "unset");
+                $('body').css("position", "unset");
             })
     
     };

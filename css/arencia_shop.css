@@ -56,6 +56,10 @@ body {
   /* display: none; */
 }
 
+.sideBar::-webkit-scrollbar {
+  display: none;
+}
+
 nav {
   width: fit-content;
   height: 100vh;
