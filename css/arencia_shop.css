@@ -63,7 +63,8 @@ body {
 
 }
 
-.sideBar::-webkit-scrollbar {
+.sideBar::-webkit-scrollbar,
+html::-webkit-scrollbar {
   display: none;
 }
 
@@ -110,6 +111,8 @@ nav {
 .subMenu {
   display: none;
 }
+
+.subMenu li {width: fit-content;}
 
 /* .subMenu {
   outline: solid 1px ;
@@ -377,7 +380,7 @@ header .logo {
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: space-around;
-  padding: 10vh 10vw 30vw;
+  padding: 10vh 10vw 10vw;
   gap: 5vw;
   word-break: keep-all;
 
@@ -717,6 +720,12 @@ footer p {
 
 @media (max-width: 666px) {
 
+  .sideBar {
+    justify-content: unset;
+  }
+
+  nav {margin: 11vh auto;}
+
   .shop>li:not(.gr),
   .gr>li {
     width: 46%;
@@ -753,5 +762,6 @@ footer p {
   footer div > div {
     flex-direction: column;
   }
+
 
 }
