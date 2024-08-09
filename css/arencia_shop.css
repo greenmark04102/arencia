@@ -361,7 +361,7 @@ header .logo {
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: space-around;
-  padding: 10vh 10vw 30vh;
+  padding: 10vh 10vw 30vw;
   gap: 5vw;
   word-break: keep-all;
 
@@ -725,8 +725,10 @@ footer p {
     display: none;
   }
   .sideBar {
-    background: rgba(255, 255, 255, 0.8);
-    backdrop-filter: blur(10px);
+    background: rgba(255, 255, 255, 0.5);
+    /* backdrop-filter: blur(10px); */
+    -webkit-backdrop-filter: blur(10px);
+backdrop-filter: blur(10px);
   }
 
   footer div > div {
