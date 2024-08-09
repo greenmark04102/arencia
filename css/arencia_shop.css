@@ -30,11 +30,12 @@ button {
 html {
   font-size: 10px;
   overflow: scroll;
+  background: #D8D8D8;
+
   /* width: calc(100vw - 8px); */
 }
 
 body {
-  background: #D8D8D8;
   /* color: #333333; */
   /* overflow: overlay; */
 }
@@ -360,7 +361,7 @@ header .logo {
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: space-around;
-  padding: 10vh 10vw;
+  padding: 10vh 10vw 30vh;
   gap: 5vw;
   word-break: keep-all;
 
@@ -558,8 +559,9 @@ footer a {
   align-items: center;
   justify-content: center;
   font-family: Marcellus;
-  font-size: 3vw;
+  font-size: clamp(50px, 3vw, 158px);
   height: fit-content;
+  padding: 0 30px;
   /* width: 30%; */
   /* font-size: clamp(50%, 3vw, 200%); */
 }
@@ -582,6 +584,7 @@ footer > div> div {
   /* box-shadow: inset 0px 7px 4px rgba(0, 0, 0, 0.25); */
   display: flex;
   flex-direction: column;
+  margin: 0;
   /* justify-content: center; */
   /* padding-left: 5vw; */
 }
@@ -589,7 +592,7 @@ footer > div> div {
 .con {
   display: flex;
   /* flex-direction: row; */
-  margin: 0;
+  /* margin: 0; */
   gap: 40px;
   /* justify-content: space-around;
   align-items: flex-end; */
@@ -671,6 +674,8 @@ footer p {
     margin-bottom: 30px;
   }
 
+  .con {gap: 10px}
+  footer > div> div {gap: 3vw;}
   /* .com,
   .con {
   background: unset;
@@ -690,13 +695,15 @@ footer p {
   .shop>li:not(.gr),
   .gr>li {
     width: 46%;
+    margin-bottom: 40px;
   }
+
+  .item ul li > p {display: none;}
 
   p {
     font-size: 12px;
     /* font-weight: bold; */
     line-height: 17px;
-     color: #5e5e5e;
   }
 
   .per {
@@ -709,7 +716,7 @@ footer p {
  .bar{height: 10vw;}
 
   .bar p {
-    font-size: clamp(80%, 1.5vw, 200%);
+    font-size: clamp(90%, 1.5vw, 200%);
   }
   /* .shop ul li p, span, li {font-size: 13px;}
     .shop .per {font-size: 13px;} */

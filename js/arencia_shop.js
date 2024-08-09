@@ -4,25 +4,27 @@ $.ajax({
     dataType: "json",
     success: function (data) {
         var elem = "";
-        $.each(data, function (index, obj) {
+        $.each(data, function(index, obj) {
             elem += `<li class="item" data-filter="${this.index}">`;
-            elem += `<a href="javascript:;">`;
-            elem += `<img src='${this.imgfile1}' alt='${this.link}'>`;
-            elem += `<span><img src='${this.imgfile3}' alt='${this.link}'></span>`;
-            elem += `</a>`;
-            elem += `<ul>`;
-            elem += `<a href="javascript:;"><p>${this.title}</p></a>`;
-            elem += `<li>`;
-            elem += `<span>`;
-            elem += `<p class="per">${this.per}</p>`
-            elem += `<p>${this.price}</p>`
-            elem += `</span>`;
-            elem += `<p>${this.ori}</p>`;
-            elem += `</li>`;
-            elem += `</ul>`;
+                elem += `<a href="${this.link}">`;
+                    elem += `<img src='${this.imgfile1}' alt='${this.link}'>`;
+                    elem += `<span><img src='${this.imgfile3}' alt='${this.link}'></span>`;
+                elem += `</a>`;
+                elem += `<ul>`;
+                    elem += `<a href="${this.link}"><p>${this.title}</p></a>`;
+                    elem += `<li>`;
+                        elem += `<span>`;
+                            elem += `<p class="per">${this.per}</p>`
+                            elem += `<p>${this.price}</p>`
+                        elem += `</span>`;
+                        elem += `<p>${this.ori}</p>`;
+                    elem += `</li>`;
+                elem += `</ul>`;
             elem += `</li>`;
         });
         $(".shop").prepend(elem);
+
+        
     },
     error: function (xhr) {
         console.log(xhr.status + "/" + xhr.errorText);
@@ -133,7 +135,7 @@ $(document).ready(function () {
 
         $(".shop h2").css({
             "font-family": "Yanone Kaffeesatz",
-            "font-size": "100px",
+            "font-size": "clamp(35px, 6vw, 100px)",
             "font-weight": "bold",
         });
     });
@@ -145,110 +147,60 @@ $(window).resize(function () {
     var hheight = $('header').height();
     $('.product').css('margin-top', hheight);
 
+    if (window.innerWidth > 821) {  // 다바이스 크기가 640이상
 
-    // if (window.innerWidth > 821) {  // 다바이스 크기가 640이상
+        $('header > img').on("mouseenter", (function () {
+            $('.sideBar').animate({ left: 0 }, "slow", "swing");
+            $(this).css("opacity", 0);
+        }));
+        $(document).on('click', function (e) {
+            var container = $(".sideBar");
+            if (!$(e.target).closest(container).length) {
+                $(".sideBar").animate({ left: "-320" }, "slow", "swing");
+            }
+            $('header > img').css("opacity", "unset")
+    
+        });
+    
+    
+    } else {
+        $('nav').prepend(`<img src="/sub/img/close.svg" alt="close">`);
+        $('nav > img:gt(0)').remove();
+        
+        $('nav > img').css({
+            height: 60,
+            "position": "absolute",
+            "top": 30,
+            "right": 30,
+            "transform": "rotate(0)",
+            "transition": "all 1s",
+            "cursor": "pointer"
+        });
+    
+    
+            $('header > img').on("click", (function () {
+                $('.sideBar').stop().animate({ left: 0 }, "slow", "swing");
+                $(this).css("opacity", 0)
+                $('.sideBar').css({
+                    width: "100vw",
+                    height: "100vh"
+                });
+            }));
+            $('nav > img').click(function () {
+                $(this).css({
+                "transform": "rotate(360)",
+                "transition": "all 1s"
+                })
+                $(".sideBar").stop().animate({ left: "-110vw" }, "slow", "swing");
+                $('header > img').css("opacity", "unset");
+            })
+    
+    };
 
-    //         $('header > img').on("mouseenter", (function () {
-    //             $('.sideBar').animate({ left: 0 }, "slow", "swing");
-    //             $(this).css("opacity", 0);
-    //         }));
-    //         $(document).on('click', function(e) {
-    //             var container = $(".sideBar");
-    //             if (!$(e.target).closest(container).length) {
-    //                 $(".sideBar").animate({ left: "-320" }, "slow", "swing");
-    //             }
-    //             $('header > img').css("opacity", "unset")
 
-    //         });
-
-    //     // $(document).on('click', function (e) {
-    //     //     var container = $("header div");
-    //     //     if (!$(e.target).closest(container).length) {
-    //     //         $('header div input').removeClass('active');
-    //     //     }
-    //     // });
-
-
-    // } else {
-    //     $(function () {
-    //         $('header > img').on("click", (function () {
-    //             $('.sideBar').animate({ left: 0 }, "slow", "swing");
-    //             $(this).css("opacity", 0)
-    //             $('.sideBar').css({
-    //                 width: "100vw",
-    //                 height: "100vh"
-    //             })
-
-    //             $('nav').prepend(`<img src="/sub/img/close.png" alt="close">`)
-    //             $('nav > img').css({
-    //                 height: 60,
-    //                 "position": "absolute",
-    //                 "top": 30,
-    //                 "right": 30
-    //             });
-    //         }));
-    //         $('nav > img').click(function () {
-    //             $(".sideBar").animate({ left: -110}, "slow", "swing");
-    //             $('header > img').css("opacity", "unset");
-    //         })
-    //     });
-    // };
 }).resize();
 
-if (window.innerWidth > 821) {  // 다바이스 크기가 640이상
 
-    $('header > img').on("mouseenter", (function () {
-        $('.sideBar').animate({ left: 0 }, "slow", "swing");
-        $(this).css("opacity", 0);
-    }));
-    $(document).on('click', function (e) {
-        var container = $(".sideBar");
-        if (!$(e.target).closest(container).length) {
-            $(".sideBar").animate({ left: "-320" }, "slow", "swing");
-        }
-        $('header > img').css("opacity", "unset")
-
-    });
-
-    // $(document).on('click', function (e) {
-    //     var container = $("header div");
-    //     if (!$(e.target).closest(container).length) {
-    //         $('header div input').removeClass('active');
-    //     }
-    // });
-
-
-} else {
-    $('nav').prepend(`<img src="/sub/img/close.png" alt="close">`);
-    $('nav > img').css({
-        height: 60,
-        "position": "absolute",
-        "top": 30,
-        "right": 30,
-        "transform": "rotate(0)",
-        "transition": "all 1s",
-        "cursor": "pointer"
-    });
-
-    $(function () {
-        $('header > img').on("click", (function () {
-            $('.sideBar').animate({ left: 0 }, "slow", "swing");
-            $(this).css("opacity", 0)
-            $('.sideBar').css({
-                width: "100vw",
-                height: "100vh"
-            });
-        }));
-        $('nav > img').click(function () {
-            $(this).css({
-            "transform": "rotate(360)",
-            "transition": "all 1s"
-            })
-            $(".sideBar").animate({ left: "-110vw" }, "slow", "swing");
-            $('header > img').css("opacity", "unset");
-        })
-    });
-};
 
 //ajax 삽입 상품에 이벤트
 setTimeout(function () {
