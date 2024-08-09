@@ -150,13 +150,13 @@ $(window).resize(function () {
     if (window.innerWidth > 821) {  // 다바이스 크기가 640이상
 
         $('header > img').on("mouseenter", (function () {
-            $('.sideBar').animate({ left: 0 }, "slow", "swing");
+            $('.sideBar').stop().animate({ left: 0 }, "slow", "swing");
             $(this).css("opacity", 0);
         }));
         $(document).on('click', function (e) {
             var container = $(".sideBar");
             if (!$(e.target).closest(container).length) {
-                $(".sideBar").animate({ left: "-320" }, "slow", "swing");
+                $(".sideBar").stop().animate({ left: "-320" }, "slow", "swing");
             }
             $('header > img').css("opacity", "unset")
     

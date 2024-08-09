@@ -47,7 +47,7 @@ body {
   width: 300px;
   background: rgba(255, 255, 255, 0.2);
   box-shadow: 10px 0px 10px rgba(0, 0, 0, 0.25);
-  backdrop-filter: blur(6px);
+  backdrop-filter: blur(10px);
   position: fixed;
   top: 0;
   left: -320px;
@@ -425,7 +425,7 @@ header .logo {
   justify-content: center;
   transition: all 0.5s;
   bottom: -80px;
-
+  backdrop-filter: blur(2px);
 }
 
 .shop>li>a span img,
@@ -726,7 +726,7 @@ footer p {
   }
   .sideBar {
     background: rgba(255, 255, 255, 0.5);
-    backdrop-filter: blur(11px);
+    backdrop-filter: blur(20px);
   }
 
   footer div > div {
