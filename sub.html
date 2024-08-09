@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Arencia</title>
     <link rel="stylesheet" href="./css/arencia_shop.css">
-
+    <!-- <link rel="icon" href="data:;base64,iVBORw0KGgo="> -->
 </head>
 
 <body>
@@ -15,8 +15,8 @@
             <ul class="navi">
                 <li><a href="#">About</a></li>
                 <li>
-                    <div><a href="#">Shop<img src="/img/m2.png" alt="#"></a></div>
-                    <ul class="subMenu">
+                    <div><a href="#">Shop<img src="./img/m2.png" alt="#"></a></div>
+                    <ul class="subMenu 1">
                         <li><a href="#">View All</a></li>
                         <li><a href="#">Face</a></li>
                         <li><a href="#">Body Care</a></li>
@@ -26,8 +26,8 @@
                     </ul>
                 </li>
                 <li>
-                    <div><a href="#">Community<img src="/img/m2.png" alt="#"></a></div>
-                    <ul class="subMenu">
+                    <div><a href="#">Community<img src="./img/m2.png" alt="#"></a></div>
+                    <ul class="subMenu 2">
                         <li><a href="#">Notice</a></li>
                         <li><a href="#">Review</a></li>
                         <li><a href="#">FAQ</a></li>
@@ -41,18 +41,21 @@
         </nav>
         <div class="page">
             <a href="#">Log In</a>
-            <div>|</div>
+            <!-- <div>|</div> -->
             <!-- 나중에 js로 넣기 -->
             <a href="#">My Cart</a>
         </div>
     </div>
 
     <main>
-        <header>
+        <header id="hd">
             <img src="./img/menu.svg" alt="#">
             <a href="#" class="logo">Arencia</a>
             <div>
-                <a href="#"><img src="./sub/img/basket.png" alt="basket"></a>
+                <a href="#">
+                    <span class="basket"></span>
+                    <img src="./sub/img/basket.png" alt="basket">
+                </a>
                 <a href="#"><img src="./sub/img/account.png" alt="account"></a>
                 <span><img src="./sub/img/search.svg" alt="search"></span>
                 <input id="keyword" name="keyword" fw-filter="" fw-label="검색어" fw-msg=""
