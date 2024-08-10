@@ -1,6 +1,6 @@
 $.ajax({
     type: "GET",
-    url: "./js/product.json",
+    url: "./js/3.product.json",
     dataType: "json",
     success: function(data) {
         var elem = "";

@@ -1,0 +1,24 @@
+@charset "utf-8";
+
+nav {margin: 11vh auto;}
+
+header div img, .basket {display: none !important;}
+
+.bar{height: 10vw;}
+/* .bar p {font-size: clamp(90%, 1.5vw, 200%);} */
+
+.sideBar {justify-content: unset;}
+
+.shop>li {
+  width: 46%;
+  margin-bottom: 40px;
+}
+
+p {
+  font-size: 12px;
+  line-height: 17px;
+}
+
+.per {display: none;}
+.shop ul li p {font-size: 13px;}
+footer div > div {flex-direction: column;}

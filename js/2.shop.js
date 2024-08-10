@@ -1,6 +1,6 @@
 $.ajax({
     type: "GET",
-    url: "./js/product.json",
+    url: "./js/3.product.json",
     dataType: "json",
     success: function (data) {
         var elem = "";
@@ -23,8 +23,6 @@ $.ajax({
             elem += `</li>`;
         });
         $(".shop").prepend(elem);
-
-        
     },
     error: function (xhr) {
         console.log(xhr.status + "/" + xhr.errorText);
@@ -54,8 +52,6 @@ $(document).ready(function () {
         } else {
             $('header').removeClass('scroll');
         }
-
-
     });
 
     //검색창
@@ -136,7 +132,7 @@ $(document).ready(function () {
         $(".shop h2").css({
             "font-family": "Yanone Kaffeesatz",
             "font-size": "clamp(35px, 6vw, 100px)",
-            "font-weight": "bold",
+            "font-weight": "bold"
         });
     });
 
@@ -145,7 +141,7 @@ $(document).ready(function () {
 $(window).resize(function () {
     //헤더와 메뉴바 상단 위치 값 맞춤
     var hheight = $('header').height();
-    $('.product').css('margin-top', hheight);
+    $('section').css('margin-top', hheight);
 
     if (window.innerWidth > 821) {  // 다바이스 크기가 640이상
 
@@ -159,14 +155,14 @@ $(window).resize(function () {
                 $(".sideBar").stop().animate({ left: "-320" }, "slow", "swing");
             }
             $('header > img').css("opacity", "unset")
-    
+
         });
-    
-    
+
+
     } else {
         $('nav').prepend(`<img src="./sub/img/close.svg" alt="close">`);
         $('nav > img:gt(0)').remove();
-        
+
         $('nav > img').css({
             height: 60,
             "position": "absolute",
@@ -174,23 +170,25 @@ $(window).resize(function () {
             "right": 30,
             "cursor": "pointer"
         });
-    
-    
-            $('header > img').on("click", (function () {
-                $('.sideBar').stop().animate({ left: 0 }, "slow", "swing");
-                $(this).css("opacity", 0)
-                $('.sideBar').css({
-                    width: "100vw",
-                    height: "100vh"
-                });
-                $('body').css("position", "fixed");
-            }));
-            $('nav > img').click(function () {
-                $(".sideBar").stop().animate({ left: "-110vw" }, "slow", "swing");
-                $('header > img').css("opacity", "unset");
-                $('body').css("position", "unset");
-            })
-    
+
+
+        $('header > img').on("click", (function () {
+            $('.sideBar').stop().animate({ left: 0 }, "slow", "swing");
+            $(this).css("opacity", 0)
+            $('.sideBar').css({
+                width: "100vw",
+                height: "100vh"
+            });
+            $('body').css("position", "fixed");
+            $(window).off("scroll"); //확인!
+
+        }));
+        $('nav > img').click(function () {
+            $(".sideBar").stop().animate({ left: "-110vw" }, "slow", "swing");
+            $('header > img').css("opacity", "unset");
+            $('body').css("position", "unset");
+        })
+
     };
 
 
