@@ -230,7 +230,7 @@ setTimeout(function () {
             // var hh = $('header').attr("class");
             // console.log(hh);
 
-            var under = document.querySelector('#hd');
+            var under = document.querySelector('header');
             // console.log(gk.className);
 
 

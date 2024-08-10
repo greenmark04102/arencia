@@ -6,10 +6,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Arencia</title>
     <link rel="stylesheet" href="./css/2-1shop-p.css">
-    <link rel="stylesheet" media="all and (max-width: 820px)" href="./css/2-2shop-t.css">
-    <link rel="stylesheet" media="all and (max-width: 666px)" href="./css/2-3shop-m.css">
-
-    <!-- <link rel="icon" href="data:;base64,iVBORw0KGgo="> -->
 </head>
 
 <body>
@@ -19,7 +15,7 @@
                 <li><a href="#">About</a></li>
                 <li>
                     <div><a href="#">Shop<img src="./img/m2.png" alt="#"></a></div>
-                    <ul class="subMenu 1">
+                    <ul class="subMenu">
                         <li><a href="#">View All</a></li>
                         <li><a href="#">Face</a></li>
                         <li><a href="#">Body Care</a></li>
@@ -30,7 +26,7 @@
                 </li>
                 <li>
                     <div><a href="#">Community<img src="./img/m2.png" alt="#"></a></div>
-                    <ul class="subMenu 2">
+                    <ul class="subMenu">
                         <li><a href="#">Notice</a></li>
                         <li><a href="#">Review</a></li>
                         <li><a href="#">FAQ</a></li>
@@ -44,14 +40,12 @@
         </nav>
         <div class="page">
             <a href="#">Log In</a>
-            <!-- <div>|</div> -->
-            <!-- 나중에 js로 넣기 -->
             <a href="#">My Cart</a>
         </div>
     </div>
 
     <main>
-        <header id="hd">
+        <header>
             <img src="./img/menu.svg" alt="#">
             <a href="#" class="logo">Arencia</a>
             <div>
@@ -65,15 +59,14 @@
                     placeholder="&quot;검색어&quot;를 입력해 주세요" autocomplete="off" value="" type="text">
             </div>
         </header>
-        <section class="product" data-filter-id="product">
+        <section data-filter-id="product">
             <div class="bar">
-                <!-- <h1>All</h1> -->
                 <span>
                     <p class="active" data-filter="0">All</p>
                     <p data-filter="1">Face</p>
                     <p data-filter="2">Body Care</p>
                     <p data-filter="3">Hair</p>
-                    <p class="pre" data-filter="4">Life Style</p>
+                    <p data-filter="4">Life Style</p>
                     <p data-filter="5">Gift Guide</p>
                 </span>
             </div>
@@ -87,9 +80,9 @@
     </main>
     <footer>
         <div>
-            <a class="wt" href="#">Arencia</a>
+            <a href="#">Arencia</a>
             <div>
-                <div class="wt eva con">
+                <div class="con">
                     <div>
                         <h3>C/S</h3>
                         <p>070 - 8879 - 7000</p>
@@ -101,7 +94,7 @@
                         <p>예금주: 주식회사 아렌시아</p>
                     </div>
                 </div>
-                <div class="wt eva com">
+                <div class="com">
                     <h3>COMPANY</h3>
                     <p>상호/대표자명: (주)아렌시아/임주현</p>
                     <p>사업자등록번호: 797-81-00501</p>

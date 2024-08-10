@@ -12,7 +12,6 @@
     {"imgfile1": "./sub/img/rose.png", "imgfile2": "./img/sec2/serum2.jpg", "imgfile3": "./sub/img/basket.svg", "link": "#", "title": "로즈마리 티 프레시 비건 바디 떡솝", "price": "29,000원", "index": "2"},
     {"imgfile1": "./sub/img/rosehip.png", "imgfile2": "./img/sec2/serum2.jpg", "imgfile3": "./sub/img/basket.svg", "link": "#", "title": "로얄 로즈힙 프레시 클렌저 떡솝", "price": "23,000원", "index": "1"},
     {"imgfile1": "./sub/img/cloud.png", "imgfile2": "./img/sec2/serum2.jpg", "imgfile3": "./sub/img/basket.svg", "link": "#", "title": "프레시 클라우드 바디스크럽", "price": "29,500원", "index": "2"},
-    {"imgfile1": "./sub/img/fume.png", "imgfile2": "./img/sec2/serum2.jpg", "imgfile3": "./sub/img/basket.svg", "link": "#", "title": "아렌시아 히솝 퓸밤 30g", "price": "25,000원", "index": "1"},
     {"imgfile1": "./sub/img/gift.png", "imgfile2": "./img/sec2/serum2.jpg", "imgfile3": "./sub/img/basket.svg", "link": "#", "title": "클렌저 디스커버리 세트 X 6종 떡솝", "price": "가격문의", "index": "5"}
 
 
