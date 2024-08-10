@@ -7,8 +7,11 @@ header div img, .basket {display: none !important;}
     backdrop-filter: blur(10px);
     display: flex;
     flex-direction: column;
-    justify-content: space-around;
   }
+
+  .navi {width: 65vw;}
+  .navi a {font-size: 3rem;}
+  .subMenu a {font-size: 2.5rem;}
 
   header div img {height: 5vw;}
 

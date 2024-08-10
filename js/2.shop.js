@@ -149,7 +149,7 @@ $(window).resize(function () {
             $('.sideBar').stop().animate({ left: 0 }, "slow", "swing");
             $(this).css("opacity", 0);
         }));
-        $('main').on('click', function (e) {
+        $('section').on('click', function (e) {
             var container = $(".sideBar");
             if (!$(e.target).closest(container).length) {
                 $(".sideBar").stop().animate({ left: "-320" }, "slow", "swing");

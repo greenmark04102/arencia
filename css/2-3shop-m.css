@@ -2,12 +2,15 @@
 
 nav {margin: 11vh auto;}
 
+.navi {width: unset;}
+.navi a {font-size: 2.5rem;}
+.subMenu a {font-size: 2rem;}
+
 header div img, .basket {display: none !important;}
 
 .bar{height: 10vw;}
 /* .bar p {font-size: clamp(90%, 1.5vw, 200%);} */
 
-.sideBar {justify-content: unset;}
 
 .shop>li {
   width: 46%;
