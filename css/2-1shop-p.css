@@ -231,7 +231,7 @@ header div input {
   width: 0px;
   border: 0;
   background: unset;
-  margin-bottom: 15px;
+  /* margin-bottom: 15px; */
   transition: all 0.5s;
 }
 

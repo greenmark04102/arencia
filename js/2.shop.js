@@ -50,7 +50,7 @@ $(document).ready(function () {
     })
 
     //돋보기 아이콘 클릭시 검색창 표시
-    $('header div span').click(function () {
+    $('header > div > span').click(function () {
         $('header div input').toggleClass('active');
     });
     $(document).on('click', function (e) {
@@ -60,14 +60,20 @@ $(document).ready(function () {
         }
     });
     //검색창에서 키워드 입력시 상품 필터링
-    $('header div input').keyup(function () {
-        var val = $(this).val();
+    $('header > div > input').keyup(function () {
+        $(".shop").css("justify-content", "unset");
+
+        const val = $(this).val();
         if (val == "") {
             $('.shop > li').show();
         } else {
             $('.shop > li').hide();
             $(".shop > li:contains('" + val + "')").show();
-        }
+        };
+        if (!$(this).val()) {
+            $(".shop").css("justify-content", "space-around")
+        };
+
     }); //이거공부....
 
     //Life Style 메뉴 클릭시 공지 
