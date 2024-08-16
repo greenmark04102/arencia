@@ -300,7 +300,8 @@ section {
   word-break: keep-all;
 }
 
-.shop>li>a {
+/* 상품 이미지 */
+.shop>li>span {
   width: auto;
   display: flex;
   align-items: end;
@@ -309,12 +310,16 @@ section {
   transition: all 1s;
 }
 
-.shop>li>a:hover {
+.shop>li>span:hover {
   background: rgba(0, 0, 0, 0.2);
   transition: all 0.5s;
 }
-
-.shop>li>a span {
+.shop img {
+  max-width: 250px;
+  width: -webkit-fill-available;
+}
+/* 호버 장바구니 */
+.it_basket {
   position: absolute;
   background: rgba(0, 0, 0, 0.5);
   width: 100%;
@@ -325,9 +330,10 @@ section {
   transition: all 0.5s;
   bottom: -80px;
   backdrop-filter: blur(3px);
+  cursor: pointer;
 }
 
-.shop>li>a span img {
+.it_basket img {
   width: 59px;
   height: 60px;
   color: #000;
@@ -335,15 +341,15 @@ section {
   transition: all 0.1s;
 }
 
-.shop>li>a span img:active {
+.it_basket img:active {
   transform: scale(0.8);
   transition: all 0.1s;
 }
 
-.shop>li>a:hover span {
+.shop>li>span:hover span {
   bottom: 0;
 }
-
+/* 여기 위치 손봐야할 거 같음 📍 */
 .caution {
   display: none;
 }
@@ -356,15 +362,41 @@ section {
   margin-right: auto;
 }
 
-.shop img {
-  max-width: 250px;
-  width: -webkit-fill-available;
-}
-
+/* 상품정보 */
 .shop ul {
   margin-top: 20px;
 }
 
+/* 상품명 */
+.item ul a {width: fit-content; margin: 0;}
+.item ul a p{
+  font-weight: 100;
+  /* transition: all 1s; */
+  position: relative;
+}
+.item ul a p::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  /* right: 50%; */
+  width: 0;
+  bottom: -4px;
+  height: 1px;
+  background-color: #08080D;
+  z-index: -1;
+  transition-property: width;
+  transition-duration: 0.5s;
+  transition-timing-function: ease-out;
+}
+
+/* .item ul a p:hover {font-weight: bold;} */
+.item ul a:hover p::after {
+  width: 100%;
+  /* right: 0; */
+}
+
+
+/* 가격 */
 .shop ul li {
   padding-top: 1.5vh;
   display: flex;
@@ -382,17 +414,18 @@ li {
   font-size: 15px;
 }
 
-.shop ul li>p {
+/* 할인시 원가 취소선 */
+.shop .price.active {
   font-weight: 100;
   text-decoration: line-through;
   color: rgba(0, 0, 0, 0.5);
 }
-
+/* 
 .shop ul li span {
   display: flex;
   gap: 5px;
   align-items: flex-end;
-}
+} */
 
 .shop .per {
   color: #005221;
@@ -415,6 +448,7 @@ footer>div {
   align-items: center;
 }
 
+/* 로고 */
 footer a {
   display: flex;
   align-items: center;
@@ -425,6 +459,7 @@ footer a {
   padding: 0 30px;
 }
 
+/* 회사 설명 */
 footer>div>div {
   width: fit-content;
   display: flex;

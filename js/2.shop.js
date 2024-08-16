@@ -1,23 +1,22 @@
+//상품 삽입
 $.ajax({
     type: "GET",
     url: "./js/3.product.json",
     dataType: "json",
     success: function (data) {
         var elem = "";
-        $.each(data, function(index, obj) {
-            elem += `<li class="item" data-filter="${this.index}">`;
-                elem += `<a href="${this.link}">`;
-                    elem += `<img src='${this.imgfile1}' alt='${this.link}'>`;
-                    elem += `<span><img src='${this.imgfile3}' alt='${this.link}'></span>`;
-                elem += `</a>`;
+        $.each(data, function() {
+            elem += `<li id="item" class="item" data-filter="${this.index}">`;
+                elem += `<span>`;
+                    elem += `<img src='${this.imgfile1}' alt='${this.title}'>`;
+                    elem += `<span class="it_basket"><img src='./sub/img/basket.svg' alt='장바구니'></span>`;
+                elem += `</span>`;
                 elem += `<ul>`;
                     elem += `<a href="${this.link}"><p>${this.title}</p></a>`;
                     elem += `<li>`;
-                        elem += `<span>`;
-                            elem += `<p class="per">${this.per}</p>`
-                            elem += `<p>${this.price}</p>`
-                        elem += `</span>`;
-                        elem += `<p>${this.ori}</p>`;
+                        elem += `<p class="per">${this.per}</p>`;
+                        elem += `<p class="final">${this.final}</p>`;
+                        elem += `<p class="price">${this.price}</p>`;
                     elem += `</li>`;
                 elem += `</ul>`;
             elem += `</li>`;
@@ -29,21 +28,9 @@ $.ajax({
     }
 });
 
-
-
 $(document).ready(function () {
 
-
-    //사이드 메뉴 토글
-    $(".navi>li:eq(1), .navi>li:eq(2)").click(function () {
-        $(this).find('.subMenu').stop().slideToggle(500);
-        $(this).siblings().find('.subMenu').stop().slideUp(500).siblings().find('img').removeClass('active');
-
-        $(this).find('img').toggleClass('active');
-
-    })
-
-    //헤더 스크롤
+    //헤더 스크롤 시 숨김, 표시
     let lastScrollY = $(window).scrollTop();
     $(window).on("scroll", () => {
         const currentScrollY = $(window).scrollTop()
@@ -52,9 +39,17 @@ $(document).ready(function () {
         } else {
             $('header').removeClass('scroll');
         }
-    });
+    }); //위로 스크롤하면 나타나는것도 업뎃해볼까,,,
 
-    //검색창
+    //사이드바 2차 메뉴 토글
+    $(".navi>li:eq(1), .navi>li:eq(2)").click(function () {
+        $(this).find('.subMenu').stop().slideToggle(500);
+        $(this).siblings().find('.subMenu').stop().slideUp(500).siblings().find('img').removeClass('active');
+
+        $(this).find('img').toggleClass('active');
+    })
+
+    //돋보기 아이콘 클릭시 검색창 표시
     $('header div span').click(function () {
         $('header div input').toggleClass('active');
     });
@@ -64,6 +59,7 @@ $(document).ready(function () {
             $('header div input').removeClass('active');
         }
     });
+    //검색창에서 키워드 입력시 상품 필터링
     $('header div input').keyup(function () {
         var val = $(this).val();
         if (val == "") {
@@ -72,10 +68,11 @@ $(document).ready(function () {
             $('.shop > li').hide();
             $(".shop > li:contains('" + val + "')").show();
         }
-    });
+    }); //이거공부....
 
-    //준비중 공지
-    $(".bar p:gt(1)").on("click", function () {
+    //Life Style 메뉴 클릭시 공지 
+    // addClass로 바꿀까,,,
+    $(".bar p:gt(1)").click(function () {
         $(".shop").css({
             "justify-content": "unset",
             gap: "5vw"
@@ -88,7 +85,6 @@ $(document).ready(function () {
         });
         $(".caution").addClass('none')
 
-
         $(".shop h2").css({
             "font-family": "Yanone Kaffeesatz",
             "font-size": "100px",
@@ -99,7 +95,6 @@ $(document).ready(function () {
 
 
     $(".bar p:lt(2)").click(function () {
-        // $(".shop").css("justify-content", "space-around");
         $(".shop").css({
             "justify-content": "space-around",
             gap: "5vw"
@@ -111,11 +106,10 @@ $(document).ready(function () {
             gap: "unset"
         });
         $(".caution").addClass('none')
-        // $(".caution").attr('style', 'display: none !important');
 
     });
 
-    $('.bar p:nth-of-type(5)').on("click", function () {
+    $('.bar p:nth-of-type(5)').click(function () {
         $(".shop").css({
             "justify-content": "center",
             gap: "unset"
@@ -143,8 +137,8 @@ $(window).resize(function () {
     var hheight = $('header').height();
     $('section').css('margin-top', hheight);
 
-    if (window.innerWidth > 821) {  // 다바이스 크기가 640이상
-
+    //사이드바 슬라이드
+    if (window.innerWidth > 821) {  // 다바이스 크기가 820 이상
         $('header > img').on("mouseenter", (function () {
             $('.sideBar').stop().animate({ left: 0 }, "slow", "swing");
             $(this).css("opacity", 0);
@@ -155,14 +149,11 @@ $(window).resize(function () {
                 $(".sideBar").stop().animate({ left: "-320" }, "slow", "swing");
             }
             $('header > img').css("opacity", "unset")
-
         });
 
-
-    } else {
-        $('nav').prepend(`<img src="./sub/img/close.svg" alt="close">`);
+    } else {// 다바이스 크기가 820 미만
+        $('nav').prepend(`<img src="./sub/img/close.svg" alt="close">`); //사이드 바 닫기버튼 생성
         $('nav > img:gt(0)').remove();
-
         $('nav > img').css({
             height: 60,
             "position": "absolute",
@@ -170,7 +161,6 @@ $(window).resize(function () {
             "right": 30,
             "cursor": "pointer"
         });
-
 
         $('header > img').on("click", (function () {
             $('.sideBar').stop().animate({ left: 0 }, "slow", "swing");
@@ -181,72 +171,91 @@ $(window).resize(function () {
             });
             $('body').css("position", "fixed");
             $(window).off("scroll"); //확인!
-
         }));
         $('nav > img').click(function () {
             $(".sideBar").stop().animate({ left: "-110vw" }, "slow", "swing");
             $('header > img').css("opacity", "unset");
             $('body').css("position", "unset");
         })
-
     };
-
 
 }).resize();
 
-
-
 //ajax 삽입 상품에 이벤트
 setTimeout(function () {
+    //json에서 할당되지 않아 표시 할 수 없는 값 숨김
+    //each foreach 차이 뭐지...📍
     var str = 'undefined';
-    $(".shop ul li span p").each(function () {
-        if (str == $(this).text()) {
-            $(this).parent().siblings().remove();
+    $(".per").each(function () {
+        if (str == $(this).text()) {;
+            $(this).siblings().not($(".price")).remove();
             $(this).remove();
-        }
+        }else {
+            $(this).next().empty();
+        };
     });
 
-    filterMenuInit();
+    //제품 가격 형식 설정, 계산 기능
+    var item = document.querySelectorAll('.item');
+    item.forEach(v => {
+        const box = [...v.querySelectorAll('.item > ul > li')]; //가격란
+        box.forEach(bt => {
+            const price = bt.lastChild; //원가
+            const per = bt.firstChild; //할인율
+            const final = bt.firstChild.nextSibling; //할인가            
+            const price_txt = bt.lastChild.textContent;
+            const per_txt = bt.firstChild.textContent;
+
+            //원가 원단위 표시
+            const form = price_txt.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",") + '원';
+            const node = document.createElement('p');
+            node.classList.add("price");
+            node.innerHTML = form;
+            price.replaceWith(node);
+
+            //할인제품의 경우 퍼센트와 원가를 계산 후 최종값으로 삽입
+            if (bt.querySelector('.per')) {
+                per.insertAdjacentText('beforeend','%') //퍼센트 삽입
+
+                function calc(whole, sale) {
+                    return whole *= sale
+                }
+
+                const result = calc(price_txt, 1 - per_txt / 100).toLocaleString() + '원';
+                final.append(result);
+                node.classList.add("active"); //원가는 line-through 처리
+            };
+        });
+    });;
 
     //장바구니 카운트
     let count = 0;
-    const value = document.querySelector(".basket"); //contents 숫자표시
-    const md = document.querySelectorAll(".shop>li>a span img, .gr>li>a span img");
-    const confirm = document.querySelector("header");
+    const value = document.querySelector(".basket"); // 카운트 표시 위치
+    const item_ck = document.querySelectorAll(".it_basket img");
+    const header = document.querySelector("header");
 
-
-    md.forEach(function (btn) {
+    item_ck.forEach(function (btn) {
         btn.addEventListener("click", function (e) {
             count++;
 
+            value.innerHTML = count
             value.style.display = "flex"
             value.style.scale = 1
-            value.innerHTML = count
 
-            // confirm.classList.remove("scroll")
-            // setTimeout(function () {
-            //     confirm.classList.add("scroll")
-            // }, 1000);
-            // var hh = $('header').attr("class");
-            // console.log(hh);
-
-            var under = document.querySelector('header');
-            // console.log(gk.className);
-
-
-
-            if (under.className == 'scroll') { //올라간상태
-                confirm.classList.remove("scroll")
+            //스크롤을 내린 상태에서 클릭시 헤더가 내려오면서 장바구니 확인
+            if (header.className == 'scroll') {
+                header.classList.remove("scroll")
                 setTimeout(function () {
-                    confirm.classList.add("scroll")
+                    header.classList.add("scroll")
                 }, 1000);
             };
 
-
-
         });
     });
-}, 500);
+
+    filterMenuInit(); //↓필터링 함수 실행
+
+}, 50);
 
 //메뉴에 따라 상품 필터링
 const filterMenuInit = () => {
@@ -267,7 +276,6 @@ const filterMenuInit = () => {
                     list.style.display = list.getAttribute('data-filter') === "4" ? 'flex'
                         : list.getAttribute('data-filter') === filterType ? 'list-item'
                             : 'none';
-
                 })
             })
         })
