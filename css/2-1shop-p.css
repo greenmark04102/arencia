@@ -135,10 +135,10 @@ nav {
 
 .page {
   font-family: "Marcellus", serif;
-  font-size: 2rem;
+  font-size: 1.8rem;
   display: flex;
-  width: 100%;
-  position: absolute;
+  width: 90%;
+  position: relative;
   bottom: 5vh;
 }
 
@@ -592,6 +592,10 @@ footer h3 {
 
   .subMenu a {
     font-size: 2rem;
+  }
+
+  .page {
+    width: 70%;
   }
 
   .bar {

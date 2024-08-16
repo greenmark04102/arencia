@@ -138,7 +138,7 @@ $(window).resize(function () {
     $('section').css('margin-top', hheight);
 
     //사이드바 슬라이드
-    if (window.innerWidth > 821) {  // 다바이스 크기가 820 이상
+    if (window.innerWidth > 821) {  // 디바이스 크기가 820 이상
         $('header > img').on("mouseenter", (function () {
             $('.sideBar').stop().animate({ left: 0 }, "slow", "swing");
             $(this).css("opacity", 0);
@@ -151,7 +151,7 @@ $(window).resize(function () {
             $('header > img').css("opacity", "unset")
         });
 
-    } else {// 다바이스 크기가 820 미만
+    } else {// 디바이스 크기가 820 미만
         $('nav').prepend(`<img src="./sub/img/close.svg" alt="close">`); //사이드 바 닫기버튼 생성
         $('nav > img:gt(0)').remove();
         $('nav > img').css({
