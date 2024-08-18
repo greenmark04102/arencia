@@ -77,63 +77,40 @@ $(document).ready(function () {
     }); //이거공부....
 
     //Life Style 메뉴 클릭시 공지 
-    // addClass로 바꿀까,,,
-    $(".bar p:gt(1)").click(function () {
-        $(".shop").css({
-            "justify-content": "unset",
-            gap: "5vw"
-        });
-
-        $(".caution").css({
+    function update() {
+        $(".update").css({
             display: "none",
             "flex-direction": "unset",
             gap: "unset"
         });
-        $(".caution").addClass('none')
+        $(".update").addClass('none')
+    }
 
-        $(".shop h2").css({
-            "font-family": "Yanone Kaffeesatz",
-            "font-size": "100px",
-            "font-weight": "bold",
-        });
-
-    });
-
-
-    $(".bar p:lt(2)").click(function () {
-        $(".shop").css({
-            "justify-content": "space-around",
-            gap: "5vw"
-        });
-
-        $(".caution").css({
-            display: "none",
-            "flex-direction": "unset",
-            gap: "unset"
-        });
-        $(".caution").addClass('none')
-
-    });
-
-    $('.bar p:nth-of-type(5)').click(function () {
-        $(".shop").css({
-            "justify-content": "center",
-            gap: "unset"
-        });
-
-        $(".caution").removeClass('none')
-
-        $(".caution").css({
-            display: "flex",
-            "flex-direction": "column",
-            gap: "30px"
-        });
-
-        $(".shop h2").css({
-            "font-family": "Yanone Kaffeesatz",
-            "font-size": "clamp(35px, 6vw, 100px)",
-            "font-weight": "bold"
-        });
+    $(".bar p").click(function () {
+        if ($("p").index(this) <= 1) {
+            $(".shop").css({
+                "justify-content": "space-around",
+                gap: "5vw"
+            });
+            update();
+        }else if ($("p").index(this) == 4) {
+            $(".shop").css({
+                "justify-content": "center",
+                gap: "unset"
+            });
+            $(".update").removeClass('none')
+            $(".update").css({
+                display: "flex",
+                "flex-direction": "column",
+                gap: "30px"
+            });
+        }else {
+            $(".shop").css({
+                "justify-content": "unset",
+                gap: "5vw"
+            });
+            update();
+        };
     });
 
 });

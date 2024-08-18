@@ -289,7 +289,7 @@ section {
   margin: 0;
 }
 
-.shop {
+.shop{
   width: 100%;
   display: flex;
   flex-direction: row;
@@ -350,12 +350,20 @@ section {
   bottom: 0;
 }
 /* 여기 위치 손봐야할 거 같음 📍 */
-.caution {
+.update {
   display: none;
 }
 
-.caution.none {
+.update.none {
   display: none !important;
+  flex-direction: unset;
+  gap: unset;
+}
+
+.update h2 {
+  font-family: "Yanone Kaffeesatz", sans-serif;
+  font-size: clamp(35px, 6vw, 100px);
+  font-weight: bold;
 }
 
 .item:nth-last-child(2) {
