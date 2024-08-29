@@ -183,11 +183,13 @@ setTimeout(function () {
     item.forEach(v => {
         const box = [...v.querySelectorAll('.item > ul > li')]; //가격란
         box.forEach(bt => {
+            console.log(bt);
             const price = bt.lastChild; //원가
             const per = bt.firstChild; //할인율
             const final = bt.firstChild.nextSibling; //할인가            
             const price_txt = bt.lastChild.textContent;
             const per_txt = bt.firstChild.textContent;
+            // console.log(per);
 
             //원가 원단위 표시
             const form = price_txt.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",") + '원';

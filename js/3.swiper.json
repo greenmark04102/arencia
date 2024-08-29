@@ -1,0 +1,6 @@
+[  
+    {"imgfile1": "./img/sec2/greenRs.png", "imgfile2": "./img/sec2/greenRs.jpg", "link": "#", "title": "그린 아르티장 클렌저 떡솝 120g", "price": 42000, "index": "1"}, 
+    {"imgfile1": "./img/sec2/bltea.png", "imgfile2": "./img/sec2/bltea.jpg", "link": "#", "title": "블랙티 & 유즈 떡솝 클렌저 120g", "price": 25000, "per": 20, "index": "1"},
+    {"imgfile1": "./img/sec2/fresh.png", "imgfile2": "./img/sec2/fresh.jpg", "link": "#", "title": "프레시 홀리 그링클 세럼", "price": 36000, "index": "1"},
+    {"imgfile1": "./img/sec2/hysop.png", "imgfile2": "./img/sec2/hysop.jpg", "link": "#", "title": "아르티장 히솝 블러링 크림", "price": 74000, "per": 20, "index": "1"}
+]

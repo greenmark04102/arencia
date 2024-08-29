@@ -428,12 +428,6 @@ li {
   text-decoration: line-through;
   color: rgba(0, 0, 0, 0.5);
 }
-/* 
-.shop ul li span {
-  display: flex;
-  gap: 5px;
-  align-items: flex-end;
-} */
 
 .shop .per {
   color: #005221;

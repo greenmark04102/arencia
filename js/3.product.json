@@ -13,10 +13,4 @@
     {"imgfile1": "./sub/img/rosehip.png", "imgfile2": "./img/sec2/serum2.jpg", "link": "#", "title": "로얄 로즈힙 프레시 클렌저 떡솝", "price": 23000, "index": "1"},
     {"imgfile1": "./sub/img/cloud.png", "imgfile2": "./img/sec2/serum2.jpg", "link": "#", "title": "프레시 클라우드 바디스크럽", "price": 29500, "index": "2"},
     {"imgfile1": "./sub/img/gift.png", "imgfile2": "./img/sec2/serum2.jpg", "link": "#", "title": "클렌저 디스커버리 세트 X 6종 떡솝", "price": "153000", "index": "5"}
-
-
-
-
-
-    
 ]
