@@ -179,9 +179,13 @@ header>* {
   margin: 0;
 }
 
+
+
 header .logo {
   font-size: clamp(48px, 4vw, 77px);
 }
+
+
 
 header div {
   display: flex;
@@ -194,9 +198,6 @@ header div img {
   height: 45px;
 }
 
-header>img {
-  height: clamp(50%, 3vw, 200%);
-}
 
 header>div>a:first-child {
   position: relative;

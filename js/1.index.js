@@ -6,13 +6,13 @@ $.ajax({
         var elem = "";
         $.each(data, function(index, obj) {
             elem += `<li class="swiper-slide">`;
-                elem += `<div class="pd">`;
+                elem += `<div class="pic">`;
                     elem += `<a href="${this.link}">`;
                         elem += `<img src='${this.imgfile1}' alt='${this.link}'>`;
                         elem += `<img src='${this.imgfile2}' alt='${this.link}'>`;
                     elem += `</a>`;
                 elem += `</div>`;
-                elem += `<div class="ds">`;
+                elem += `<div class="spec">`;
                     elem += `<p>${this.title}</p>`;
                     elem += `<ul>`;
                         elem += `<li class="per">${this.per}</li>`;
@@ -145,6 +145,36 @@ $(window).resize(function () {
     // var hheight = $('header').height();
     // $('section').css('margin-top', hheight);
 
+    let leftSt = document.createElement("style");
+    leftSt.innerHTML = `.left::before {
+        content: "";
+        width: clamp(900px, 60vw, 970px);
+        height: 400px;
+        background: #D8D8D8;
+        position: absolute;
+        z-index: -1;
+        left: -510px;
+        display: block;
+        outline: 3px solid red
+    }`
+    document.head.appendChild(leftSt);
+
+    var width = Number($(".sec2>div").css("width").replace(/[^0-9]/g, ""));
+    // console.log(width);
+
+    if (width < 1449) {
+        // $(".left::before").css("display", "none");
+        // leftst.innerHTML = leftst.innerHTML.replace("display: none");
+        leftSt.innerHTML = leftSt.innerHTML.replace(
+            "display: block",
+            "display: none"
+        );
+        $('.left > div:nth-child(2)').css("display", "none");
+    } else {
+        $('.left > div:nth-child(2)').css("display", "flex");
+    };
+
+
     //사이드바 슬라이드
     if (window.innerWidth > 821) {  // 디바이스 크기가 820 이상
         $('header > img').on("mouseenter", (function () {
@@ -262,9 +292,9 @@ setTimeout(function(){
 
     var item = document.querySelectorAll('.swiper-slide');
     item.forEach(v => {
-        const box = [...v.querySelectorAll('.ds > ul')]; //가격란
+        const box = [...v.querySelectorAll('.spec > ul')]; //가격란
         box.forEach(bt => {
-            console.log(bt);
+            // console.log(bt);
             const price = bt.lastChild; //원가
             const per = bt.firstChild; //할인율
             const final = bt.firstChild.nextSibling; //할인가            
@@ -317,33 +347,33 @@ setTimeout(function(){
     
 }, 100);
 
-window.addEventListener("wheel", function(e){
-	e.preventDefault();
-},{passive : false});
+// window.addEventListener("wheel", function(e){
+// 	e.preventDefault();
+// },{passive : false});
 
-let $html = $("html");
+// let $html = $("html");
  
-let page = 1;  // 뷰포트에 표시되는 페이지의 번호
+// let page = 1;  // 뷰포트에 표시되는 페이지의 번호
  
-let lastPage = $("section").length; // 마지막 페이지의 번호 
+// let lastPage = $("section").length; // 마지막 페이지의 번호 
  
-$html.animate({scrollTop:0},10); // 문서(페이지)가 로드되면 첫 페이지 시작
+// $html.animate({scrollTop:0},10); // 문서(페이지)가 로드되면 첫 페이지 시작
 
-$(window).on("wheel", function(e){
+// $(window).on("wheel", function(e){
  
-	if($html.is(":animated")) return;
+// 	if($html.is(":animated")) return;
  
-	if(e.originalEvent.deltaY > 0){
-		if(page== lastPage) return;
+// 	if(e.originalEvent.deltaY > 0){
+// 		if(page== lastPage) return;
  
-		page++;
-	}else if(e.originalEvent.deltaY < 0){
-		if(page == 1) return;
+// 		page++;
+// 	}else if(e.originalEvent.deltaY < 0){
+// 		if(page == 1) return;
  
-		page--;
-	}
-	var posTop = (page-1) * $(window).height();
+// 		page--;
+// 	}
+// 	var posTop = (page-1) * $(window).height();
  
-	$html.animate({scrollTop : posTop});
+// 	$html.animate({scrollTop : posTop});
  
-});
+// });

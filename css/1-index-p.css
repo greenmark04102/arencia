@@ -36,9 +36,11 @@ a {
 }
 
 
-html {font-size: 10px;}
+html {
+  font-size: 10px;
+}
 
-body::-webkit-scrollbar {
+/* body::-webkit-scrollbar {
   width: 14px;
 }
 
@@ -56,7 +58,7 @@ body::-webkit-scrollbar-thumb:hover {
 
 body::-webkit-scrollbar-track {
   background-color: #00ff0000;
-}
+} */
 
 .sideBar {
   height: 100vh;
@@ -74,11 +76,11 @@ body::-webkit-scrollbar-track {
   display: flex;
   flex-direction: column;
 }
-/* 
+
 .sideBar::-webkit-scrollbar,
 html::-webkit-scrollbar {
   display: none;
-} */
+}
 
 nav {
   width: fit-content;
@@ -207,6 +209,7 @@ header.scroll {
   transition: top 0.5s ease-out;
 }
 
+/* 다른점 ✅*/
 /* header>* {
   margin: 0;
 } */
@@ -220,6 +223,8 @@ header img {
   margin: 0;
   cursor: pointer;
   transition: all 0.5s;
+  height: clamp(50%, 3vw, 200%);
+  /* 바꾼곳 ✅ */
 }
 
 /* .logo {
@@ -254,16 +259,16 @@ footer {
   display: flex;
   align-items: center;
   background-color: #D8D8D8;
-  outline: solid 1px ;
+  outline: solid 1px;
   z-index: 10;
   position: relative;
 }
 
 .sec2>div {
   /* margin: 0; */
-  /* padding: 0; */ 
+  /* padding: 0; */
   max-width: 1835px;
-  /* height: 50vh; */
+  height: 50vh;
   display: flex;
   flex-wrap: wrap;
   width: 100%;
@@ -271,32 +276,26 @@ footer {
   padding: 0 50px;
   position: relative;
   text-align: center;
+  outline: 3px solid #000;
 }
 
- .left {
+.left {
+  /* outline: 1px solid red; */
   display: flex;
   flex-direction: column;
   justify-content: center;
   gap: 20px;
   align-items: center;
   z-index: 100;
+  /* min-height: 300px; */
+  padding: 50px 0;
 }
-/* 
-.left::before {
-  content: "";
-  width: calc(110rem + 0.1vw);
-  height: 500px;
-  background: #D8D8D8;
-  position: absolute;
-  z-index: -1;
-  left: -600px;
-} */
 
 .left h1 {
   font-family: Marcellus;
-  font-size: calc(8rem + 0.1vw);
+  font-size: clamp(80px, 5vw, 5vw);
   font-weight: 100;
-  line-height: 80px;
+  line-height: 1;
 }
 
 .left h1:last-child {
@@ -338,39 +337,26 @@ footer {
   font-weight: 600 !important;
 }
 
-/* .swiper {
-  width: 100%;
-  height: 100%;
-}
-
-.swiper-slide {
-  text-align: center;
-  font-size: 18px;
-  background: #fff;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.swiper-slide img {
-  display: block;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-} */
 
 .swiper {
   width: 75%;
   height: 100%;
 }
 
+.swiper-wrapper {
+  height: unset;
+}
+
+
 .container {
   overflow: visible;
+  /* outline: 1px solid purple; */
+  margin: 0;
 }
 
 .swiper-slide {
   text-align: center;
-  font-size: 18px;
+  /* font-size: 18px; */
   display: flex;
   justify-content: center;
   align-items: center;
@@ -398,19 +384,20 @@ footer {
 .swiper-slide a:hover img:last-child {
   opacity: 1;
 }
+
 /* swiper-scrollbar-drag {margin: 0;} */
 
-.pd {
+.pic {
   position: relative;
 }
 
-.pd a {
+.pic a {
   display: flex;
   justify-content: center;
 }
 
 /* 사라짐❓ */
-.pd svg {
+.pic svg {
   opacity: 0;
   transition: 0.5s;
   width: 50px;
@@ -428,30 +415,33 @@ footer {
   opacity: 1;
 }
 
-.pd svg:hover {
+.pic svg:hover {
   opacity: 1 !important;
   background: rgb(255, 255, 255);
   box-shadow: inset -2px -3px 7px rgba(0, 0, 0, 0.36);
 }
 
-.pd svg>path {
+.pic svg>path {
   stroke-width: 0.3;
   stroke: black;
 }
 
-.ds {
+.spec {
   display: flex;
   gap: 20px;
   flex-direction: column;
 }
 
-.ds p {
+/* title */
+.spec p {
   font-family: Nanum Gothic;
-  font-size: calc(1.7rem + 0.1vw);
+  font-size: clamp(13px, 1.1vw, 17px);
   font-weight: 600;
+  outline: 1px solid;
 }
 
-.ds>ul {
+/* price */
+.spec>ul {
   /* display: flex; */
   /* flex-direction: column; */
   /* align-items: end; */
@@ -469,19 +459,20 @@ footer {
   /* margin: 0; */
 }
 
-.ds .price.active {
+.spec .price.active {
   font-weight: 100;
   text-decoration: line-through;
   color: rgba(0, 0, 0, 0.5);
 }
 
-.ds .per {
+.spec .per {
   color: #005221;
   font-family: "Pretendard Variable";
   font-size: 17px;
   line-height: 21px;
 }
-.ds ul>li {
+
+.spec ul>li {
   position: relative;
   color: #000;
   text-decoration: unset;
@@ -491,7 +482,7 @@ footer {
   /* margin: 0; */
 }
 
-.ds li span:first-child {
+.spec li span:first-child {
   font-size: calc(1.3rem + 0.1vw);
   font-weight: 600;
   color: rgba(0, 0, 0, 0.5);
@@ -500,14 +491,14 @@ footer {
 }
 
 
-.ds li span:last-child {
+.spec li span:last-child {
   color: olivedrab;
   font-family: "Pretendard Variable";
   font-weight: 600;
   font-size: calc(1.8rem + 0.1vw);
 }
 
-.ds li span:last-child::before {
+.spec li span:last-child::before {
   content: "";
   position: absolute;
   left: 70px;
@@ -530,7 +521,10 @@ footer {
   background: black;
   border-radius: 0px;
 }
-.swiper-scrollbar-drag {margin: unset;}
+
+.swiper-scrollbar-drag {
+  margin: unset;
+}
 
 
 /* sec3 */
@@ -682,7 +676,7 @@ div {
   background-color: #D8D8D8;
 }
 
-.sec4 > div {
+.sec4>div {
   position: relative;
   top: 100vh;
 }
@@ -721,6 +715,8 @@ div {
   font-size: calc(3rem + 0.1vw);
   font-weight: 500;
   margin: 32px 0 15px 0;
+  cursor: pointer;
+
 }
 
 .sec4 p {
@@ -855,6 +851,7 @@ footer h3 {
   margin: 10px 0;
   font-size: 1.5rem;
 }
+
 @media (max-width: 820px) {
   .sideBar {
     background: rgba(255, 255, 255, 0.5);
@@ -875,11 +872,34 @@ footer h3 {
   .subMenu a {
     font-size: 2.5rem;
   }
-  .sec2>div {flex-direction: column;}
-  .left {margin-bottom: 30px;}
-  .left div:last-child {display: none;}
-  .left::before {display: none;}
-  .swiper {width: 100%;}
+
+  .sec2>div {
+    flex-direction: column;
+    height: unset;
+  }
+
+  .left {
+    margin-bottom: 30px;
+  }
+
+  .left div:last-child {
+    display: none;
+  }
+
+  .left::before {
+    display: none;
+  }
+
+  .swiper {
+    width: 100%;
+  }
+
+  .spec p {
+    font-size: 17px;
+  }
+
+
+
   footer {
     padding: 0 30px 30px 30px;
   }
@@ -930,6 +950,18 @@ footer h3 {
 
   .page {
     width: 70%;
+  }
+
+  .left {
+    padding: 10px 0;
+  }
+
+  .left h1 {
+    font-size: clamp(10px, 15vw, 15vw);
+  }
+
+  .left h1:last-child {
+    font-size: clamp(10px, 13vw, 13vw);
   }
 
   footer div>div {
