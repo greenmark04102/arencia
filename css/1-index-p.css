@@ -277,6 +277,7 @@ footer {
   position: relative;
   text-align: center;
   outline: 3px solid #000;
+  /* background-color: #005221; */
 }
 
 .left {
@@ -341,6 +342,7 @@ footer {
 .swiper {
   width: 75%;
   height: 100%;
+  display: flex;
 }
 
 .swiper-wrapper {
@@ -435,8 +437,10 @@ footer {
 /* title */
 .spec p {
   font-family: Nanum Gothic;
-  font-size: clamp(13px, 1.1vw, 17px);
+  /* font-size: clamp(15px, 1.1vw, 17px); */
+  font-size: 16px;
   font-weight: 600;
+  word-break: keep-all;
   outline: 1px solid;
 }
 
@@ -607,7 +611,7 @@ div {
 
 .sec3 h1 {
   font-family: Marcellus;
-  font-size: calc(3.5rem + 0.1vw);
+  font-size: clamp(50px, 3.2vw, 60px);
   text-align: right;
   font-weight: 100;
 }
@@ -616,18 +620,20 @@ div {
   font-family: Yanone Kaffeesatz;
   font-size: calc(5.5rem + 0.1vw);
   font-weight: 400;
+  margin: 0;
+  height: calc(4.5rem + 0.1vw);
 }
 
 .sec3 h3 {
   font-family: Yanone Kaffeesatz;
-  font-size: calc(2rem + 0.1vw);
+  font-size: 25px;
 }
 
 .sec3 P {
   font-family: Nanum Myeongjo;
-  font-size: calc(1.5rem + 0.1vw);
+  font-size: 20px;
   margin-top: calc(1rem + 0.1vw);
-  line-height: calc(2.5rem + 0.1vw);
+  line-height: 1.5;
 }
 
 .right {
@@ -652,11 +658,7 @@ div {
   align-items: flex-end;
   width: fit-content;
   gap: calc(2rem + 0.1vw);
-}
-
-.right h2 {
   margin: 0;
-  height: calc(4.5rem + 0.1vw);
 }
 
 .r1,
@@ -721,8 +723,8 @@ div {
 
 .sec4 p {
   font-family: "Nanum Gothic", sans-serif;
-  font-size: calc(1.3rem + 0.1vw);
-  line-height: calc(2.4rem + 0.1vw);
+  font-size: 16px;
+  line-height: 1.5;
   color: rgba(0, 0, 0, 0.8);
   word-break: keep-all;
   font-weight: bold;
@@ -768,6 +770,7 @@ div {
   padding: 20px;
   border-right: 1px solid rgba(0, 0, 0, 0.3);
 }
+
 
 
 /* sec5 */
@@ -852,6 +855,54 @@ footer h3 {
   font-size: 1.5rem;
 }
 
+@media (max-width: 1427px){
+  .swiper {
+    height: unset;
+  }
+}
+
+@media (max-width: 1200px){
+  .sec3 {
+    flex-direction: column;
+    height: 100%;
+  }
+  .sec3>img {
+    width: 90vw;
+    /* margin-bottom: 50px; */
+  }
+/* 
+  .sec3 h1 {
+    font-size: 20px;
+  } */
+  .sec3 h1 {
+    /* font-size: 50px; */
+    margin-bottom: 30px;
+  }
+
+  .sec3>div {
+    margin: 50px 0;
+  }
+
+  .sec4{
+    height: fit-content;
+    padding-bottom: 300px;
+  }
+
+  .sec4 img {
+    width: 35vw;
+  }
+  .sec4>div>div{
+    width: 100%;
+    /* overflow-x: auto; */
+    transform: translate(0, 0);
+  }
+  .sec4>div>div>div {
+    overflow: unset;
+  }
+
+
+}
+
 @media (max-width: 820px) {
   .sideBar {
     background: rgba(255, 255, 255, 0.5);
@@ -894,10 +945,19 @@ footer h3 {
     width: 100%;
   }
 
+  
+
   .spec p {
-    font-size: 17px;
+    /* font-size: 20px; */
+    font-size: clamp(13px, 3vw, 20px);
+
   }
 
+  .spec ul>li, .spec .per {
+    /* font-size: 20px; */
+    font-size: clamp(13px, 3vw, 20px);
+
+  }
 
 
   footer {
@@ -951,7 +1011,7 @@ footer h3 {
   .page {
     width: 70%;
   }
-
+/* sec2 */
   .left {
     padding: 10px 0;
   }
@@ -963,6 +1023,60 @@ footer h3 {
   .left h1:last-child {
     font-size: clamp(10px, 13vw, 13vw);
   }
+
+  /* .spec p {
+    font-size: 13px;
+  } */
+
+  .sec3 > img {
+    width: 90vw;
+    /* margin-bottom: 50px; */
+  }
+
+
+  .sec3 h1 {
+    font-size: 6.5vw;
+    margin-bottom: 30px;
+  }
+  .sec3 h2 {
+    font-size: 35px;
+    height: 30px;
+  }
+  .sec3 h3 {
+    font-size: 16px;
+  }
+
+  .sec3 p {
+    font-size: 12px;
+    line-height: 1.5;
+  }
+  /* .right {
+    margin-bottom: 50px;
+  } */
+  .right>div{
+    padding: 25px 0 18px 0;
+  }
+  .right img{
+    width: 70px;
+    margin-right: 15px;
+  }
+  /* 📍 */
+  .r1>div>div{
+    margin: 0;
+  }
+
+  .sec4 h2 {
+    font-size: 20px;
+    text-decoration: underline;
+    margin: 15px 0;
+  }
+
+
+  .sec4 p {
+    font-size: 12px;
+  }
+
+
 
   footer div>div {
     flex-direction: column;

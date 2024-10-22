@@ -18,12 +18,6 @@ $.ajax({
                         elem += `<li class="per">${this.per}</li>`;
                         elem += `<li class="final">${this.final}</li>`;
                         elem += `<li class="price">${this.price}</li>`;
-                        // elem += `<p class="per">${this.per}</p>`;
-                        // elem += `<p class="final">${this.final}</p>`;
-                        // elem += `<p class="price">${this.price}</p>`;
-                        // elem += `<li>`;
-
-                        // elem += `</li>`;
                     elem += `</ul>`;
                 elem += `</div>`;
             elem += `</li>`;
@@ -85,59 +79,6 @@ $(document).ready(function () {
 
         $(this).find('img').toggleClass('active');
     })
-
-
-
-
-    //사이드바
-    // $('.sec1 img').on("mouseenter", (function () {
-    //     $('.sideBar').animate({ left: 0 }, "slow", "swing");
-    //     $(this).css("opacity", 0)
-    // }));
-
-    // $(document).on('click', function(e) {
-    //     var container = $(".sideBar");
-    //     if (!$(e.target).closest(container).length) {
-    //         // container.hide();
-    //         $(".sideBar").animate({ left: "-320" }, "slow", "swing");
-    //     }
-    //     $('.sec1 img').css("opacity", "unset")
-
-    // });
-
-    // //메뉴
-    // $(".navi>li:eq(1), .navi>li:eq(2)").click(function () {
-    //     $(this).find('.subMenu').stop().slideToggle(500)
-    //     // $('.navi li img').toggleClass('active');
-    //     $(this).find('img').toggleClass('active');
-
-    // })
-
-
-
-    // var swiper = new Swiper(".container", {
-    //     scrollbar: {
-    //       el: ".swiper-scrollbar",
-    //       hide: true,
-    //     },
-    //     // centeredSlides: false,
-    //   });
-
-
-    // $(".sec4 > div > div > div, .sec5 img").each(function (index) {
-    //     $(this).css("order", function (n) {
-    //         var n = 0;
-    //         while (n < 5) {
-    //             index + n;
-    //             n++;
-    //         }
-    //         return index;
-    //     });
-    //     $(this).css("flex", "1 1 0");
-    //     $(".sec4 > div > div").css("flex", "index");
-    // });
-
-
 });
 
 $(window).resize(function () {
@@ -217,17 +158,19 @@ $(window).resize(function () {
         })
     };
 
-}).resize();
 
 
-$(document).scroll(function() {
+});
+
+
+$(document).scroll(function () {
     var scrolltop = $(window).scrollTop();
-    $(".sec2").each(function() {
+    $(".sec2").each(function () {
         if (scrolltop > $(this).offset().top) {
             $(".sec3 > img, .sec3 > div").addClass("on");
         }
     });
-    $(".sec3").each(function() {
+    $(".sec3").each(function () {
         if (scrolltop > $(this).offset().top + 200) {
             $('.sec4 > div').addClass('on')
         }
@@ -235,57 +178,69 @@ $(document).scroll(function() {
 });
 
 
-setTimeout(function(){
+setTimeout(function () {
     //sec2 swiper
-    var swiper = new Swiper(".container", {
-        slidesPerView: 3.1,
-        // autoplay: {
-        //     delay: 1500,
-        //     // disableOnInteraction: false,
-        // },
-        loop: true,
-        scrollbar: {
-            el: ".swiper-scrollbar",
-            hide: false,
-            // draggable: true,
-        },
-        navigation: {
-            nextEl: ".swiper-button-next",
-            prevEl: ".swiper-button-prev",
-        },
+
+    function swiperex() {
+        if (window.innerWidth > 821) {  // 디바이스 크기가 820 이상
+            var swiper = new Swiper(".container", {
+                slidesPerView: 3.1,
+                // autoplay: {
+                //     delay: 1500,
+                //     // disableOnInteraction: false,
+                // },
+                // loop: true,
+                scrollbar: {
+                    el: ".swiper-scrollbar",
+                    hide: false,
+                    // draggable: true,
+                },
+                navigation: {
+                    nextEl: ".swiper-button-next",
+                    prevEl: ".swiper-button-prev",
+                },
+            });
+        } else {
+            var swiper = new Swiper(".container", {
+                slidesPerView: 1.1,
+                // autoplay: {
+                //     delay: 1500,
+                //     // disableOnInteraction: false,
+                // },
+                // loop: true,
+                scrollbar: {
+                    el: ".swiper-scrollbar",
+                    hide: false,
+                    // draggable: true,
+                },
+                navigation: {
+                    nextEl: ".swiper-button-next",
+                    prevEl: ".swiper-button-prev",
+                },
+            });
+        };
+    }
+    swiperex();
+
+    $(window).resize(function () {
+        swiperex();
+        touchScroll();
     });
 
-    // var str = 'undefined';
-    // $(".ds span").each(function() {
-    //     if (str == $(this).text()) {
-    //         $(this).parent().remove();
-    //     }
-    // });
-
-
-
-    $(".swiper-slide").each(function() {
+    $(".swiper-slide").each(function () {
         if ($(this).index() > 7) {
             $(this).remove();
         }
     });
-    
-    // var str = 'undefined';
-    // $(".per").each(function () {
-    //     if (str == $(this).text()) {
-    //         $(this).siblings().not($(".price")).remove();
-    //         $(this).remove();
-    //     }else {
-    //         $(this).prev().empty();
-    //     };
-    // });
+
 
     var str = 'undefined';
     $(".per").each(function () {
-        if (str == $(this).text()) {;
+        if (str == $(this).text()) {
+            ;
             $(this).siblings().not($(".price")).remove();
             $(this).remove();
-        }else {
+        } else {
             $(this).next().empty();
         };
     });
@@ -317,7 +272,7 @@ setTimeout(function(){
 
             //할인제품의 경우 퍼센트와 원가를 계산 후 최종값으로 삽입
             if (bt.querySelector('.per')) {
-                per.insertAdjacentText('beforeend','%') //퍼센트 삽입
+                per.insertAdjacentText('beforeend', '%') //퍼센트 삽입
 
                 function calc(whole, sale) {
                     return whole *= sale
@@ -330,7 +285,7 @@ setTimeout(function(){
         });
     });
 
-    
+
     $(".sec4 > div > div > div, .sec5 img").each(function (index) {
         $(this).css("order", function (n) {
             var n = 0;
@@ -344,36 +299,93 @@ setTimeout(function(){
         $(".sec4 > div > div").css("flex", "index");
     });
 
-    
-}, 100);
 
-// window.addEventListener("wheel", function(e){
-// 	e.preventDefault();
-// },{passive : false});
+    function touchScroll() {
+        if (window.innerWidth < 1200) {
+            // 요소 & 사이즈
+            const list = document.querySelector('.sec4>div>div');
+            const listScrollWidth = list.scrollWidth;
+            const listClientWidth = list.clientWidth;
+            // 이벤트마다 갱신될 값
+            let startX = 0;
+            let nowX = 0;
+            let endX = 0;
+            let listX = 0;
 
-// let $html = $("html");
- 
-// let page = 1;  // 뷰포트에 표시되는 페이지의 번호
- 
-// let lastPage = $("section").length; // 마지막 페이지의 번호 
- 
-// $html.animate({scrollTop:0},10); // 문서(페이지)가 로드되면 첫 페이지 시작
+            const getClientX = (e) => {
+                const isTouches = e.touches ? true : false;
+                return isTouches ? e.touches[0].clientX : e.clientX;
+            };
 
-// $(window).on("wheel", function(e){
- 
-// 	if($html.is(":animated")) return;
- 
-// 	if(e.originalEvent.deltaY > 0){
-// 		if(page== lastPage) return;
- 
-// 		page++;
-// 	}else if(e.originalEvent.deltaY < 0){
-// 		if(page == 1) return;
- 
-// 		page--;
-// 	}
-// 	var posTop = (page-1) * $(window).height();
- 
-// 	$html.animate({scrollTop : posTop});
- 
-// });
+            const getTranslateX = () => {
+                return parseInt(getComputedStyle(list).transform.split(/[^\-0-9]+/g)[5]);
+            };
+
+            const setTranslateX = (x) => {
+                list.style.transform = `translateX(${x}px)`;
+            };
+
+            const bindEvents = () => {
+                list.addEventListener('mousedown', onScrollStart);
+                list.addEventListener('touchstart', onScrollStart);
+                list.addEventListener('click', onClick);
+            };
+
+
+            const onScrollStart = (e) => {
+                startX = getClientX(e);
+                window.addEventListener('mousemove', onScrollMove);
+                window.addEventListener('touchmove', onScrollMove);
+                window.addEventListener('mouseup', onScrollEnd);
+                window.addEventListener('touchend', onScrollEnd);
+            };
+
+            const onScrollMove = (e) => {
+                nowX = getClientX(e);
+                setTranslateX(listX + nowX - startX);
+            };
+
+            const onScrollEnd = (e) => {
+                endX = getClientX(e);
+                listX = getTranslateX();
+                if (listX > 0) {
+                    setTranslateX(0);
+                    list.style.transition = `all 0.3s ease`;
+                    listX = 0;
+                } else if (listX < listClientWidth - listScrollWidth) {
+                    setTranslateX(listClientWidth - listScrollWidth);
+                    list.style.transition = `all 0.3s ease`;
+                    listX = listClientWidth - listScrollWidth;
+                }
+
+                window.removeEventListener('mousedown', onScrollStart);
+                window.removeEventListener('touchstart', onScrollStart);
+                window.removeEventListener('mousemove', onScrollMove);
+                window.removeEventListener('touchmove', onScrollMove);
+                window.removeEventListener('mouseup', onScrollEnd);
+                window.removeEventListener('touchend', onScrollEnd);
+                window.removeEventListener('click', onClick);
+
+                setTimeout(() => {
+                    bindEvents();
+                    list.style.transition = '';
+                }, 300);
+            };
+
+            const onClick = (e) => {
+                if (startX - endX !== 0) {
+                    e.preventDefault();
+                }
+            };
+
+            bindEvents();
+        }
+    };
+    touchScroll();
+
+
+
+
+
+
+}, 300);
