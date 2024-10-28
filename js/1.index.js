@@ -337,7 +337,7 @@ setTimeout(function () {
 
             const bindEvents = () => {
                 list.addEventListener('mousedown', onScrollStart);
-                // list.addEventListener('touchstart', onScrollStart);
+                list.addEventListener('touchstart', onScrollStart);
                 list.addEventListener('click', onClick);
             };
 
@@ -345,9 +345,9 @@ setTimeout(function () {
             const onScrollStart = (e) => {
                 startX = getClientX(e);
                 window.addEventListener('mousemove', onScrollMove);
-                // window.addEventListener('touchmove', onScrollMove);
+                window.addEventListener('touchmove', onScrollMove);
                 window.addEventListener('mouseup', onScrollEnd);
-                // window.addEventListener('touchend', onScrollEnd);
+                window.addEventListener('touchend', onScrollEnd);
             };
 
             const onScrollMove = (e) => {
@@ -356,7 +356,7 @@ setTimeout(function () {
             };
 
             const onScrollEnd = (e) => {
-                endX = getClientX(e);
+                // endX = getClientX(e);
                 listX = getTranslateX();
                 if (listX > 0) {
                     setTranslateX(0);
@@ -369,11 +369,11 @@ setTimeout(function () {
                 }
 
                 window.removeEventListener('mousedown', onScrollStart);
-                // window.removeEventListener('touchstart', onScrollStart);
+                window.removeEventListener('touchstart', onScrollStart);
                 window.removeEventListener('mousemove', onScrollMove);
-                // window.removeEventListener('touchmove', onScrollMove);
+                window.removeEventListener('touchmove', onScrollMove);
                 window.removeEventListener('mouseup', onScrollEnd);
-                // window.removeEventListener('touchend', onScrollEnd);
+                window.removeEventListener('touchend', onScrollEnd);
                 window.removeEventListener('click', onClick);
 
                 setTimeout(() => {
