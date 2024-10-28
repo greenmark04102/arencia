@@ -58,6 +58,16 @@ $.ajax({
 
 $(document).ready(function () {
 
+    const user = navigator.userAgent;
+    
+    if ( user.indexOf("iPhone") > -1 || user.indexOf("Android") > -1 ) {
+    	console.log("mobile버젼");
+        console.log(user);    
+    }else{
+        console.log("pc버젼");
+        console.log(user);
+    }
+
     //헤더 스크롤 시 숨김, 표시
     let lastScrollY = $(window).scrollTop();
     $(window).on("scroll", () => {
@@ -182,7 +192,7 @@ setTimeout(function () {
     //sec2 swiper
 
     function swiperex() {
-        if (window.innerWidth > 821) {  // 디바이스 크기가 820 이상
+        if (window.innerWidth > 800) {  // 디바이스 크기가 820 이상
             var swiper = new Swiper(".container", {
                 slidesPerView: 3.1,
                 // autoplay: {
@@ -327,7 +337,7 @@ setTimeout(function () {
 
             const bindEvents = () => {
                 list.addEventListener('mousedown', onScrollStart);
-                list.addEventListener('touchstart', onScrollStart);
+                // list.addEventListener('touchstart', onScrollStart);
                 list.addEventListener('click', onClick);
             };
 
@@ -335,9 +345,9 @@ setTimeout(function () {
             const onScrollStart = (e) => {
                 startX = getClientX(e);
                 window.addEventListener('mousemove', onScrollMove);
-                window.addEventListener('touchmove', onScrollMove);
+                // window.addEventListener('touchmove', onScrollMove);
                 window.addEventListener('mouseup', onScrollEnd);
-                window.addEventListener('touchend', onScrollEnd);
+                // window.addEventListener('touchend', onScrollEnd);
             };
 
             const onScrollMove = (e) => {
@@ -359,11 +369,11 @@ setTimeout(function () {
                 }
 
                 window.removeEventListener('mousedown', onScrollStart);
-                window.removeEventListener('touchstart', onScrollStart);
+                // window.removeEventListener('touchstart', onScrollStart);
                 window.removeEventListener('mousemove', onScrollMove);
-                window.removeEventListener('touchmove', onScrollMove);
+                // window.removeEventListener('touchmove', onScrollMove);
                 window.removeEventListener('mouseup', onScrollEnd);
-                window.removeEventListener('touchend', onScrollEnd);
+                // window.removeEventListener('touchend', onScrollEnd);
                 window.removeEventListener('click', onClick);
 
                 setTimeout(() => {
