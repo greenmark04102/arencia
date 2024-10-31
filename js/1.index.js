@@ -356,7 +356,7 @@ setTimeout(function () {
             };
 
             const onScrollEnd = (e) => {
-                // endX = getClientX(e);
+                endX = getClientX(e);
                 listX = getTranslateX();
                 if (listX > 0) {
                     setTranslateX(0);
