@@ -324,7 +324,7 @@ setTimeout(function () {
 
             const getClientX = (e) => {
                 const isTouches = e.touches ? true : false;
-                return isTouches ? e.touches[0].clientX : e.clientX;
+                return isTouches ? e.touches?.[0]?.clientX ?? 0 : e.clientX;
             };
 
             const getTranslateX = () => {
@@ -357,6 +357,8 @@ setTimeout(function () {
 
             const onScrollEnd = (e) => {
                 endX = getClientX(e);
+                console.log(endX);
+
                 listX = getTranslateX();
                 if (listX > 0) {
                     setTranslateX(0);
