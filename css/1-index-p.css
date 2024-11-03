@@ -894,7 +894,7 @@ footer h3 {
   }
   .sec4>div>div{
     width: 100%;
-    /* overflow-x: auto; */
+    overflow-x: auto;
     transform: translate(0, 0);
   }
   .sec4>div>div>div {
