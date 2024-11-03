@@ -234,7 +234,7 @@ setTimeout(function () {
 
     $(window).resize(function () {
         swiperex();
-        touchScroll();
+        // touchScroll();
     });
 
     $(".swiper-slide").each(function () {
@@ -310,6 +310,12 @@ setTimeout(function () {
     });
 
 
+
+
+
+
+}, 300);
+setTimeout(function () {
     function touchScroll() {
         if (window.innerWidth < 1200) {
             // 요소 & 사이즈
@@ -396,8 +402,4 @@ setTimeout(function () {
     touchScroll();
 
 
-
-
-
-
-}, 300);
+}, 400);
