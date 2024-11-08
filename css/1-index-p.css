@@ -894,9 +894,14 @@ footer h3 {
   }
   .sec4>div>div{
     width: 100%;
-    overflow-x: auto;
+    /* overflow-x: auto; */
     transform: translate(0, 0);
+    /* -ms-overflow-style: none; */
+    /* scrollbar-width: none; */
   }
+  /* .sec4>div>div::-webkit-scrollbar {
+    display: none;
+  } */
   .sec4>div>div>div {
     overflow: unset;
   }
@@ -1083,8 +1088,19 @@ footer h3 {
     font-size: 12px;
   }
 
-
-
+  .sec4>div>div{
+    /* width: 100%; */
+    overflow-x: auto;
+    transform: translate(0, 0);
+    /* -ms-overflow-style: none; */
+    /* scrollbar-width: none; */
+  }
+  /* .sec4>div>div::-webkit-scrollbar {
+    display: none;
+  } */
+  .sec4>div>div>div {
+    overflow: unset;
+  }
   footer div>div {
     flex-direction: column;
   }
