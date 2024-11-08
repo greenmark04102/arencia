@@ -322,6 +322,10 @@ setTimeout(function () {
             const list = document.querySelector('.sec4>div>div');
             const listScrollWidth = list.scrollWidth;
             const listClientWidth = list.clientWidth;
+
+            console.log(listScrollWidth);
+            console.log(listClientWidth);
+
             // 이벤트마다 갱신될 값
             let startX = 0;
             let nowX = 0;
@@ -363,17 +367,19 @@ setTimeout(function () {
 
             const onScrollEnd = (e) => {
                 endX = getClientX(e);
-                // console.log(endX);
-
                 listX = getTranslateX();
                 if (listX > 0) {
-                    setTranslateX(0);
-                    list.style.transition = `all 0.3s ease`;
-                    listX = 0;
+                    console.log(listScrollWidth);
+                    console.log(listClientWidth);
+                    // setTranslateX(0);
+                    // list.style.transition = `all 0.3s ease`;
+                    // listX = 0;
                 } else if (listX < listClientWidth - listScrollWidth) {
-                    setTranslateX(listClientWidth - listScrollWidth);
-                    list.style.transition = `all 0.3s ease`;
-                    listX = listClientWidth - listScrollWidth;
+                    // setTranslateX(listClientWidth - listScrollWidth);
+                    // list.style.transition = `all 0.3s ease`;
+                    // listX = listClientWidth - listScrollWidth;
+                    console.log(listScrollWidth);
+                    console.log(listClientWidth);
                 }
 
                 window.removeEventListener('mousedown', onScrollStart);
