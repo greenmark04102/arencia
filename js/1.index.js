@@ -400,4 +400,4 @@ setTimeout(function () {
 
 
 
-}, 300);
+}, 2000);
