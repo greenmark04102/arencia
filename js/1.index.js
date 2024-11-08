@@ -188,9 +188,7 @@ $(document).scroll(function () {
 });
 
 
-setTimeout(function () {
-    //sec2 swiper
-
+window.onload = function(){
     function swiperex() {
         if (window.innerWidth > 800) {  // 디바이스 크기가 820 이상
             var swiper = new Swiper(".container", {
@@ -396,8 +394,16 @@ setTimeout(function () {
     if (window.innerWidth > 850) {
         touchScroll();
     };
+};
+
+
+
+// setTimeout(function () {
+//     //sec2 swiper
+
+    
 
 
 
 
-}, 2000);
+// }, 2000);
