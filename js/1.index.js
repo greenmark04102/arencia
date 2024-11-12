@@ -369,17 +369,13 @@ setTimeout(function () {
                 endX = getClientX(e);
                 listX = getTranslateX();
                 if (listX > 0) {
-                    console.log(listScrollWidth);
-                    console.log(listClientWidth);
-                    // setTranslateX(0);
-                    // list.style.transition = `all 0.3s ease`;
-                    // listX = 0;
+                    setTranslateX(0);
+                    list.style.transition = `all 0.3s ease`;
+                    listX = 0;
                 } else if (listX < listClientWidth - listScrollWidth) {
-                    // setTranslateX(listClientWidth - listScrollWidth);
-                    // list.style.transition = `all 0.3s ease`;
-                    // listX = listClientWidth - listScrollWidth;
-                    console.log(listScrollWidth);
-                    console.log(listClientWidth);
+                    setTranslateX(listClientWidth - listScrollWidth);
+                    list.style.transition = `all 0.3s ease`;
+                    listX = listClientWidth - listScrollWidth;
                 }
 
                 window.removeEventListener('mousedown', onScrollStart);
