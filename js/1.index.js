@@ -240,7 +240,7 @@ setTimeout(function () {
 
     $(window).resize(function () {
         swiperex();
-        // touchScroll();
+        touchScroll();
     });
 
     $(".swiper-slide").each(function () {
@@ -315,8 +315,10 @@ setTimeout(function () {
         $(".sec4 > div > div").css("flex", "index");
     });
 
-
+    console.log(window.innerWidth);
+    
     function touchScroll() {
+
         if (window.innerWidth < 1200) {
             // 요소 & 사이즈
             const list = document.querySelector('.sec4>div>div');
