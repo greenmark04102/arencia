@@ -443,9 +443,13 @@ footer {
   font-family: var(--content);
   /* font-size: clamp(15px, 1.1vw, 17px); */
   font-size: 16px;
-  font-weight: 600;
+  /* font-weight: 600; */
   word-break: keep-all;
-  outline: 1px solid;
+  /* outline: 1px solid; */
+  height: 38px;
+  display: flex;
+  align-items: center;
+  line-height: 1.5;
 }
 
 /* price */
@@ -477,7 +481,7 @@ footer {
   color: #005221;
   font-family: var(--number);
   font-size: 17px;
-  line-height: 21px;
+  line-height: 1;
 }
 
 .spec ul>li {
@@ -487,10 +491,15 @@ footer {
   display: flex;
   gap: 10px;
   align-items: end;
+  /* font-weight: 100; */
   /* margin: 0; */
 }
 
-.spec li span:first-child {
+.spec .final, .price{
+  font-weight: 300;
+}
+
+/* .spec li span:first-child {
   font-size: calc(1.3rem + 0.1vw);
   font-weight: 600;
   color: rgba(0, 0, 0, 0.5);
@@ -516,7 +525,7 @@ footer {
   height: 5px;
   border-radius: 4px;
   background-color: darkseagreen;
-}
+} */
 
 
 .swiper-scrollbar {
@@ -855,10 +864,10 @@ footer p, .con a {
 }
 
 footer h3 {
-  font-family: var(--content);
-  font-weight: bold;
+  font-family: var(--logo-font);
+  font-weight: 500;
   margin: 10px 0;
-  font-size: 1.5rem;
+  font-size: 1.8rem;
 }
 
 @media (max-width: 1427px){
@@ -999,12 +1008,16 @@ footer h3 {
     height: fit-content;
     padding: 30px 0;
     width: 100%;
-    border-bottom: 1px solid #0000002a;
-    margin-bottom: 30px;
+
   }
 
   .con {
     gap: 10px
+  }
+
+  .con div {
+    border-bottom: 1px solid #0000002a;
+    padding-bottom: 15px;
   }
 
 }
