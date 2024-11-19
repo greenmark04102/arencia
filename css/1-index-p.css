@@ -731,7 +731,7 @@ div {
   line-height: 1.5;
   color: rgba(0, 0, 0, 0.8);
   word-break: keep-all;
-  font-weight: bold;
+  /* font-weight: bold; */
 }
 
 .sec4 .scale {
@@ -840,7 +840,7 @@ footer>div>div {
   margin: 0;
 }
 
-footer p, footer a {
+footer p, .con a {
   font-size: 1.2rem;
   line-height: 1.8;
   word-break: keep-all;
