@@ -17,7 +17,7 @@
 :root {
   --logo-font: "Marcellus", serif;
   --sub-title: "Yanone Kaffeesatz", sans-serif;
-  --content: "Nanum Gothic", sans-serif;
+  --content: "Nanum Gothic", "Apple SD Gothic Neo", sans-serif;
   --number: "Pretendard Variable", Pretendard, -apple-system, BlinkMacSystemFont, system-ui, Roboto, "Helvetica Neue", "Segoe UI", "Apple SD Gothic Neo", "Noto Sans KR", "Malgun Gothic", "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", sans-serif;
 }
 
@@ -840,7 +840,7 @@ footer>div>div {
   margin: 0;
 }
 
-footer p {
+footer p, footer a {
   font-size: 1.2rem;
   line-height: 1.8;
   word-break: keep-all;
