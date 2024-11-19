@@ -1,8 +1,10 @@
 @charset "utf-8";
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=Marcellus&family=Nanum+Gothic&family=Nanum+Myeongjo&family=Yanone+Kaffeesatz:wght@200..700&display=swap');
+/* @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=Marcellus&family=Nanum+Gothic&family=Nanum+Myeongjo&family=Yanone+Kaffeesatz:wght@200..700&display=swap'); */
 @import url(https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css);
-@import url('https://fonts.googleapis.com/css2?family=Gothic+A1&family=Nanum+Gothic&display=swap');
+/* @import url('https://fonts.googleapis.com/css2?family=Gothic+A1&family=Nanum+Gothic&display=swap'); */
 @import url("https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css");
+/* @import url("https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css"); */
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Marcellus&family=Nanum+Gothic&family=Nanum+Myeongjo&family=Yanone+Kaffeesatz:wght@200..700&display=swap');
 
 * {
   margin: 0 auto;
@@ -13,12 +15,10 @@
 }
 
 :root {
-  font-family: Marcellus;
-  font-family: Yanone Kaffeesatz;
-  font-family: Inter;
-  font-family: Nanum Myeongjo;
-  font-family: "Nanum Gothic", sans-serif;
-  font-family: "Pretendard Variable", Pretendard, -apple-system, BlinkMacSystemFont, system-ui, Roboto, "Helvetica Neue", "Segoe UI", "Apple SD Gothic Neo", "Noto Sans KR", "Malgun Gothic", "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", sans-serif;
+  --logo-font: "Marcellus", serif;
+  --sub-title: "Yanone Kaffeesatz", sans-serif;
+  --content: "Nanum Gothic", sans-serif;
+  --number: "Pretendard Variable", Pretendard, -apple-system, BlinkMacSystemFont, system-ui, Roboto, "Helvetica Neue", "Segoe UI", "Apple SD Gothic Neo", "Noto Sans KR", "Malgun Gothic", "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", sans-serif;
 }
 
 
@@ -99,7 +99,7 @@ nav {
 }
 
 .navi a {
-  font-family: Marcellus;
+  font-family: var(--logo-font);
   font-size: 2.5rem;
   font-weight: 700;
   display: inline-flex;
@@ -130,7 +130,7 @@ nav {
 }
 
 .subMenu a {
-  font-family: Marcellus;
+  font-family: var(--logo-font);
   font-size: 2rem;
   font-weight: 100;
   margin: 5px 0;
@@ -162,7 +162,7 @@ nav {
 }
 
 .page {
-  font-family: "Marcellus", serif;
+  font-family: var(--logo-font);
   font-size: 1.8rem;
   display: flex;
   width: 90%;
@@ -192,7 +192,7 @@ header {
 
   align-items: center;
   padding: 0 3vw;
-  font-family: "Marcellus", serif;
+  font-family: var(--logo-font);
   position: fixed;
   top: 0;
   left: 0;
@@ -215,7 +215,7 @@ header.scroll {
 } */
 
 header .logo {
-  font-family: Marcellus;
+  font-family: var(--logo-font);
   font-size: clamp(48px, 4vw, 77px);
 }
 
@@ -293,7 +293,7 @@ footer {
 }
 
 .left h1 {
-  font-family: Marcellus;
+  font-family: var(--logo-font);
   font-size: clamp(80px, 5vw, 5vw);
   font-weight: 100;
   line-height: 1;
@@ -436,7 +436,7 @@ footer {
 
 /* title */
 .spec p {
-  font-family: Nanum Gothic;
+  font-family: var(--content);
   /* font-size: clamp(15px, 1.1vw, 17px); */
   font-size: 16px;
   font-weight: 600;
@@ -450,7 +450,7 @@ footer {
   /* flex-direction: column; */
   /* align-items: end; */
   /* gap: 1px; */
-  font-family: Nanum Gothic;
+  font-family: var(--content);
   /* font-weight: 600; */
   font-size: calc(1.4rem + 0.1vw);
 
@@ -471,7 +471,7 @@ footer {
 
 .spec .per {
   color: #005221;
-  font-family: "Pretendard Variable";
+  font-family: var(--number);
   font-size: 17px;
   line-height: 21px;
 }
@@ -497,7 +497,7 @@ footer {
 
 .spec li span:last-child {
   color: olivedrab;
-  font-family: "Pretendard Variable";
+  font-family: var(--number);
   font-weight: 600;
   font-size: calc(1.8rem + 0.1vw);
 }
@@ -610,14 +610,14 @@ div {
 } */
 
 .sec3 h1 {
-  font-family: Marcellus;
+  font-family: var(--logo-font);
   font-size: clamp(50px, 3.2vw, 60px);
   text-align: right;
   font-weight: 100;
 }
 
 .sec3 h2 {
-  font-family: Yanone Kaffeesatz;
+  font-family: var(--sub-title);
   font-size: calc(5.5rem + 0.1vw);
   font-weight: 400;
   margin: 0;
@@ -625,12 +625,12 @@ div {
 }
 
 .sec3 h3 {
-  font-family: Yanone Kaffeesatz;
+  font-family: var(--sub-title);
   font-size: 25px;
 }
 
 .sec3 P {
-  font-family: Nanum Myeongjo;
+  font-family: "Nanum Myeongjo", serif;
   font-size: 20px;
   margin-top: calc(1rem + 0.1vw);
   line-height: 1.5;
@@ -704,7 +704,7 @@ div {
 }
 
 .sec4 h1 {
-  font-family: Marcellus;
+  font-family: var(--logo-font);
   font-size: 5rem;
   font-weight: 100;
   height: clamp(120px, 13vh, 120px);
@@ -713,7 +713,7 @@ div {
 }
 
 .sec4 h2 {
-  font-family: Yanone Kaffeesatz;
+  font-family: var(--sub-title);
   font-size: calc(3rem + 0.1vw);
   font-weight: 500;
   margin: 32px 0 15px 0;
@@ -722,7 +722,7 @@ div {
 }
 
 .sec4 p {
-  font-family: "Nanum Gothic", sans-serif;
+  font-family: var(--content);
   font-size: 16px;
   line-height: 1.5;
   color: rgba(0, 0, 0, 0.8);
@@ -808,7 +808,7 @@ footer a {
   display: flex;
   align-items: center;
   justify-content: center;
-  font-family: Marcellus;
+  font-family: var(--logo-font);
   font-size: clamp(50px, 3vw, 158px);
   height: fit-content;
   padding: 0 30px;
@@ -840,7 +840,7 @@ footer p {
   font-size: 1.2rem;
   line-height: 1.8;
   word-break: keep-all;
-  font-family: "Nanum Gothic", sans-serif;
+  font-family: var(--content);
   margin: 0;
 }
 
@@ -849,7 +849,7 @@ footer p {
 }
 
 footer h3 {
-  font-family: "Nanum Gothic", sans-serif;
+  font-family: var(--content);
   font-weight: bold;
   margin: 10px 0;
   font-size: 1.5rem;
