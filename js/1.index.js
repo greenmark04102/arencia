@@ -56,23 +56,12 @@ $.ajax({
 
 
 
+
 $(document).ready(function () {
 
-    $(".sec4").ajaxSuccess(function() {
-        
-        console.log('yo');
-   
-   });  
-
-    const user = navigator.userAgent;
-    
-    if ( user.indexOf("iPhone") > -1 || user.indexOf("Android") > -1 ) {
-    	console.log("mobile버젼");
-        console.log(user);    
-    }else{
-        console.log("pc버젼");
-        console.log(user);
-    }
+    // $(".sec4").ajaxSuccess(function () {
+    //     console.log('yo');
+    // });
 
     //헤더 스크롤 시 숨김, 표시
     let lastScrollY = $(window).scrollTop();
@@ -240,8 +229,22 @@ setTimeout(function () {
 
     $(window).resize(function () {
         swiperex();
-        touchScroll();
     });
+
+    const user = navigator.userAgent;
+
+    if (user.indexOf("iPhone") > -1 || user.indexOf("Android") > -1) {
+        console.log("mobile버젼");
+        console.log(user);
+        return false;
+    } else {
+        $(window).resize(function () {
+            if (window.innerWidth > 850) {
+                touchScroll();
+            };
+        });
+
+    }
 
     $(".swiper-slide").each(function () {
         if ($(this).index() > 7) {
@@ -316,7 +319,7 @@ setTimeout(function () {
     });
 
     console.log(window.innerWidth);
-    
+
     function touchScroll() {
 
         if (window.innerWidth < 1200) {
@@ -410,4 +413,4 @@ setTimeout(function () {
 
 
 
-}, 2000);
+}, 100);
