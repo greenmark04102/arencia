@@ -841,11 +841,13 @@ footer>div>div {
 }
 
 footer p, .con a {
+  display: block;
   font-size: 1.2rem;
   line-height: 1.8;
   word-break: keep-all;
   font-family: var(--content);
   margin: 0;
+  padding: 0;
 }
 
 .com p {
