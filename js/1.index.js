@@ -1,3 +1,5 @@
+$(document).ready(function () {
+
 $.ajax({
     type: "GET",
     url: "./js/3.product.json",
@@ -53,15 +55,6 @@ $.ajax({
     }
 
 });
-
-
-
-
-$(document).ready(function () {
-
-    // $(".sec4").ajaxSuccess(function () {
-    //     console.log('yo');
-    // });
 
     //헤더 스크롤 시 숨김, 표시
     let lastScrollY = $(window).scrollTop();
