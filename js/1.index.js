@@ -224,21 +224,6 @@ setTimeout(function () {
         swiperex();
     });
 
-    const user = navigator.userAgent;
-
-    if (user.indexOf("iPhone") > -1 || user.indexOf("Android") > -1) {
-        console.log("mobile버젼");
-        console.log(user);
-        return false;
-    } else {
-        $(window).resize(function () {
-            if (window.innerWidth > 850) {
-                touchScroll();
-            };
-        });
-
-    }
-
     $(".swiper-slide").each(function () {
         if ($(this).index() > 7) {
             $(this).remove();
@@ -296,6 +281,21 @@ setTimeout(function () {
             };
         });
     });
+
+    const user = navigator.userAgent;
+
+    if (user.indexOf("iPhone") > -1 || user.indexOf("Android") > -1) {
+        console.log("mobile버젼");
+        console.log(user);
+        return false;
+    } else {
+        $(window).resize(function () {
+            if (window.innerWidth > 850) {
+                touchScroll();
+            };
+        });
+
+    };
 
 
     $(".sec4 > div > div > div, .sec5 img").each(function (index) {
