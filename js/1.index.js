@@ -96,7 +96,7 @@ $.ajax({
             $('nav > img:gt(0)').remove();
             $('nav > .material-symbols-outlined').css({
                 // height: 100,
-                "font-size": 30,
+                "font-size": 40,
                 "position": "absolute",
                 "top": 30,
                 "right": 30,
