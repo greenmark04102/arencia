@@ -53,7 +53,6 @@ $.ajax({
     error: function(xhr) {
         console.log(xhr.status + "/" + xhr.errorText);
     }
-
 });
 
     //헤더 스크롤 시 숨김, 표시
@@ -76,10 +75,57 @@ $.ajax({
         $(this).siblings().find('.subMenu').stop().slideUp(500).siblings().find('img').removeClass('active');
 
         $(this).find('img').toggleClass('active');
-    })
+    });
+
+    function SideBar() {
+        if (window.innerWidth > 821) {  // 디바이스 크기가 820 이상
+            $('header > img').on("mouseenter", (function () {
+                $('.sideBar').stop().animate({ left: 0 }, "slow", "swing");
+                $(this).css("opacity", 0);
+            }));
+            $('section').on('click', function (e) {
+                var container = $(".sideBar");
+                if (!$(e.target).closest(container).length) {
+                    $(".sideBar").stop().animate({ left: "-320" }, "slow", "swing");
+                }
+                $('header > img').css("opacity", "unset")
+            });
+    
+        } else {// 디바이스 크기가 820 미만
+            $('nav').prepend(`<span class="material-symbols-outlined">close</span>`); //사이드 바 닫기버튼 생성
+            $('nav > img:gt(0)').remove();
+            $('nav > .material-symbols-outlined').css({
+                // height: 100,
+                "font-size": 30,
+                "position": "absolute",
+                "top": 30,
+                "right": 30,
+                "cursor": "pointer"
+            });
+    
+            $('header > img').on("click", (function () {
+                $('.sideBar').stop().animate({ left: 0 }, "slow", "swing");
+                $(this).css("opacity", 0)
+                $('.sideBar').css({
+                    width: "100vw",
+                    height: "100vh"
+                });
+                $('body').css("position", "fixed");
+                $(window).off("scroll"); //확인!
+            }));
+            $('nav > img').click(function () {
+                $(".sideBar").stop().animate({ left: "-110vw" }, "slow", "swing");
+                $('header > img').css("opacity", "unset");
+                $('body').css("position", "unset");
+            })
+        };
+    };
+    SideBar();
+
 });
 
 $(window).resize(function () {
+    SideBar();
     // //헤더와 메뉴바 상단 위치 값 맞춤
     // var hheight = $('header').height();
     // $('section').css('margin-top', hheight);
@@ -115,46 +161,6 @@ $(window).resize(function () {
 
 
     //사이드바 슬라이드
-    if (window.innerWidth > 821) {  // 디바이스 크기가 820 이상
-        $('header > img').on("mouseenter", (function () {
-            $('.sideBar').stop().animate({ left: 0 }, "slow", "swing");
-            $(this).css("opacity", 0);
-        }));
-        $('section').on('click', function (e) {
-            var container = $(".sideBar");
-            if (!$(e.target).closest(container).length) {
-                $(".sideBar").stop().animate({ left: "-320" }, "slow", "swing");
-            }
-            $('header > img').css("opacity", "unset")
-        });
-
-    } else {// 디바이스 크기가 820 미만
-        $('nav').prepend(`<img src="./sub/img/close.svg" alt="close">`); //사이드 바 닫기버튼 생성
-        $('nav > img:gt(0)').remove();
-        $('nav > img').css({
-            height: 60,
-            "position": "absolute",
-            "top": 30,
-            "right": 30,
-            "cursor": "pointer"
-        });
-
-        $('header > img').on("click", (function () {
-            $('.sideBar').stop().animate({ left: 0 }, "slow", "swing");
-            $(this).css("opacity", 0)
-            $('.sideBar').css({
-                width: "100vw",
-                height: "100vh"
-            });
-            $('body').css("position", "fixed");
-            $(window).off("scroll"); //확인!
-        }));
-        $('nav > img').click(function () {
-            $(".sideBar").stop().animate({ left: "-110vw" }, "slow", "swing");
-            $('header > img').css("opacity", "unset");
-            $('body').css("position", "unset");
-        })
-    };
 
 
 
@@ -252,13 +258,7 @@ setTimeout(function () {
             const final = bt.firstChild.nextSibling; //할인가            
             const price_txt = bt.lastChild.textContent;
             const per_txt = bt.firstChild.textContent;
-            // const price = bt.lastChild; //원가
-            // const final = bt.firstChild; //할인율
-            // const per = bt.firstChild.nextSibling; //할인가            
-            // const price_txt = bt.lastChild.textContent;
-            // console.log(price_txt);
-            // console.log(per);
-            // const per_txt = bt.firstChild.nextSibling.textContent;
+
 
             //원가 원단위 표시
             const form = price_txt.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",") + '원';
