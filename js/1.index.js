@@ -122,6 +122,34 @@ $.ajax({
     };
     SideBar();
 
+    // function copy() {
+    //     // 복사문구값 가져오기
+    //     var copyTxt = document.getElementById("copyTxt");
+    //     // 복사문구 선택
+    //     copyTxt.select();
+    //     copyTxt.setSelectionRange(0, 99999); // Mobile 대응
+      
+    //      // 복사
+    //     navigator.clipboard.writeText(copyTxt.value);
+      
+    //     // 복사완료에 대해 Alert으로 띄우기
+    //     // alert("복사되었습니다.");
+    // };
+    // copy();
+    // // var copyTxt = document.getElementById("copyTxt");
+    // // copyTxt.onClick = function() {
+        
+    // // }
+
+    let text = document.getElementById('myText').innerHTML;
+    const copyContent = async () => {
+      try {
+        await navigator.clipboard.writeText(text);
+        console.log('Content copied to clipboard');
+      } catch (err) {
+        console.error('Failed to copy: ', err);
+      }
+    };
 });
 
 $(window).resize(function () {
@@ -207,11 +235,11 @@ setTimeout(function () {
         } else {
             var swiper = new Swiper(".container", {
                 slidesPerView: 1.1,
-                // autoplay: {
-                //     delay: 1500,
-                //     // disableOnInteraction: false,
-                // },
-                // loop: true,
+                autoplay: {
+                    delay: 1500,
+                    // disableOnInteraction: false,
+                },
+                loop: true,
                 scrollbar: {
                     el: ".swiper-scrollbar",
                     hide: false,

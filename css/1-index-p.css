@@ -868,6 +868,10 @@ footer p, .con a {
   padding: 0;
 }
 
+.con a:hover {
+  text-decoration: underline;
+}
+
 .com p {
   line-height: 2.5;
 }
