@@ -633,7 +633,7 @@ div {
 
 .sec3 h1 {
   font-family: var(--logo-font);
-  font-size: clamp(50px, 3.2vw, 60px);
+  font-size: clamp(40px, 3.2vw, 60px);
   text-align: right;
   font-weight: 100;
 }
@@ -653,7 +653,7 @@ div {
 
 .sec3 P {
   font-family: "Nanum Myeongjo", serif;
-  font-size: 20px;
+  font-size: clamp(18px, 1vw, 20px);
   margin-top: calc(1rem + 0.1vw);
   line-height: 1.5;
 }
@@ -671,7 +671,7 @@ div {
 }
 
 .right img {
-  width: calc(11rem + 0.1vw);
+  width: clamp(70px, 6vw, 116px);
   margin-right: calc(3.5rem + 0.1vw);
 }
 
@@ -858,7 +858,7 @@ footer>div>div {
   margin: 0;
 }
 
-footer p, .con a {
+footer p, .com a, .con a, #bank {
   display: block;
   font-size: 1.2rem;
   line-height: 1.8;
@@ -868,11 +868,11 @@ footer p, .con a {
   padding: 0;
 }
 
-.con a:hover {
+.con a:hover, #bank:hover, .com a:hover {
   text-decoration: underline;
 }
 
-.com p {
+.com p, .com a {
   line-height: 2.5;
 }
 
@@ -881,6 +881,12 @@ footer h3 {
   font-weight: 500;
   margin: 10px 0;
   font-size: 1.8rem;
+}
+
+#bank {
+  border: 0;
+  background-color: transparent;
+  cursor: pointer;
 }
 
 @media (max-width: 1427px){
@@ -904,7 +910,7 @@ footer h3 {
     font-size: 20px;
   } */
   .sec3 h1 {
-    /* font-size: 50px; */
+    font-size: 50px;
     margin-bottom: 30px;
   }
 
@@ -1107,6 +1113,10 @@ footer h3 {
   /* 📍 */
   .r1>div>div{
     margin: 0;
+  }
+
+  .sec4{
+    padding-bottom: 200px;
   }
 
   .sec4 h2 {

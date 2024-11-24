@@ -1,3 +1,14 @@
+let text = document.getElementById('bank').innerHTML;
+const copyContent = async () => {
+  try {
+    await navigator.clipboard.writeText(text);
+        alert('복사되었습니다.');
+  } catch (err) {
+    console.error('Failed to copy: ', err);
+    
+  }
+};
+
 $(document).ready(function () {
 
 $.ajax({
@@ -141,15 +152,7 @@ $.ajax({
         
     // // }
 
-    let text = document.getElementById('myText').innerHTML;
-    const copyContent = async () => {
-      try {
-        await navigator.clipboard.writeText(text);
-        console.log('Content copied to clipboard');
-      } catch (err) {
-        console.error('Failed to copy: ', err);
-      }
-    };
+
 });
 
 $(window).resize(function () {
