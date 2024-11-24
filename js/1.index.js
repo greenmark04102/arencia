@@ -113,7 +113,7 @@ $.ajax({
                 $('body').css("position", "fixed");
                 $(window).off("scroll"); //확인!
             }));
-            $('nav > img').click(function () {
+            $('nav > span').click(function () {
                 $(".sideBar").stop().animate({ left: "-110vw" }, "slow", "swing");
                 $('header > img').css("opacity", "unset");
                 $('body').css("position", "unset");
