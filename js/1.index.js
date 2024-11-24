@@ -238,11 +238,11 @@ setTimeout(function () {
         } else {
             var swiper = new Swiper(".container", {
                 slidesPerView: 1.1,
-                autoplay: {
-                    delay: 1500,
-                    // disableOnInteraction: false,
-                },
-                loop: true,
+                // autoplay: {
+                //     delay: 1500,
+                //     // disableOnInteraction: false,
+                // },
+                // loop: true,
                 scrollbar: {
                     el: ".swiper-scrollbar",
                     hide: false,

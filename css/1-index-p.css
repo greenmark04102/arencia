@@ -272,7 +272,6 @@ footer {
   display: flex;
   align-items: center;
   background-color: #D8D8D8;
-  outline: solid 1px;
   z-index: 10;
   position: relative;
 }
@@ -999,12 +998,11 @@ footer h3 {
 
   }
 
-  .spec ul>li, .spec .per {
+  .spec ul>li{
     /* font-size: 20px; */
     font-size: clamp(13px, 3vw, 20px);
-
   }
-
+  .spec .per {font-size: 14px;}
 
   footer {
     padding: 0 30px 30px 30px;
@@ -1116,7 +1114,7 @@ footer h3 {
   }
 
   .sec4{
-    padding-bottom: 200px;
+    padding-bottom: 150px;
   }
 
   .sec4 h2 {
