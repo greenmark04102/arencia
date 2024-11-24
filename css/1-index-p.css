@@ -72,7 +72,7 @@ body::-webkit-scrollbar-track {
   box-shadow: 10px 0px 10px rgba(0, 0, 0, 0.25);
   position: fixed;
   top: 0;
-  /* left: -320px; */
+  left: -320px;
   z-index: 90;
   overflow: scroll;
   -webkit-backdrop-filter: blur(10px);
