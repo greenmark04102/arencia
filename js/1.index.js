@@ -156,7 +156,6 @@ $.ajax({
 });
 
 $(window).resize(function () {
-    SideBar();
     // //헤더와 메뉴바 상단 위치 값 맞춤
     // var hheight = $('header').height();
     // $('section').css('margin-top', hheight);
@@ -189,6 +188,7 @@ $(window).resize(function () {
     } else {
         $('.left > div:nth-child(2)').css("display", "flex");
     };
+    SideBar();
 
 
     //사이드바 슬라이드
@@ -254,12 +254,16 @@ setTimeout(function () {
                 },
             });
         };
+
+        $(".swiper-wrapper ~ .swiper-notification").remove();
+        // let noti = document.querySelectorAll('.swiper-notification');
+        // noti.classList.remove("swiper-notification");
     }
     swiperex();
-
-    $(window).resize(function () {
+    
+    window.onresize = function(){
         swiperex();
-    });
+    };
 
     $(".swiper-slide").each(function () {
         if ($(this).index() > 7) {
