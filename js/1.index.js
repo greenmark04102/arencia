@@ -125,11 +125,11 @@ $.ajax({
     } else {
         console.log("pc버젼");
         console.log(user);
-        $('header > img').on("mouseenter", (function () {
+        $('header > img').on("click", (function () {
             $('.sideBar').stop().animate({ left: 0 }, "slow", "swing");
             $(this).css("opacity", 0);
         }));
-        $('section').on('click', function (e) {
+        $('section').on('mousedown', function (e) {
             // console.log($(e.target).closest(container).length);
             var container = $(".sideBar");
             if (!$(e.target).closest(container).length) {

@@ -479,6 +479,7 @@ footer {
 .sec3>img {
   margin: 0;
   width: 50vw;
+  height: -webkit-fill-available;
   min-width: 50%;
   overflow: hidden;
   display: none;
@@ -798,22 +799,32 @@ footer h3 {
   .swiper {
     height: unset;
   }
+
+  .sec2 {
+    background: rgba(255, 255, 255, 0.5);
+    -webkit-backdrop-filter: blur(20px);
+    backdrop-filter: blur(20px);
+  }
+
 }
 
 @media (max-width: 1200px){
 
   .sec3 {
+    padding-top: 7vw;
     flex-direction: column;
     height: 100%;
   }
+
   .sec3>img {
     width: 90vw;
+    height: unset;
   }
 
   .sec3 h1 {
     font-size: 40px;
     text-align: justify;
-    word-break: break-all;
+    /* word-break: break-all; */
     /* margin-bottom: 30px; */
   }
 
@@ -871,17 +882,17 @@ footer h3 {
     flex-direction: column;
   }
 
-  .navi {
+  /* .navi {
     width: 65vw;
-  }
+  } */
 
-  .navi a {
+  /* .navi a {
     font-size: 3rem;
-  }
+  } */
 
-  .subMenu a {
+  /* .subMenu a {
     font-size: 2.5rem;
-  }
+  } */
 
   .sec2{
     height: unset;
@@ -919,10 +930,12 @@ footer h3 {
   .spec .per {font-size: 14px;}
 
 
+
+
   .sec3 h1 {
     font-size: clamp(40px, 3.2vw, 60px);
     text-align: end;
-    word-break: break-all;
+    /* word-break: break-all; */
     /* margin-bottom: 30px; */
   }
 
@@ -1025,7 +1038,7 @@ footer h3 {
   }
 
   .sec3 h1 {
-    font-size: 6.5vw;
+    font-size: 7vw;
     margin-bottom: 30px;
   }
   .sec3 h2 {
@@ -1037,8 +1050,9 @@ footer h3 {
   }
 
   .sec3 p {
-    font-size: 12px;
+    font-size: 3.5vw;
     line-height: 1.5;
+    word-break: keep-all;
   }
 
   .right>div{
