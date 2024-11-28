@@ -946,7 +946,6 @@ footer h3 {
 
   .sec3 p {
     font-size: clamp(18px, 1vw, 20px);
-    line-height: 1.8;
   }
 
   .sec3>div>div {
@@ -1050,7 +1049,7 @@ footer h3 {
   }
 
   .sec3 p {
-    font-size: 3.5vw;
+    font-size: 3vw;
     line-height: 1.5;
     word-break: keep-all;
   }

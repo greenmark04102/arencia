@@ -11,60 +11,60 @@ const copyContent = async () => {
 
 $(document).ready(function () {
 
-$.ajax({
-    type: "GET",
-    url: "./js/3.product.json",
-    dataType: "json",
-    success: function(data) {
-        var elem = "";
-        $.each(data, function(index, obj) {
-            elem += `<li class="swiper-slide">`;
-                elem += `<div class="pic">`;
-                    elem += `<a href="${this.link}">`;
-                        elem += `<img src='${this.imgfile1}' alt='${this.link}'>`;
-                        elem += `<img src='${this.imgfile2}' alt='${this.link}'>`;
-                    elem += `</a>`;
-                elem += `</div>`;
-                elem += `<div class="spec">`;
-                    elem += `<p>${this.title}</p>`;
-                    elem += `<ul>`;
-                        elem += `<li class="per">${this.per}</li>`;
-                        elem += `<li class="final">${this.final}</li>`;
-                        elem += `<li class="price">${this.price}</li>`;
-                    elem += `</ul>`;
-                elem += `</div>`;
-            elem += `</li>`;
-        });
-        $(".swiper-wrapper").prepend(elem);
-    },
-    error: function(xhr) {
-        console.log(xhr.status + "/" + xhr.errorText);
-    }
-});
+    $.ajax({
+        type: "GET",
+        url: "./js/3.product.json",
+        dataType: "json",
+        success: function(data) {
+            var elem = "";
+            $.each(data, function(index, obj) {
+                elem += `<li class="swiper-slide">`;
+                    elem += `<div class="pic">`;
+                        elem += `<a href="${this.link}">`;
+                            elem += `<img src='${this.imgfile1}' alt='${this.link}'>`;
+                            elem += `<img src='${this.imgfile2}' alt='${this.link}'>`;
+                        elem += `</a>`;
+                    elem += `</div>`;
+                    elem += `<div class="spec">`;
+                        elem += `<p>${this.title}</p>`;
+                        elem += `<ul>`;
+                            elem += `<li class="per">${this.per}</li>`;
+                            elem += `<li class="final">${this.final}</li>`;
+                            elem += `<li class="price">${this.price}</li>`;
+                        elem += `</ul>`;
+                    elem += `</div>`;
+                elem += `</li>`;
+            });
+            $(".swiper-wrapper").prepend(elem);
+        },
+        error: function(xhr) {
+            console.log(xhr.status + "/" + xhr.errorText);
+        }
+    });
 
-$.ajax({
-    type: "GET",
-    url: "./js/3.archive.json",
-    dataType: "json",
-    success: function(data) {
-        var con = "";
-        $.each(data, function(index, obj) {
-           con += `<div>`;
-                con += `<div class="box">`
-                    con += `<div class="scale">`
-                        con += `<img src='${this.imgfile}' alt='${this.alt}'>`
-                    con += `</div>`
-                con += `</div>`;
-                con += `<h2>${this.title}</h2>`
-                con += `<p>${this.sub}</p>`
-           con += `</div>`;
-        });
-        $(".sec4 > div > div").prepend(con);
-    },
-    error: function(xhr) {
-        console.log(xhr.status + "/" + xhr.errorText);
-    }
-});
+    $.ajax({
+        type: "GET",
+        url: "./js/3.archive.json",
+        dataType: "json",
+        success: function(data) {
+            var con = "";
+            $.each(data, function(index, obj) {
+            con += `<div>`;
+                    con += `<div class="box">`
+                        con += `<div class="scale">`
+                            con += `<img src='${this.imgfile}' alt='${this.alt}'>`
+                        con += `</div>`
+                    con += `</div>`;
+                    con += `<h2>${this.title}</h2>`
+                    con += `<p>${this.sub}</p>`
+            con += `</div>`;
+            });
+            $(".sec4 > div > div").prepend(con);
+        },
+        error: function(xhr) {
+            console.log(xhr.status + "/" + xhr.errorText);
+        }
+    });
 
     //헤더 스크롤 시 숨김, 표시
     let lastScrollY = $(window).scrollTop();
@@ -137,78 +137,8 @@ $.ajax({
             }
             $('header > img').css("opacity", "unset")
         });
-
     };
-
-    // function SideBar() {
-    //     if (window.innerWidth > 821) {  // 디바이스 크기가 820 이상
-    //         $('header > img').on("mouseenter", (function () {
-    //             $('.sideBar').stop().animate({ left: 0 }, "slow", "swing");
-    //             $(this).css("opacity", 0);
-    //         }));
-    //         $('section').on('click', function (e) {
-    //             var container = $(".sideBar");
-    //             if (!$(e.target).closest(container).length) {
-    //                 $(".sideBar").stop().animate({ left: "-320" }, "slow", "swing");
-    //             }
-    //             $('header > img').css("opacity", "unset")
-    //         });
-    
-    //     } else {// 디바이스 크기가 820 미만
-    //         $('nav').prepend(`<span class="material-symbols-outlined">close</span>`); //사이드 바 닫기버튼 생성
-    //         $('nav > img:gt(0)').remove();
-    //         $('nav > .material-symbols-outlined').css({
-    //             // height: 100,
-    //             "font-size": 40,
-    //             "position": "absolute",
-    //             "top": 30,
-    //             "right": 30,
-    //             "cursor": "pointer"
-    //         });
-    
-    //         $('header > img').on("click", (function () {
-    //             $('.sideBar').stop().animate({ left: 0 }, "slow", "swing");
-    //             $(this).css("opacity", 0)
-    //             $('.sideBar').css({
-    //                 width: "100vw",
-    //                 height: "100vh"
-    //             });
-    //             $('body').css("position", "fixed");
-    //             $(window).off("scroll"); //확인!
-    //         }));
-    //         $('nav > span').click(function () {
-    //             $(".sideBar").stop().animate({ left: "-110vw" }, "slow", "swing");
-    //             $('header > img').css("opacity", "unset");
-    //             $('body').css("position", "unset");
-    //         })
-    //     };
-    // };
-    // SideBar();
-
-
-
-    // function copy() {
-    //     // 복사문구값 가져오기
-    //     var copyTxt = document.getElementById("copyTxt");
-    //     // 복사문구 선택
-    //     copyTxt.select();
-    //     copyTxt.setSelectionRange(0, 99999); // Mobile 대응
-      
-    //      // 복사
-    //     navigator.clipboard.writeText(copyTxt.value);
-      
-    //     // 복사완료에 대해 Alert으로 띄우기
-    //     // alert("복사되었습니다.");
-    // };
-    // copy();
-    // // var copyTxt = document.getElementById("copyTxt");
-    // // copyTxt.onClick = function() {
-        
-    // // }
-
-
-    
-
+ 
     $(window).resize(function () {
         // //헤더와 메뉴바 상단 위치 값 맞춤
         // var hheight = $('header').height();
@@ -252,13 +182,6 @@ $.ajax({
 
 });
 
-// window.onresize = function(){
-//     SideBar();
-// };
-
-
-
-
 $(document).scroll(function () {
     var scrolltop = $(window).scrollTop();
     $(".sec2").each(function () {
@@ -269,10 +192,9 @@ $(document).scroll(function () {
     $(".sec3").each(function () {
         if (scrolltop > $(this).offset().top + 200) {
             $('.sec4 > div').addClass('on')
-        }
+        };
     });
 });
-
 
 setTimeout(function () {
     //sec2 swiper
@@ -331,7 +253,6 @@ setTimeout(function () {
             $(this).remove();
         }
     });
-
 
     var str = 'undefined';
     $(".per").each(function () {
@@ -417,9 +338,6 @@ setTimeout(function () {
             const listScrollWidth = list.scrollWidth;
             const listClientWidth = list.clientWidth;
 
-            // console.log(listScrollWidth);
-            // console.log(listClientWidth);
-
             // 이벤트마다 갱신될 값
             let startX = 0;
             let nowX = 0;
@@ -499,7 +417,4 @@ setTimeout(function () {
         touchScroll();
     };
 
-
-
-
-}, 100);
+}, 500);
