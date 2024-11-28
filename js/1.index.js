@@ -88,50 +88,104 @@ $.ajax({
         $(this).find('img').toggleClass('active');
     });
 
-    function SideBar() {
-        if (window.innerWidth > 821) {  // 디바이스 크기가 820 이상
-            $('header > img').on("mouseenter", (function () {
-                $('.sideBar').stop().animate({ left: 0 }, "slow", "swing");
-                $(this).css("opacity", 0);
-            }));
-            $('section').on('click', function (e) {
-                var container = $(".sideBar");
-                if (!$(e.target).closest(container).length) {
-                    $(".sideBar").stop().animate({ left: "-320" }, "slow", "swing");
-                }
-                $('header > img').css("opacity", "unset")
+
+
+    const user = navigator.userAgent;
+
+    if (user.indexOf("iPhone") > -1 || user.indexOf("Android") > -1) {
+        console.log("mobile버젼");
+        console.log(user);
+        $('nav').prepend(`<span class="material-symbols-outlined">close</span>`); //사이드 바 닫기버튼 생성
+        $('nav > img:gt(0)').remove();
+        $('nav > .material-symbols-outlined').css({
+            // height: 100,
+            "font-size": 40,
+            "position": "absolute",
+            "top": 30,
+            "right": 30,
+            "cursor": "pointer"
+        });
+
+        $('header > img').on("click", (function () {
+            $('.sideBar').stop().animate({ left: 0 }, "slow", "swing");
+            $(this).css("opacity", 0)
+            $('.sideBar').css({
+                width: "100vw",
+                height: "100vh"
             });
-    
-        } else {// 디바이스 크기가 820 미만
-            $('nav').prepend(`<span class="material-symbols-outlined">close</span>`); //사이드 바 닫기버튼 생성
-            $('nav > img:gt(0)').remove();
-            $('nav > .material-symbols-outlined').css({
-                // height: 100,
-                "font-size": 40,
-                "position": "absolute",
-                "top": 30,
-                "right": 30,
-                "cursor": "pointer"
-            });
-    
-            $('header > img').on("click", (function () {
-                $('.sideBar').stop().animate({ left: 0 }, "slow", "swing");
-                $(this).css("opacity", 0)
-                $('.sideBar').css({
-                    width: "100vw",
-                    height: "100vh"
-                });
-                $('body').css("position", "fixed");
-                $(window).off("scroll"); //확인!
-            }));
-            $('nav > span').click(function () {
-                $(".sideBar").stop().animate({ left: "-110vw" }, "slow", "swing");
-                $('header > img').css("opacity", "unset");
-                $('body').css("position", "unset");
-            })
-        };
+            $('body').css("position", "fixed");
+            $(window).off("scroll"); //확인!
+        }));
+        $('nav > span').click(function () {
+            $(".sideBar").stop().animate({ left: "-110vw" }, "slow", "swing");
+            $('header > img').css("opacity", "unset");
+            $('body').css("position", "unset");
+        });
+        
+    } else {
+        console.log("pc버젼");
+        console.log(user);
+        $('header > img').on("mouseenter", (function () {
+            $('.sideBar').stop().animate({ left: 0 }, "slow", "swing");
+            $(this).css("opacity", 0);
+        }));
+        $('section').on('click', function (e) {
+            // console.log($(e.target).closest(container).length);
+            var container = $(".sideBar");
+            if (!$(e.target).closest(container).length) {
+                $(".sideBar").stop().animate({ left: "-320" }, "slow", "swing");
+            }
+            $('header > img').css("opacity", "unset")
+        });
+
     };
-    SideBar();
+
+    // function SideBar() {
+    //     if (window.innerWidth > 821) {  // 디바이스 크기가 820 이상
+    //         $('header > img').on("mouseenter", (function () {
+    //             $('.sideBar').stop().animate({ left: 0 }, "slow", "swing");
+    //             $(this).css("opacity", 0);
+    //         }));
+    //         $('section').on('click', function (e) {
+    //             var container = $(".sideBar");
+    //             if (!$(e.target).closest(container).length) {
+    //                 $(".sideBar").stop().animate({ left: "-320" }, "slow", "swing");
+    //             }
+    //             $('header > img').css("opacity", "unset")
+    //         });
+    
+    //     } else {// 디바이스 크기가 820 미만
+    //         $('nav').prepend(`<span class="material-symbols-outlined">close</span>`); //사이드 바 닫기버튼 생성
+    //         $('nav > img:gt(0)').remove();
+    //         $('nav > .material-symbols-outlined').css({
+    //             // height: 100,
+    //             "font-size": 40,
+    //             "position": "absolute",
+    //             "top": 30,
+    //             "right": 30,
+    //             "cursor": "pointer"
+    //         });
+    
+    //         $('header > img').on("click", (function () {
+    //             $('.sideBar').stop().animate({ left: 0 }, "slow", "swing");
+    //             $(this).css("opacity", 0)
+    //             $('.sideBar').css({
+    //                 width: "100vw",
+    //                 height: "100vh"
+    //             });
+    //             $('body').css("position", "fixed");
+    //             $(window).off("scroll"); //확인!
+    //         }));
+    //         $('nav > span').click(function () {
+    //             $(".sideBar").stop().animate({ left: "-110vw" }, "slow", "swing");
+    //             $('header > img').css("opacity", "unset");
+    //             $('body').css("position", "unset");
+    //         })
+    //     };
+    // };
+    // SideBar();
+
+
 
     // function copy() {
     //     // 복사문구값 가져오기
@@ -153,49 +207,56 @@ $.ajax({
     // // }
 
 
+    
+
+    $(window).resize(function () {
+        // //헤더와 메뉴바 상단 위치 값 맞춤
+        // var hheight = $('header').height();
+        // $('section').css('margin-top', hheight);
+        // SideBar();
+    
+        let leftSt = document.createElement("style");
+        leftSt.innerHTML = `.left::before {
+            content: "";
+            width: clamp(900px, 60vw, 970px);
+            height: 400px;
+            background: #D8D8D8;
+            position: absolute;
+            z-index: -1;
+            left: -510px;
+            display: block;
+        }`
+        document.head.appendChild(leftSt);
+    
+        var width = Number($(".sec2>div").css("width").replace(/[^0-9]/g, ""));
+        // console.log(width);
+    
+        if (width < 1449) {
+            // $(".left::before").css("display", "none");
+            // leftst.innerHTML = leftst.innerHTML.replace("display: none");
+            leftSt.innerHTML = leftSt.innerHTML.replace(
+                "display: block",
+                "display: none"
+            );
+            $('.left > div:nth-child(2)').css("display", "none");
+        } else {
+            $('.left > div:nth-child(2)').css("display", "flex");
+        };
+    
+    
+        //사이드바 슬라이드
+    
+    
+    
+    });
+
 });
 
-$(window).resize(function () {
-    // //헤더와 메뉴바 상단 위치 값 맞춤
-    // var hheight = $('header').height();
-    // $('section').css('margin-top', hheight);
-
-    let leftSt = document.createElement("style");
-    leftSt.innerHTML = `.left::before {
-        content: "";
-        width: clamp(900px, 60vw, 970px);
-        height: 400px;
-        background: #D8D8D8;
-        position: absolute;
-        z-index: -1;
-        left: -510px;
-        display: block;
-        outline: 3px solid red
-    }`
-    document.head.appendChild(leftSt);
-
-    var width = Number($(".sec2>div").css("width").replace(/[^0-9]/g, ""));
-    // console.log(width);
-
-    if (width < 1449) {
-        // $(".left::before").css("display", "none");
-        // leftst.innerHTML = leftst.innerHTML.replace("display: none");
-        leftSt.innerHTML = leftSt.innerHTML.replace(
-            "display: block",
-            "display: none"
-        );
-        $('.left > div:nth-child(2)').css("display", "none");
-    } else {
-        $('.left > div:nth-child(2)').css("display", "flex");
-    };
-    SideBar();
+// window.onresize = function(){
+//     SideBar();
+// };
 
 
-    //사이드바 슬라이드
-
-
-
-});
 
 
 $(document).scroll(function () {
@@ -356,8 +417,8 @@ setTimeout(function () {
             const listScrollWidth = list.scrollWidth;
             const listClientWidth = list.clientWidth;
 
-            console.log(listScrollWidth);
-            console.log(listClientWidth);
+            // console.log(listScrollWidth);
+            // console.log(listClientWidth);
 
             // 이벤트마다 갱신될 값
             let startX = 0;

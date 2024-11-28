@@ -1044,14 +1044,14 @@ footer h3 {
   .right>div{
     padding: 25px 0 18px 0;
   }
-  .right img{
+  /* .right img{
     width: 70px;
     margin-right: 15px;
-  }
+  } */
   /* 📍 */
-  .r1>div>div{
+  /* .r1>div>div{
     margin: 0;
-  }
+  } */
 
   .sec4{
     padding-bottom: 150px;
@@ -1069,11 +1069,11 @@ footer h3 {
 
   .sec4>div>div{
     overflow-x: auto;
-    transform: translate(0, 0);
+    /* transform: translate(0, 0); */
   }
 
   .sec4>div>div>div {
-    overflow: unset;
+    /* overflow: unset; */
   }
   
   footer div>div {
