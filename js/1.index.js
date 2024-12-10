@@ -1,3 +1,4 @@
+//푸터 은행 계좌정보 클릭시 복사
 let text = document.getElementById('bank').innerHTML;
 const copyContent = async () => {
   try {
@@ -5,12 +6,11 @@ const copyContent = async () => {
         alert('복사되었습니다.');
   } catch (err) {
     console.error('Failed to copy: ', err);
-    
   }
 };
 
 $(document).ready(function () {
-
+//상품 리스트를 swiper 슬라이드로
     $.ajax({
         type: "GET",
         url: "./js/3.product.json",
@@ -21,12 +21,12 @@ $(document).ready(function () {
                 elem += `<li class="swiper-slide">`;
                     elem += `<div class="pic">`;
                         elem += `<a href="${this.link}">`;
-                            elem += `<img src='${this.imgfile1}' alt='${this.link}'>`;
-                            elem += `<img src='${this.imgfile2}' alt='${this.link}'>`;
+                            elem += `<img src='${this.imgfile1}' alt='${this.title}'>`;
+                            elem += `<img src='${this.imgfile2}' alt='${this.title}'>`;
                         elem += `</a>`;
                     elem += `</div>`;
                     elem += `<div class="spec">`;
-                        elem += `<p>${this.title}</p>`;
+                        elem += `<a href="${this.link}">${this.title}</a>`;
                         elem += `<ul>`;
                             elem += `<li class="per">${this.per}</li>`;
                             elem += `<li class="final">${this.final}</li>`;
@@ -42,6 +42,7 @@ $(document).ready(function () {
         }
     });
 
+//archive 섹션
     $.ajax({
         type: "GET",
         url: "./js/3.archive.json",
@@ -66,7 +67,7 @@ $(document).ready(function () {
         }
     });
 
-    //헤더 스크롤 시 숨김, 표시
+//스크롤 시 헤더 숨김, 표시
     let lastScrollY = $(window).scrollTop();
     $(window).on("scroll", () => {
         const currentScrollY = $(window).scrollTop()
@@ -77,24 +78,11 @@ $(document).ready(function () {
         }
     }); //위로 스크롤하면 나타나는것도 업뎃해볼까,,,
 
-    $(".pd > a").prepend(`<svg width="20" height="16" viewBox="0 0 20 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <path d="M4.1 15.7C3.78333 15.7 3.50417 15.6125 3.2625 15.4375C3.02083 15.2625 2.85833 15.025 2.775 14.725L0.624999 7.15C0.558332 6.93333 0.590249 6.7375 0.720749 6.5625C0.851082 6.3875 1.03583 6.3 1.275 6.3H6.05525L9.45 1.175C9.53333 1.05833 9.62083 0.979167 9.7125 0.9375C9.80417 0.895833 9.90833 0.875 10.025 0.875C10.1417 0.875 10.2458 0.9 10.3375 0.95C10.4292 1 10.5167 1.08333 10.6 1.2L13.95 6.3H18.725C18.9642 6.3 19.1531 6.3875 19.2917 6.5625C19.4306 6.7375 19.4667 6.93333 19.4 7.15L17.175 14.725C17.0917 15.025 16.9292 15.2625 16.6875 15.4375C16.4458 15.6125 16.175 15.7 15.875 15.7H4.1ZM4 15.15H16C16.1833 15.15 16.3417 15.0958 16.475 14.9875C16.6083 14.8792 16.7 14.7333 16.75 14.55L18.9 6.85H1.1L3.25 14.55C3.3 14.7333 3.39167 14.8792 3.525 14.9875C3.65833 15.0958 3.81667 15.15 4 15.15ZM10.0085 11.55C10.1528 11.55 10.2792 11.493 10.3875 11.379C10.4958 11.2652 10.55 11.136 10.55 10.9915C10.55 10.8472 10.493 10.7208 10.379 10.6125C10.2652 10.5042 10.136 10.45 9.9915 10.45C9.84717 10.45 9.72083 10.507 9.6125 10.621C9.50417 10.7348 9.45 10.864 9.45 11.0085C9.45 11.1528 9.507 11.2792 9.621 11.3875C9.73483 11.4958 9.864 11.55 10.0085 11.55ZM6.725 6.3H13.275L10 1.3L6.725 6.3Z"
-        fill="#5F6368" />`
-    );
-    $(".navi>li:eq(1), .navi>li:eq(2)").click(function () {
-        $(this).find('.subMenu').stop().slideToggle(500);
-        $(this).siblings().find('.subMenu').stop().slideUp(500).siblings().find('img').removeClass('active');
-
-        $(this).find('img').toggleClass('active');
-    });
-
-
-
+//사이드바 열고 닫기 (pc, mobile 구분)
     const user = navigator.userAgent;
 
     if (user.indexOf("iPhone") > -1 || user.indexOf("Android") > -1) {
-        console.log("mobile버젼");
-        console.log(user);
+    //모바일
         $('nav').prepend(`<span class="material-symbols-outlined">close</span>`); //사이드 바 닫기버튼 생성
         $('nav > img:gt(0)').remove();
         $('nav > .material-symbols-outlined').css({
@@ -123,28 +111,30 @@ $(document).ready(function () {
         });
         
     } else {
-        console.log("pc버젼");
-        console.log(user);
-        $('header > img').on("click", (function () {
+    //PC
+        $('header > img').on("mouseenter", (function () {
             $('.sideBar').stop().animate({ left: 0 }, "slow", "swing");
             $(this).css("opacity", 0);
         }));
         $('section').on('mousedown', function (e) {
-            // console.log($(e.target).closest(container).length);
             var container = $(".sideBar");
             if (!$(e.target).closest(container).length) {
                 $(".sideBar").stop().animate({ left: "-320" }, "slow", "swing");
-            }
+            };
             $('header > img').css("opacity", "unset")
         });
     };
+
+ //사이드바 하위메뉴 애니메이션
+    $(".navi>li:eq(1), .navi>li:eq(2)").click(function () {
+        $(this).find('.subMenu').stop().slideToggle(500);
+        $(this).siblings().find('.subMenu').stop().slideUp(500).siblings().find('img').removeClass('active');
+
+        $(this).find('img').toggleClass('active');
+    });
  
     $(window).resize(function () {
-        // //헤더와 메뉴바 상단 위치 값 맞춤
-        // var hheight = $('header').height();
-        // $('section').css('margin-top', hheight);
-        // SideBar();
-    
+    //슬라이드 시 지나간 슬라이드를 숨김
         let leftSt = document.createElement("style");
         leftSt.innerHTML = `.left::before {
             content: "";
@@ -157,13 +147,8 @@ $(document).ready(function () {
             display: block;
         }`
         document.head.appendChild(leftSt);
-    
-        var width = Number($(".sec2>div").css("width").replace(/[^0-9]/g, ""));
-        // console.log(width);
-    
-        if (width < 1449) {
-            // $(".left::before").css("display", "none");
-            // leftst.innerHTML = leftst.innerHTML.replace("display: none");
+    //width값이 줄어들면 슬라이드 위치가 변경되어 필요없어져 숨김
+        if (window.innerWidth < 1449) {
             leftSt.innerHTML = leftSt.innerHTML.replace(
                 "display: block",
                 "display: none"
@@ -171,17 +156,13 @@ $(document).ready(function () {
             $('.left > div:nth-child(2)').css("display", "none");
         } else {
             $('.left > div:nth-child(2)').css("display", "flex");
-        };
-    
-    
-        //사이드바 슬라이드
-    
-    
+        };  
     
     });
 
 });
 
+//sec3과 sec4 애니메이션 구동
 $(document).scroll(function () {
     var scrolltop = $(window).scrollTop();
     $(".sec2").each(function () {
@@ -196,11 +177,12 @@ $(document).scroll(function () {
     });
 });
 
-setTimeout(function () {
-    //sec2 swiper
 
+//ajax의 데이터들을 부른 이후 적용해야 하는 이벤트들이라 setTimeout을 사용했습니다.
+setTimeout(function () {
+//sec2 swiper
     function swiperex() {
-        if (window.innerWidth > 800) {  // 디바이스 크기가 820 이상
+        if (window.innerWidth > 820) {  // 디바이스 크기가 820보다 크면 제품 3개 이상 씩 배치
             var swiper = new Swiper(".container", {
                 slidesPerView: 3.1,
                 // autoplay: {
@@ -218,7 +200,7 @@ setTimeout(function () {
                     prevEl: ".swiper-button-prev",
                 },
             });
-        } else {
+        } else { //820보다 작으면 1개씩 배치
             var swiper = new Swiper(".container", {
                 slidesPerView: 1.1,
                 // autoplay: {
@@ -237,10 +219,7 @@ setTimeout(function () {
                 },
             });
         };
-
         $(".swiper-wrapper ~ .swiper-notification").remove();
-        // let noti = document.querySelectorAll('.swiper-notification');
-        // noti.classList.remove("swiper-notification");
     }
     swiperex();
     
@@ -248,16 +227,17 @@ setTimeout(function () {
         swiperex();
     };
 
+//제품 json에 있는 데이터를 그대로 끌어와 쓰는 슬라이드라, 갯수를 8개로 제한하였습니다.
     $(".swiper-slide").each(function () {
         if ($(this).index() > 7) {
             $(this).remove();
-        }
+        };
     });
 
+//할인하지 않는 제품의 가격이 undefined로 뜨지 않기 위한 설정입니다.
     var str = 'undefined';
     $(".per").each(function () {
         if (str == $(this).text()) {
-            ;
             $(this).siblings().not($(".price")).remove();
             $(this).remove();
         } else {
@@ -265,17 +245,16 @@ setTimeout(function () {
         };
     });
 
+//product json에 있는 데이터에 할인값을 계산하여 넣었습니다.
     var item = document.querySelectorAll('.swiper-slide');
     item.forEach(v => {
         const box = [...v.querySelectorAll('.spec > ul')]; //가격란
         box.forEach(bt => {
-            // console.log(bt);
             const price = bt.lastChild; //원가
             const per = bt.firstChild; //할인율
             const final = bt.firstChild.nextSibling; //할인가            
             const price_txt = bt.lastChild.textContent;
             const per_txt = bt.firstChild.textContent;
-
 
             //원가 원단위 표시
             const form = price_txt.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",") + '원';
@@ -290,7 +269,7 @@ setTimeout(function () {
 
                 function calc(whole, sale) {
                     return whole *= sale
-                }
+                };
 
                 const result = calc(price_txt, 1 - per_txt / 100).toLocaleString() + '원';
                 final.append(result);
@@ -299,22 +278,8 @@ setTimeout(function () {
         });
     });
 
-    const user = navigator.userAgent;
 
-    if (user.indexOf("iPhone") > -1 || user.indexOf("Android") > -1) {
-        console.log("mobile버젼");
-        console.log(user);
-        return false;
-    } else {
-        $(window).resize(function () {
-            if (window.innerWidth > 850) {
-                touchScroll();
-            };
-        });
-
-    };
-
-
+//sec4의 글들과 sec5의 이미지들의 크기를 같게 맞추기 위한 설정입니다.
     $(".sec4 > div > div > div, .sec5 img").each(function (index) {
         $(this).css("order", function (n) {
             var n = 0;
@@ -328,10 +293,8 @@ setTimeout(function () {
         $(".sec4 > div > div").css("flex", "index");
     });
 
-    console.log(window.innerWidth);
-
+//전체 넓이보다 작은 크기의 윈도우에서 Archive구역을 스크롤바를 사용하지 않고 드래그 할 수 있도록 구현하였습니다.
     function touchScroll() {
-
         if (window.innerWidth < 1200) {
             // 요소 & 사이즈
             const list = document.querySelector('.sec4>div>div');
@@ -407,12 +370,13 @@ setTimeout(function () {
             const onClick = (e) => {
                 if (startX - endX !== 0) {
                     e.preventDefault();
-                }
+                };
             };
 
             bindEvents();
-        };
+        }
     };
+
     if (window.innerWidth > 850) {
         touchScroll();
     };

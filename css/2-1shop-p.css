@@ -1,6 +1,6 @@
 @charset "utf-8";
-@import url('https://fonts.googleapis.com/css2?family=Marcellus&family=Nanum+Gothic&family=Yanone+Kaffeesatz:wght@200..700&display=swap');
 @import url("https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css");
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Marcellus&family=Nanum+Gothic&family=Nanum+Myeongjo&family=Yanone+Kaffeesatz:wght@200..700&display=swap');
 
 * {
   margin: 0 auto;
@@ -11,20 +11,20 @@
 }
 
 :root {
-  font-family: "Yanone Kaffeesatz", sans-serif;
-  font-family: "Marcellus", serif;
-  font-family: "Nanum Gothic", sans-serif;
-  font-family: "Pretendard Variable", Pretendard, -apple-system, BlinkMacSystemFont, system-ui, Roboto, "Helvetica Neue", "Segoe UI", "Apple SD Gothic Neo", "Noto Sans KR", "Malgun Gothic", "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", sans-serif;
+  --logo-font: "Marcellus", serif;
+  --sub-title: "Yanone Kaffeesatz", sans-serif;
+  --content: "Nanum Gothic", "Apple SD Gothic Neo", sans-serif;
+  --number: "Pretendard Variable", Pretendard, -apple-system, BlinkMacSystemFont, system-ui, Roboto, "Helvetica Neue", "Segoe UI", "Apple SD Gothic Neo", "Noto Sans KR", "Malgun Gothic", "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", sans-serif;
 }
 
 a {
   text-decoration: none;
   display: block;
 }
-
+/* 
 button {
   all: unset;
-}
+} */
 
 html {
   font-size: 10px;
@@ -72,7 +72,7 @@ nav {
 }
 
 .navi a {
-  font-family: Marcellus;
+  font-family: var(--logo-font);
   font-size: 2.5rem;
   font-weight: 700;
   display: inline-flex;
@@ -98,11 +98,16 @@ nav {
 }
 
 .subMenu li {
-  width: fit-content;
+  width: 100%;
+  padding-left: 10px;
+}
+
+.subMenu li:hover {
+  background: #a7a7a754;
 }
 
 .subMenu a {
-  font-family: Marcellus;
+  font-family: var(--logo-font);
   font-size: 2rem;
   font-weight: 100;
   margin: 5px 0;
@@ -120,7 +125,7 @@ nav {
   left: 50%;
   right: 50%;
   bottom: 0;
-  height: 2px;
+  height: 1px;
   background-color: #08080D;
   z-index: -1;
   transition-property: left, right;
@@ -134,7 +139,7 @@ nav {
 }
 
 .page {
-  font-family: "Marcellus", serif;
+  font-family: var(--logo-font);
   font-size: 1.8rem;
   display: flex;
   width: 90%;
@@ -158,7 +163,7 @@ header {
   justify-content: space-between;
   align-items: center;
   padding: 0 3vw;
-  font-family: "Marcellus", serif;
+  font-family: var(--logo-font);
   position: fixed;
   top: 0;
   left: 0;
@@ -217,7 +222,7 @@ header>div>a:first-child {
   border-radius: 50%;
   background-color: #005221;
   color: #fff;
-  font-family: "Pretendard Variable", Pretendard, -apple-system, BlinkMacSystemFont, system-ui, Roboto, "Helvetica Neue", "Segoe UI", "Apple SD Gothic Neo", "Noto Sans KR", "Malgun Gothic", "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", sans-serif;
+  font-family: var(--number);
   transition: all 0.5s;
   scale: 0;
 }
@@ -257,7 +262,7 @@ section {
 .bar {
   margin: 0;
   width: 100vw;
-  height: clamp(50px, 5vw, 80px);
+  height: clamp(50px, 7vw, 80px);
   display: flex;
   align-items: center;
   background-color: #fff;
@@ -273,7 +278,7 @@ section {
 }
 
 .bar p {
-  font-family: "Marcellus", serif;
+  font-family: var(--logo-font);
   font-size: clamp(100%, 2.5vw, 170%);
   cursor: pointer;
   padding: 0 10px;
@@ -362,7 +367,7 @@ section {
 }
 
 .update h2 {
-  font-family: "Yanone Kaffeesatz", sans-serif;
+  font-family: var(--sub-title);
   font-size: clamp(35px, 6vw, 100px);
   font-weight: bold;
 }
@@ -409,9 +414,9 @@ section {
 .shop ul li {
   padding-top: 1.5vh;
   display: flex;
+  align-items: baseline;
   flex-wrap: wrap;
   gap: 5px;
-  align-items: flex-end;
   font-weight: bold;
 }
 
@@ -419,7 +424,7 @@ section {
 span,
 li {
   margin: 0;
-  font-family: "Nanum Gothic", sans-serif;
+  font-family: var(--content);
   font-size: 15px;
 }
 
@@ -432,7 +437,7 @@ li {
 
 .shop .per {
   color: #005221;
-  font-family: "Pretendard Variable";
+  font-family: var(--number);
   font-size: 17px;
   line-height: 18px;
 }
@@ -456,7 +461,7 @@ footer a {
   display: flex;
   align-items: center;
   justify-content: center;
-  font-family: Marcellus;
+  font-family: var(--logo-font);
   font-size: clamp(50px, 3vw, 158px);
   height: fit-content;
   padding: 0 30px;
@@ -484,23 +489,43 @@ footer>div>div {
   margin: 0;
 }
 
-footer p {
+.con div div {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+}
+
+footer p, .com a, .con a, #bank {
+  display: block;
   font-size: 1.2rem;
   line-height: 1.8;
   word-break: keep-all;
-  font-family: "Nanum Gothic", sans-serif;
+  font-family: var(--content);
   margin: 0;
+  padding: 0;
 }
 
-.com p {
+.con a:hover, #bank:hover, .com a:hover {
+  text-decoration: underline;
+}
+
+.com p, .com a {
   line-height: 2.5;
 }
 
 footer h3 {
-  font-family: "Nanum Gothic", sans-serif;
-  font-weight: bold;
+  font-family: var(--logo-font);
+  font-weight: 500;
   margin: 10px 0;
-  font-size: 1.5rem;
+  font-size: 1.8rem;
+}
+
+#bank {
+  border: 0;
+  background-color: transparent;
+  cursor: pointer;
+  word-break: keep-all;
+  text-align: justify;
 }
 
 @media (max-width: 820px) {
@@ -512,7 +537,7 @@ footer h3 {
     flex-direction: column;
   }
 
-  .navi {
+  /* .navi {
     width: 65vw;
   }
 
@@ -522,7 +547,7 @@ footer h3 {
 
   .subMenu a {
     font-size: 2.5rem;
-  }
+  } */
 
   header div img {
     height: 5vw;
@@ -560,6 +585,7 @@ footer h3 {
   footer>div>div {
     width: 100%;
     gap: 3vw;
+    justify-content: space-between;
   }
 
   footer a {
@@ -570,12 +596,17 @@ footer h3 {
     height: fit-content;
     padding: 30px 0;
     width: 100%;
-    border-bottom: 1px solid #0000002a;
-    margin-bottom: 30px;
+    /* border-bottom: 1px solid #0000002a;
+    margin-bottom: 30px; */
   }
 
   .con {
     gap: 10px
+  }
+
+  .con > div {
+    border-bottom: 1px solid #0000002a;
+    padding-bottom: 15px;
   }
 
 }
@@ -625,5 +656,9 @@ footer h3 {
 
   footer div>div {
     flex-direction: column;
+  }
+
+  .con div div {
+    gap: unset;
   }
 }

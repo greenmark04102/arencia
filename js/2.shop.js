@@ -1,3 +1,14 @@
+//푸터 은행 계좌정보 클릭시 복사
+let text = document.getElementById('bank').innerHTML;
+const copyContent = async () => {
+  try {
+    await navigator.clipboard.writeText(text);
+        alert('복사되었습니다.');
+  } catch (err) {
+    console.error('Failed to copy: ', err);
+  }
+};
+
 //상품 삽입
 $.ajax({
     type: "GET",
@@ -41,13 +52,73 @@ $(document).ready(function () {
         }
     }); //위로 스크롤하면 나타나는것도 업뎃해볼까,,,
 
+    var hheight = $('header').height();
+    $('section').css('margin-top', hheight);
+
+    // if (window.innerWidth < 1440) {
+    //     var hheight = $('header').height();
+    //     $('section').css('margin-top', hheight);
+    // }
+
+
+//사이드바 열고 닫기 (pc, mobile 구분)
+const user = navigator.userAgent;
+
+if (user.indexOf("iPhone") > -1 || user.indexOf("Android") > -1) {
+//모바일
+    $('nav').prepend(`<span class="material-symbols-outlined">close</span>`); //사이드 바 닫기버튼 생성
+    $('nav > img:gt(0)').remove();
+    $('nav > .material-symbols-outlined').css({
+        // height: 100,
+        "font-size": 40,
+        "position": "absolute",
+        "top": 30,
+        "right": 30,
+        "cursor": "pointer"
+    });
+
+    $('header > img').on("click", (function () {
+        $('.sideBar').stop().animate({ left: 0 }, "slow", "swing");
+        $(this).css("opacity", 0)
+        $('.sideBar').css({
+            width: "100vw",
+            height: "100vh"
+        });
+        $('body').css("position", "fixed");
+        $(window).off("scroll"); //확인!
+    }));
+    $('nav > span').click(function () {
+        $(".sideBar").stop().animate({ left: "-110vw" }, "slow", "swing");
+        $('header > img').css("opacity", "unset");
+        $('body').css("position", "unset");
+    });
+    
+} else {
+//PC
+    $('header > img').on("mouseenter", (function () {
+        $('.sideBar').stop().animate({ left: 0 }, "slow", "swing");
+        $(this).css("opacity", 0);
+    }));
+    $('section').on('mousedown', function (e) {
+        var container = $(".sideBar");
+        if (!$(e.target).closest(container).length) {
+            $(".sideBar").stop().animate({ left: "-320" }, "slow", "swing");
+        };
+        $('header > img').css("opacity", "unset")
+    });
+};
+
     //사이드바 2차 메뉴 토글
-    $(".navi>li:eq(1), .navi>li:eq(2)").click(function () {
+    $(".navi>li:eq(1), .navi>li:eq(2)").mouseenter(function() {
         $(this).find('.subMenu').stop().slideToggle(500);
         $(this).siblings().find('.subMenu').stop().slideUp(500).siblings().find('img').removeClass('active');
 
         $(this).find('img').toggleClass('active');
     })
+    $(".navi").mouseleave(function() {
+        $('.subMenu').stop().slideUp(500).siblings().find('img').removeClass('active');;
+        // $(this).find('img').toggleClass('active');
+    });
 
     //돋보기 아이콘 클릭시 검색창 표시
     $('header > div > span').click(function () {
@@ -83,7 +154,7 @@ $(document).ready(function () {
             "flex-direction": "unset",
             gap: "unset"
         });
-        $(".update").addClass('none')
+        $(".update").addClass('none');
     }
 
     $(".bar p").click(function () {
@@ -119,50 +190,7 @@ $(window).resize(function () {
     //헤더와 메뉴바 상단 위치 값 맞춤
     var hheight = $('header').height();
     $('section').css('margin-top', hheight);
-
-    //사이드바 슬라이드
-    if (window.innerWidth > 821) {  // 디바이스 크기가 820 이상
-        $('header > img').on("mouseenter", (function () {
-            $('.sideBar').stop().animate({ left: 0 }, "slow", "swing");
-            $(this).css("opacity", 0);
-        }));
-        $('section').on('click', function (e) {
-            var container = $(".sideBar");
-            if (!$(e.target).closest(container).length) {
-                $(".sideBar").stop().animate({ left: "-320" }, "slow", "swing");
-            }
-            $('header > img').css("opacity", "unset")
-        });
-
-    } else {// 디바이스 크기가 820 미만
-        $('nav').prepend(`<img src="./sub/img/close.svg" alt="close">`); //사이드 바 닫기버튼 생성
-        $('nav > img:gt(0)').remove();
-        $('nav > img').css({
-            height: 60,
-            "position": "absolute",
-            "top": 30,
-            "right": 30,
-            "cursor": "pointer"
-        });
-
-        $('header > img').on("click", (function () {
-            $('.sideBar').stop().animate({ left: 0 }, "slow", "swing");
-            $(this).css("opacity", 0)
-            $('.sideBar').css({
-                width: "100vw",
-                height: "100vh"
-            });
-            $('body').css("position", "fixed");
-            $(window).off("scroll"); //확인!
-        }));
-        $('nav > img').click(function () {
-            $(".sideBar").stop().animate({ left: "-110vw" }, "slow", "swing");
-            $('header > img').css("opacity", "unset");
-            $('body').css("position", "unset");
-        })
-    };
-
-}).resize();
+});
 
 //ajax 삽입 상품에 이벤트
 setTimeout(function () {
@@ -240,7 +268,7 @@ setTimeout(function () {
 
     filterMenuInit(); //↓필터링 함수 실행
 
-}, 50);
+}, 500);
 
 //메뉴에 따라 상품 필터링
 const filterMenuInit = () => {
